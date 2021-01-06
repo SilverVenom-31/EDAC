@@ -1,0 +1,101 @@
+Revise Map API n implementation classes
+Map<K,V> : i/f
+K --key type 
+V value type
+Features of the map
+Map consists of key n value pairs (entries / mappings)
+It's represented by : Map.Entry<K,V> : static nested i/f .
+Can't add dup keys , can add dup values
+Map doesn't extend from Collection , doesn't support index.
+Can't be travered using : Iterator,ListIterator,for-each,for loop
+Maps directly allow searching / sorting/ removal as per key based criteria alone.
+Map API : collection view of the Map
+Set<K> keySet()
+Collection<V> values()
+Set<Map.Entry<K,V>> entrySet()
+
+
+Solve 
+0.5 Create new account
+put/putIfAbsent : in case of a new entry --entry is inserted , rets null
+put : in case of existing key --old value replaced by a new value , rets old val ref.
+putIfAbsent : in case of existing key --DOES NOT replace : rets existing val ref.
+
+1. Display  details of all accounts : toString
+
+2. 
+get acct summary --- i/p --acct number 
+o/p --- error via custom exception OR  account details
+API : get
+
+3. Funds Transfer 
+i/p src acct no , dest acct no , transfer amount
+API : get , invoke transfer funds
+
+4.Close account
+i/p id 
+API : remove(Key k)
+
+
+5.Apply interest on on saving type of a/cs.
+Search : by key based or value based : value based 
+Extract collection view of the map : keySet or values or entrySet --values : Collection<BankAccount>
+for-each : enum based checking
+
+---------------------
+1. Display customer names , whose a/c is created before a particular date
+
+i/p :date
+searching : by key or by value -- extract collection view --values
+for-each
+
+
+Lab assignment : 
+2 Under Bank Manager role : check last transaction date of the account
+In case of no tx done in past 6 months, disable active status of the account.
+ 
+Updation of  tx date will only be done from deposit & withdraw methods.
+Whenever any customer tries to access any dormant a/c raise the alert , using exception
+
+3. Sort accounts as per asc order of acct nos
+How ?
+sorting criteria : ???????  : key based or value based ? : key based
+Choose : HM / LHM / TM : TM
+
+
+4. Sort accounts as per account creation date n balance
+HOW ? : 
+Can we use a TreeMap for this ? YES  : WRONG !!!! : Try it out : Comparator<BankAccount>
+Sorting as per value based : convert HM ---> Collection<V> (values)
+Next ??????????????
+1. Collections.sort(list) : N.O ---BankAccount : Comparable : creation date n balance : not reco
+2. Collections.sort(list,comp) : ano inner class
+eg : Collections.sort(((List)accts.values()), new Comparator<BA>(){...});
+
+Fruit f=new Mango();
+f.taste();
+//Mango m=new Fruit();//javac err
+
+Mango m=(Mango)new Fruit();//no javac err , BUT class cast exc : Fruit can't be cast to Mango
+m.taste();
+
+OR (alternatively)
+Convert HM ---> Collection ---> TreeSet
+
+fail-fast iterators : lab session
+------------------------------
+
+
+Java 8 new Features
+Refer to : "java 8 new features"
+1. default & static methods : in interfaces
+2. Functional interfaces.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>USER PROFILE</title>
+    <script src="userprof.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" name="t1" id="t1" autofocus required maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Birth Date:
+            </td>
+            <td>
+                <input type="text" name="m1" id="m1" list="month" size="9" placeholder="January" required>
+                <datalist id="month">
+                        <option value="January"></option>
+                        <option value="February"></option>
+                        <option value="March"></option>
+                        <option value="April"></option>
+                        <option value="May"></option>
+                        <option value="June"></option>
+                        <option value="July"></option>
+                        <option value="August"></option>
+                        <option value="September"></option>
+                        <option value="October"></option>
+                        <option value="November"></option>
+                        <option value="December"></option>
+                    </datalist>
+                <input type="number" name="n1" id="n1" max="31" min="1" placeholder="1" required>
+                <input type="number" name="n2" id="n2" max="2020" min="1950" placeholder="1950" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="email" name="e1" id="e1" required>
+                <span id="s1"></span>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                Gender:
+            </td>
+            <td>
+                <input type="radio" name="r1" id="rx1" value="Male"> Male
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="r1" id="rx2" value="Female"> Female
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Lucky Number:
+            </td>
+            <td>
+                <input type="text" name="t2" id="t2" required>
+                <span id="s2"></span>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                Favourite Foods:
+            </td>
+            <td>
+                <input type="checkbox" name="c1" id="cx1" value="Pizza"> Pizza
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="c1" id="cx2" value="Pasta"> Pasta
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="c1" id="cx3" value="Chinese"> Chinese
+            </td>
+        </tr>
+    </table>
+    <br>
+    <input type="button" name="b1" id="b1" value="Send Data" onclick="snd()">
+    <br>
+    <p id="p1"></p>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+
+
+on and off method for binding event 
+bootstarp is opensource targeted first mobile device
+it will automatically adjust itself on page 
+grid system decides which thing is yto be kept in accordance with pagegeography 
+componant can ocuppy 3-4 cols or 10-11 cols based on output device 
+once irctc website was nightmare cause it was only desighned 
+for  destop type veiw 
+take graph page visualise the boxes like cell grid 
+no need to mention cols size just palce the componenets 
+it will adjust then according to screen size .
+
+
+we sawv working with typography
+working with paragraph 
+using class in html we used align 
+bootstrap is standardised it runs same on all browser
+bootstarp appearance of p[ra among various display screen 
+uniformly
+bootstarp.css
+jsquery.css
+...
+....
+
+there was time till bootstarp 3 it worked with glyphicons (there are no more now)
+now we have icons
+bootstrap 4 dont have own libraby
+we ll use fontawesome library for icons 
+https://use.fontawesome.com/releases/v5.6.3/css/all.css
+
+https://www.w3schools.com/icons/fontawesome_icons_text.asp
+
+ALERT
+basic alert= dispaling text messages  - warning msg, alert msg etc
+how to clearte alert 
+<div class="alert alert-succes">
+Amount has been transferred succesfully
+
+</div>
+
+dismissible alert 
+i want a alert message with close(x) 
+< div class ="alert alert-succes alert-dismissable">
+<button type="button" class="close" datadismissed="alert">
+&times
+</button>
+
+BOOtstarpo lists
+<ul class="list-unstyled">
+<li></li>
+<ul>
+<li></li>
+</ul>
+</ul>
+
+inline list (horizontal )
+<ul class="list inline ">
+<li></li>
+
+List group
+<ul class="list-group-iteam"> ----verticala listing
+<li>Inbox</li>
+</ul>
+
+
+<div class="list-group">
+<a href="#" class="list-group-item list-group-item-succes">
+<i> class="fa fa-home"><i>
+<span class="badge">14</span>
+</a>
+
+<a href="#" class="list-group-item">
+<i> class="fa fa-home"><i>
+<span class="badge">14</span>
+</a>
+
+bootstarap Navs 
+nav bar horizontal one 
+
+__how to create a nav____
+<nav class="nav">
+
+<a href="#" class="nav-iteam nav-link active ">Hopme</a>
+
+<nav class="nav nav-tabs">
+<nav class="nav nav-pills">
+<nav class="nav nav-pills flex-column">
+//verticle navigation bar
+
+
+
+
+Navigation bar
+collapse
+<button class="navbar-toggler-icon" gata-toggle="collapse">
+
+badges already done
+Buttons 
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<a hreff="#" class="btn btn-primary">Button-1</button></a>
+btn-default white 
+
+btn-success for green 
+
+we can also use add calss btn-success 
+btn-lg large
+btn-sm small
+<button type="button" class="btn btn-primary btn-lg">Large Button</button>
+
+Creating form
+
+3 types of form 
+-verticle -these are forms where every single iteam is vertically
+stacked one iover other generally seen in mobile 
+even lable and radio buttons are one opver othwer
+-Horizontal form - 
+multiple componenet can be placed  palced next to one anopther
+multiople elkemnts p[alced next to one onother on a sdingle row
+
+.form-control this will make it full width element
+<div class="form-group"> class form-group around each
+form control margin 
+vvimp 
+ 
+ verticle direct direct 
+ horizontal tricky 
+ <div class="form-group row">
+ <lable for="mail" class="col-sm-2" col-form-lable>Email</lable>
+ <div class="col-sm-10"> it will ocuppy entire 10 cols 
+ on decreasing width of page the form becomes verticle
+ 
+ -Inline Form
+ where space is limited and we need plety elenmnts to be shown in one line
+ <form class="form-inline'>
+ <div class="form-group mr-2">
+ with mr-2 utility the forms are palced accordingly
+ bootstrap has 1500< classes
+ 
+ we aree vising bootstarap official homepage - view page source -html5 page 
+ 
+ in body there is container class inside div many places 
+ 
+ bootstrap ends 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

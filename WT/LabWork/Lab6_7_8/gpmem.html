@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        GROUP MEMBERS
+    </title>
+    <script>
+        function onboard() {
+
+            let arr;
+            arr = ["John", "Steve", "Ben", "Damon", "Ian"];
+
+            document.getElementById("s1").innerHTML = (arr[0].toUpperCase() + "," +
+                arr[1].toUpperCase() + "," + arr[2].toUpperCase() + "," + arr[3].toUpperCase() + "," + arr[4].toUpperCase());
+
+
+            for (var i = 0; i < arr.length; i++) {
+
+                var list = document.createElement("li");
+                var node = document.createTextNode(arr[i]);
+                list.appendChild(node);
+
+                var ol = document.getElementById("list");
+                ol.appendChild(list);
+            }
+
+        }
+    </script>
+</head>
+
+<body onload="onboard()">
+    <h3>Members of my Group are</h3>
+    <br>
+    <span id="s1"></span>
+    <ol id="list" type="1"></ol>
+    <p id="test"></p>
+</body>
+
+</html>

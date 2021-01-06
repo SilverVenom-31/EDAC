@@ -1,0 +1,38 @@
+Day 17
+1. Create a Student class  with following
+studentId(int),course(string),name,marks,birthDate(LocalDate)
+constr , toString								//check
+2. Create a Tester to store Student details in a suitable HashSet
+Add 5 student details ( 4 with different ids & 5th with existing)		//check
+2.1 What will happen, if equals n hashCode is not overridden?
+Will it detect dups ? : NO							//check
+2.2 What will happen, if only equals is  overridden?			
+Will it detect dups ? NO 							//check
+Why ?  : Mandatory part of the contract is not followed (Equal objs are NOT producing SAME hashcodes)
+2.3 What will happen, if  equals  n hashCode is  overridden? (BUT only mandary part of the contract)
+Equal objects producing SAME hashcode
+Will it detect dups ? YES
+What about performance ? didn't offer O(1) : constant time performance		//check
+
+2.3 What will happen, if  equals  n hashCode is  overridden? (With mandary n optional part of the contract)
+Equal objects producing SAME hashcode & un equal ocjects producing DISTINCT hashcodes.
+Will it detect dups ? YES 
+What about performance ?  : O(1)					//check
+
+2.4 Copy this project into another project n make the changes.
+PK : student id , course & dob							//check
+How will you solve it to detect dups & manage constant performance?			//check
+composite primary key in equals method and sum of the members hashcode
+
+3. Copy day17_lab1 (i.e with Student class : overriding hashCode n equals based upon only student id : following both branches of the contract)
+Solve
+3.1 Sort student details as per asc order of ids 					//check
+3.2 Sort student details as per asc order of marks					//check
+3.3 Sort student details as per asc order of birth date n marks 			//check
+
+
+
+
+
+
+

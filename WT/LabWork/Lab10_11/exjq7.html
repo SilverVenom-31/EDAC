@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ7</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            $("img").click(function() {
+                $("img").animate({
+                    marginLeft: "+=100px"
+
+                });
+                $("img").animate({
+                    marginTop: "+=100px"
+                });
+
+                $("img").animate({
+                    height: '+=250px',
+                    width: '+=350px',
+                    borderWidth: '10px'
+
+                });
+
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <img style="border:0px solid black" src="https://www.thestatesman.com/wp-content/uploads/2020/01/QT-O4-11.jpg" height="200" width="300" alt="Not supported">
+</body>
+
+</html>

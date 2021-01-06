@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        REGDESK
+    </title>
+    <link rel="stylesheet" href="RegDet.css">
+</head>
+
+<body>
+<form method="post">
+    <fieldset style="width: 40%;">
+        <legend>Registration Details</legend>
+        <table cellspacing="30">
+            <tr>
+                <td id="allignRight">University:</td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Institute:</td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Branch:</td>
+                <td>
+                    <input type="text" list="branch" size="10" placeholder="--select--">
+                    <datalist id="branch">
+                        <option value="EXTC"></option>
+                        <option value="CS"></option>
+                        <option value="IT"></option>
+                        <option value="MECH"></option>
+                        <option value="CIVIL"></option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Degree:</td>
+                <td>
+                    <input type="text" list="degree" size="7" placeholder="--select--">
+                    <datalist id="degree">
+                        <option value="BE"></option>
+                        <option value="BSC"></option>
+                        <option value="MBBS"></option>
+                        <option value="BCOM"></option>
+                        <option value="ARTS"></option>
+                    </datalist> &nbsp;
+                    <input type="radio" name="r1"> Pursuing &nbsp;
+                    <input type="radio" name="r1"> Completed
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Average CPI:</td>
+                <td>
+                    <input type="number" size="3" min="0" max="10">
+                    Upto
+                    <input type="number" size="3" min="1" max="8">
+                    Th Semester
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Experience</td>
+                <td>
+                    <input type="number" size="4" min="0" max="10">
+                    Years
+                </td>
+            </tr>
+            <tr>
+                <td id="allignRight">Your website or Blog:</td>
+                <td>
+                    <input type="url" placeholder="http://">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <p>
+        <a href="#"></a>
+        <input class="button" type="button" value="&laquo;">
+        </a>
+        &nbsp;Step 2 &nbsp;
+        <a href="#">
+            <input class="button" type="submit" value="&raquo;">
+        </a>
+    </p>
+</form>
+</body>
+
+</html>

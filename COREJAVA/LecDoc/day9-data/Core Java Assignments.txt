@@ -1,0 +1,25 @@
+
+Day 9
+1. Revise class work
+2. Complete pending assignments
+3. Solve this.
+3.1 Create a Customer class : email , password , name , registration amount , city
+Provide suitable constructor to accept all i/ps ,
+Supply a toString
+3.2 Create CustomerRegistration class as a Tester
+Create suitable array to store customer details.
+Options
+1. Register new customer
+Accept all customer details. In case of a duplicate customer email, DO NOT register customer. 
+Give suitable error message. 
+Otherwise store customer details.
+
+2. Display all customers , from a specified city
+I/P : city name
+
+3. Exit
+NOTE : MUST use overrding form of equals method , to check for duplicate customer email.
+Hint : Refer to equals method of Object class n equals of String class
+
+
+Now I am sleeping!!!!

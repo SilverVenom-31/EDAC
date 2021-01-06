@@ -1,0 +1,31 @@
+Day 16
+1. Revise sorting in Java
+1.5 Create CollectionUtils class to add a static method ot generate at least 5 records of customers.
+(Look at the objectives n arrange sample data to ensure that you have 100 % test coverage)			//check
+(i.e all cases should get tested)
+2. Add following options in customer based assignment		
+2.1 Sort customers as per email & dob (using Natural ordering)						//check
+2.2 Sort customers as per registration amount (using Custom Ordering & a separate class)			//check
+2.3 Sort customers as per city & registration amount (using Custom Ordering & anonymous inner class)	//check
+2.4 Sort customers as per customer type & state(using Custom Ordering & anonymous inner class)		//check
+
+3. Create a List of fixed size to hold strings 
+"Rama","Kiran","Shubham","Kaustubh","Sameer","Riya","Anish","Rama","Riya","Priya","Anuja"
+Check if retains dups.												//check
+
+3.1 Copy these references into a HashSet (HOW????) (using addall())  n confirm if it retains dups . If it's ordered or sorted.	
+--> unordered and unsorted
+
+
+3.2  Copy these references into a LinkedHashSet (HOW????)(using addall())  n confirm if it retains dups . If it's ordered or sorted.
+--> ordered and unsorted
+
+3.3  Copy these references into a TreeSet (HOW????)(using addall())  n confirm if it retains dups . If it's ordered or sorted.
+--> unordered and sorted
+
+Help : 
+Correct Lexicographical order :
+[Anish, Anuja, Kaustubh, Kiran, Priya, Rama, Riya, Sameer, Shubham]
+
+
+

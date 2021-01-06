@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        MANSTRING
+    </title>
+    <script>
+        function query() {
+
+
+            var t1 = document.getElementById("t1").value;
+            var t2 = document.getElementById("t2").value;
+            var t3 = document.getElementById("t3").value;
+
+
+            if (document.getElementById("r1").checked) {
+                document.getElementById("s1").innerHTML = t1.includes(t2);
+            } else if (document.getElementById("r2").checked) {
+                document.getElementById("s1").innerHTML = t1.toUpperCase();
+            } else if (document.getElementById("r3").checked) {
+                document.getElementById("s1").innerHTML = t1.toLowerCase();
+            } else if (document.getElementById("r4").checked) {
+                document.getElementById("s1").innerHTML = t1.trim();
+            } else if (document.getElementById("r5").checked) {
+                document.getElementById("s1").innerHTML = t1.concat(t2);
+            } else if (document.getElementById("r6").checked) {
+
+                if (t1.includes(t2)) {
+                    document.getElementById("s1").innerHTML = t1.replace(t2, t3);
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Enter String:
+        <input type="text" name="t1" id="t1">
+        <br>
+        <br> Enter Sub String:
+        <input type="text" name="t2" id="t2">
+        <br>
+        <br> Replace with String:
+        <input type="text" name="t3" id="t3">
+        <br>
+        <br>
+        <input type="radio" name="r1" id="r1"> Search Substring in main string
+        <input type="radio" name="r1" id="r2"> To Upper Case
+        <input type="radio" name="r1" id="r3"> To Lower Case
+        <input type="radio" name="r1" id="r4"> Trim spaces
+        <input type="radio" name="r1" id="r5"> Concatenate
+        <input type="radio" name="r1" id="r6"> replace
+        <br>
+        <br>
+        <input type="button" name="b1" id="b1" value="Submit Query" onclick="query()">
+    </form>
+    <span id="s1"></span>
+</body>
+
+</html>

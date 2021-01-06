@@ -1,0 +1,21 @@
+Linux->Debian->ubuntu
+		->Redhat->Centos
+		->Suse->opensuse
+		->slack->OPH,partedmagic
+		->Arch->manjaro,antregos,
+		->gentoo
+		->alpine
+		
+Username:root
+password
+ctrl+shift+t
+If you logged in with any user /home/username
+if you logged in with root user /root
+commands
+ls
+ls -ltrah
+history
+mkdir data
+cd data
+touch a.txt
+mv a.txt b.txt

@@ -1,0 +1,86 @@
+Serialization --Java object ---> bin stream
+De Serialization --BIn stream ---> java obj
+What exactly is converted : state
+state : non static n non transient data members
+Bin stream : meta data info required for de-ser + state
+Classes :
+ser : ObjectOutputStream
+de-ser : ObjectInputStream
+Chain of I/O streams for ser : save it in a bin file
+Java App --->OOS--->Fos----->     BIn File
+
+Chain of I/O streams for ser : upload to server
+Java App --->OOS--->SOS (Socket : getOutputStream)----->Socket
+
+Chain of I/O streams for ser : to send it to another thrd
+Java App --->OOS--->POS -->thread
+
+eg : Java App --->OOS--->Fos----->     BIn File
+IOUtils
+writeData
+try(OOS out=new OOS(new FOS(fileName))) //overwriting
+{
+   //HM<Integer,Product> : Product : ...ShippingDetails ....
+    out.writeObject(hm);//ser : JVM : IOExc / NotSerExc  : JVM checks serializability of the entire obj graph : java.io.Serializable i/f : NO ---entire ser fails .
+}
+
+de -ser
+validate file  : chk if it exists , readble data file
+java.io.File(String path) : f1
+exists , isFile , canRead : success
+chain of strms
+Java App <-----OIS <----FIS <---bin file
+eg : try(OIS in=new OIS(new FIS(f1))
+{
+   return (Map/List/Product...) in.readObject();
+}
+
+What are pre reqs of de-ser
+1. state  : bin stream from any data src(bin file)
+2. behaviour : byte code / .class files for UDTs 
+HOw to supply these dependencies ? : JAR
+steps :
+1. Class loading : failure => ClassNotFoundExc
+2. Serial ver UID is checked : from incoming bin stream & locally computed from loded class file
+in case of mismatch => mismatched version of java classes => Invalid Class Exc
+3.conversion : entire obj graph is re constructed in heap.
+----------------------------
+What will happen ?
+1. Product : has not imple Ser. & ShipmentDetails : Ser
+Exception : java.io.NotSerializableExc
+
+2.  Product : has imple Ser. & ShipmentDetails : not Ser
+Exception : java.io.NotSerializableExc
+
+3. Product : has imple Ser. & ShipmentDetails :  Ser
+NO Exception 
+Which details will be restored : BOTH
+
+4. Product : developed locally : imple Serializable i/f
+ShipmentDetails : supplied by 3rd party : not imple Serializable
+eg : out.writeObject(hm);// java.io.NotSerializableExc
+
+Objective : Save product details excluding shipping details
+keyword : transient
+-----------------------------------
+Enter threads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

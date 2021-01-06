@@ -1,0 +1,427 @@
+Day 1
+1. Please solve the following assignment without IDE (to revise java app development , packages n classpath)
+2. Extract javadocs & open index.html in your browser
+3. Create Point class Point2D , under package com.app.geometry   : for representing a point in x-y co-ordinate system.
+eg : day1_lab \src 
+com \ app \geometry --- Point2D.java
+package com.app.geometry;
+
+3.1 Create a parameterized constructor to accept x & y co-ords.
+
+3.2 Add public String getDetails()) --to return string form point's x & y co-ords
+
+3.3 Add isEqual method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise. 
+eg : boolean isEqual(Point2D anotherPoint){....}
+
+3.4 Add a method to Point2D class -- to create and return new point having given x & y offset.
+eg : Point2D p1=new Point2D(10,20);
+Point2d p3=p1.createNewPoint(5,-2);//p3 : 15,18
+If user supplies offset of (5, -2) : your method should return a new point object placed at (15,18)
+eg : Point2D createNewPoint(int xOff,iny yOff){...}
+
+3.5 Add calculateDistance method to calculate distance between current point & specified point & return the distance to the caller.
+(eg double  calcDistance(Point2D p2))
+Hint : Use distance formula . Use java.lang.Math class methods --sqrt, pow etc.
+
+3.6 Write TestPoint class , under "com.app.tester" package with a main method
+Accept co ordinates of 2 points from user (Scanner) --p1 & p2
+
+3.7 Use getDetails method to display point details.(p1's details & p2's details)
+
+3.8 Invoke isEqual & display if points are same or different (i.e p1 & p2 are located at the same position)
+
+3.9 Create new point p3 , with the dimensions offset from p1.
+I/P --x offset & y offset
+
+3.10 Display distance between 2 points.(between p1 & p2)
+
+Day 2
+
+1. Solve Tank assignment along with memory picture.
+
+class Tank {
+  private int level;
+  Tank(int l)
+   {
+     level=l;
+   }
+  public void setLevel(int level1)
+  {
+    level=level1;
+  }
+  public int getLevel()
+  {
+    return level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     s.o.p("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;
+    s.o.p("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     s.o.p("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     s.o.p("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+
+2. Complete day 1 assignment (without using IDE)
+set classpath , to run java application from anywhere.
+
+
+3. Display food menu to user. Assign fixed prices to food items.
+User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Rice 4. Noodles .......10 . Generate Bill ) When user enters 'Generate Bill' option, display total bill & exit.
+(Can use System.exit(0) to terminate java app or simply use exit flag)
+
+Day 3
+
+1. Start using STS 3.9.13 (Eclipse IDE with Spring)
+Choose fresh workspace (new folder)
+
+1.5 Import supplied eclipse project , in your workspace, for revision
+
+2. Create a java application for the following.
+ Create a Customer class , in com.app.core package , with data members (all private : tight encapsulation)
+name(String),email(String),age(int), creditLimit(double)
+
+2.1 Supply a parameterized constructor to accept all details from user
+eg : public Customer(String name,......)
+{
+ this.name=name;.......
+}
+
+2.2 Supply an argument less  constructor to init default name to "Riya" , email to "riya@gmail.com",age=25,creditLimit=10000
+eg : public Customer()
+{
+  this("Riya",......);
+}
+
+2.3 Supply another constructor , to init default creditLimit to 10000, taking rest of the i/ps from user.
+eg : 
+public Customer(String nm1,String em1,int age1)
+{
+  this(nm1,em1,age1,10000);
+}
+2.4 Write a method , getDetails to return String form of customer name & credit limit details.
+eg : Hello Madhura , Credit Lim : 34567
+2.5 Supply getter & setter for creditLimit.
+eg : g
+public double getCreditLimit() {...}
+s 
+public void setCreditLimit(double creditLimit) {....}
+
+2.6 Create a TestCustomer class , under tester package.
+.Use scanner to accept user i/ps.
+Create 3 customers using 3 different constructors(2.1 : c1 ,2.2 : c2,2.3 :c3 )
+Display customer details of all customers.
+Prompt user , for changing creditLimit of the c3.
+Display new credit limit on the console.
+
+3. Complete pending assignments
+
+4. Optional Assignment
+
+Create java application for the following.
+Create Student class  in package com.cdac.core
+
+2.1 Every student must have   --- id(int) --, name (String), email(String), age(int),gpa(double)
++ public static int idGenerator;
+
+2.2 Add suitable parameterized constructor.
+Accept --id name,email,age only from user.
+
+2.3 Add a method fetchDetails to  fetch student details
+(ret type -- String)
+
+2.4 Add computeGPA method in Student class
+Accept 3 method arguments for : scores for quiz , test & assignments
+gpa should be computed on 20 % of quiz score, 50% of test score & 30% of assignment score.
+(Normalize it to 1-10 scale)
+
+2.5 Write a TestStudent class in tester package
+1. Admit 2 new Students , using scanner
+I/P student details (id name,email,age)
+
+2. Assign scores for 2 students(quiz , test , assignment all out of 100)
+
+3. Display name of topper(having higher GPA)
+
+Day 4
+1.
+Import day4.1 eclipse project in your workspace.
+In TestBoxArray.java , replace , for loop (for initializing box objs) by for-each loop
+Observe n conclude
+
+2. In the same src file or new one
+ Double box width for all boxes having volume > 100.(USE for-each & solve this)
+
+3. Create 2D array of double , to store values 
+from 100 to 199 (i.e actual values : 100.0,101.0......199.0) : use nested for loop
+Display these values using
+for loop
+for-each 
+Arrays class method : deepToString
+
+
+2. Create new eclipse project "day4_lab"
+Copy earlier created Point2D class in it (along with the package)
+Create a new TestPoints class in "com.app.tester" package for the following.
+
+1.1 Prompt user , how many points to plot?
+Create suitable array , to store Point2D type of references.
+
+1.2 Add a menu , Run the application till user chooses option 4 (exit)
+
+1 Plot a new point
+I/P --index , x & y
+eg : If user supplies 5 50 100
+Create a Point2D with x, y of (50,100) & its reference should be stored at the 5th index position in array.
+
+2 Display all points plotted so far. (Use for-each)
+Will null checking be required?
+
+
+3. Calculate distance
+I/P strt , end point indexes.
+eg : If user enters 2 6
+Find out the distance between 2nd & 6th point. (array indexes start from 0)
+
+10. Exit
+
+Note : Boundary condition checking & null checking is expected.
+(Meaning : if user supplies invalid index , then give error message : invalid index --out of range
+If no point is plotted at user specified index , then give error message : invalid index -- no point plotted here.)
+
+Optional Assignments 
+1. Modify case 1 in above assignemnt .
+1 Plot a new point
+I/P --index , x & y
+eg : If user supplies 5 50 100
+First check , if SAME point(i.e point with same x n y co ordinates)  already exists , at the supplied index. If yes : give error mesg to user : Same point already exists
+Otherwise :
+Create a Point2D with x, y of (50,100) & its reference should be stored at the 5th index position in array.
+
+2. Continue with Day3's optional assignment on Student scenario.
+Student id should NOT be accepted from user , BUT it should be auto generated (from 1001 onwards manner)
+Hint : use static id counter , init it from static init block & generate ids from the same.
+
+3. Write TestStudents as a new tester class (in tester package)
+Accept size of a class from client & create suitable array based data structure.
+Supply these options , with proper validations
+1. Student Admission
+i/p : name , email ,age
+In case of success : give a mesg : student admission successful along with id.
+eg : Student admitted n assigned id =1001
+
+2. Display student information
+i/p : id 
+o/p either student details or invalid student id.
+
+3. Display all student details 
+
+4. Exit
+
+Day 5
+Reading work
+
+1. Go through "readme inheritance_polymorphism.txt" from day5_help.
+(at least till the topics covered today)
+
+Go through "regarding private members n inheritance.txt" 
+It's a popular interview question.
+
+2. Go through all code samples & memory diagrams.
+
+3. Solve this.
+Fresh business scenario to apply inheritance to emp based organization scenario.
+
+Create Emp based organization structure --- Emp , Mgr , Worker
+All of above classes must be in --com.app.org
+
+3.1 Emp state--- id(int), name, deptId , basic(double)
+Accept all of above in constructor arguments.
+Behaviour ---1.  get emp details -- override toString.
+2. compute net salary ---ret 0
+(eg : public double computeNetSalary(){return 0;})
+
+3.2 Mgr state  ---id,name,basic,deptId , perfBonus
+Behaviour ----1. get mgr details :  override toString. 
+2. compute net salary (formula: basic+perfBonus) -- override computeNetSalary
+3. get performance bonus. --add a new method to return bonus.(getter)
+
+
+3.3 Worker state  --id,name,basic,deptId,hoursWorked,hourlyRate
+Behaviour--- 
+1. get worker details -- :  override toString.
+2.  compute net salary (formula:  = basic+(hoursWorked*hourlyRate) --override computeNetSalary
+3. get hrlyRate of the worker  -- add a new method to return hourly rate of a worker.(getter)
+
+Organize classes in inheritance  hierarchy.
+
+Write TestOrganization in "tester" package.
+Create suitable array to store organization details.
+Provide following options
+
+1. Hire Manager
+2. Hire Worker  
+3. Display information of all employees including net salary using single for-each loop.
+
+10 Exit
+
+Day 6
+1. Complete pending assignment from Day 5.
+2. Solve this
+
+2.1Create inheritance hierarchy for fruits
+Fruit,Apple,Orange,Cherry
+Add private data member "name" , in Fruit class , to accept a name of the fruit.
+(eg : "Kashmiri Apple" or "Nagpur Orange" ...)
+Add taste() method to display its taste.
+
+2.2 Create FruitUtils class. 
+Add a static method , "addFruit" to add any fruit to the Fruit Basket.
+
+2.3. Write a Tester to create basket of fruits.
+(populate basket based upon user's choice)
+Menu 
+1. Add Apple
+2. Add Orange
+3. Add Cherry
+NOTE : these methods should call addFruit method of FruitUtils class
+
+4. Display taste of all fruits in the basket.
+5. Exit :  terminate the application.
+
+Weekend assignment :
+1. Reading assignment
+Explain , when you call System.out.println(ref) , how it calls ref.toString internally ?
+Hint : JavaDocs of java.io.PrintStream : look up println(Object o) method
+
+2. Solve the code snippets from questions.zip n guess what will happen ?
+1. Compile time error
+2. Run time error
+3. If no error , what will be output ?
+
+Day 7
+1. Modify Day 5 , emp based assignemnt , to add abstraction
+Remove public double computeNetSalary(){return 0;}  , un necessary method definition from Emp class , replace it by abstract method. Make suitable changes n test complete business logic
+
+2. New Assignment for banking scenario
+Suppose Bank is supporting 3 different types of accounts
+1. Saving Account
+2. Current Account
+3. Loan Account
+Any bank account has  -- acct no(int : generated from static id generator, auto incremented),customer name(string), acct type(Saving/Current/Loan),balance(double)
+Add a method to fetch a/c summary (via toString)
+Add a method to compute income tax.
+Add methods
+public void withdraw(double amt) 
+public void deposit(double amt)
+
+Saving account addtionally has to maintain simple interest (computed with fixed interest rate= 5% )
+Add new functionality to apply interest to saving account.
+(Use simple interest formula : Simple interest=P N R /100) & add it to saving a/c balance.
+For saving account : To compute income tax = 10 % of the earned interest
+For current account : To compute income tax = 1 % on the current account balance
+Loan account additionally has : no of loan installments & EMI(monthly installment)
+Add new functionality to display loan details : to return no of installments n EMI
+For loan account : To compute income tax
+Formula : I tax= (5 % on the loan account balance) - (1 % of EMI)
+(to offer I tax rebate)
+
+Apply encapsulation , inheritance , polymorphism n abstraction suitably.
+Write a Tester class , for creating different type of accounts , in array based data structure  n test the functionality.
+(refer to a diagram for the details)
+
+Day 8
+1. Create Java application for fixed stack & growable stack based on Stack i/f , for storing emp details
+
+Steps
+1.1  Create Employee class -- id,name,salary, constructor,toString
+1.2 Stack interface -- push & pop functionality for Emp refs. & declare STACK_SIZE as a constant. 
+1.3 Create implementation class of Stack i/f -- FixedStack (array based)
+
+1.4 Create another implementation class of Stack i/f-- GrowableStack (array based)
+
+1.5
+
+From tester class (Must use dynamic method dispatch using interfaces)
+--- display Menu
+(Note : Must use 1 switch-case only. Don't use any complex nested control structure
+Once user selects either fixed or growable stack , user shouldn't be allowed to change the selection of the stack.(Hint : null checking)
+)
+1 -- Choose Fixed Stack
+2 -- Choose Growable Stack
+Accept following options only after initial selection.(Hint : null checking)
+3 -- Push data 
+4 --- Pop data & display
+5 -- Exit
+
+Day 9
+1. Revise class work
+2. Complete pending assignments
+3. Solve this.
+3.1 Create a Customer class : email , password , name , registration amount , city
+Provide suitable constructor to accept all i/ps ,
+Supply a toString
+3.2 Create CustomerRegistration class as a Tester
+Create suitable array to store customer details.
+Options
+1. Register new customer
+Accept all customer details. In case of a duplicate customer email, DO NOT register customer. 
+Give suitable error message. 
+Otherwise store customer details.
+
+2. Display all customers , from a specified city
+I/P : city name
+
+3. Exit
+NOTE : MUST use overrding form of equals method , to check for duplicate customer email.
+Hint : Refer to equals method of Object class n equals of String class
+
+Day 10
+Continuation of Day 9 assignment , to add validation constraints .
+1. Continue with the same customer class.
+Unique ID of customer class : email
+Override equals method based upon the same.
+
+2. Create custom exception class : CustomerHandlingException , as a checked exception
+
+3. Add following validation rules , in a separate class CustomerValidations, using static validation methods
+Don't use method level exc handling , instead delegate exc handling to the caller(main class)
+3.1 email must be minimum 8 to max 15 chars long
+It should contain "@" n must end in ".com"
+Hint : Use String class methods : contains , endsWith
+
+3.2 Password minimum length 6 to 20 & must contain atleast one of the special characters : $ / @
+/# /* n must be alpha numeric.
+
+Help : If needed
+Use this regular expression : "((?=.*\\d)(?=.*[a-z])(?=.*[#@$*]).{6,20})"
+& use String class method : matches
+
+3.3 reg amount must be in the multiples of 500
+
+3.4 Duplicate email checking.(Must use equals here)
+
+
+4. Create a Tester for the following(similar to yesterday)
+1. Register new customer
+Accept all customer details. In case of a duplicate customer email, or any other validation failures , DO NOT register customer. 
+Give suitable error message(via catch block)
+Otherwise store customer details.
+
+2. Display all customers , from a specified city
+I/P : city name
+
+3. Exit
+
+

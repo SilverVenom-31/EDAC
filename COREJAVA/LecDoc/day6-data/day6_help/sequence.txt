@@ -1,0 +1,77 @@
+Today's Topics
+Polymorphism
+Abstraction
+
+Revise
+What is inheritance ?
+Important principles of OOP
+genenralization ---> specialization
+Why : reduce redundancy n enhance re usablility
+Relationship : IS A
+keyword : extends
+univaersal super class : java.lang.Object (useful methods : toString,equals , wait, notify....)
+Terms used to describe classes
+higher : super class / parent / base
+lower : sub class /child / derived
+Types of inheritance : single , multi level , multiple (not supported) : why : Ambiguity
+Important Summary Statement for inheritnace n polymorphism : A sub class IS A super class , and something more (addtional data members / methods) n something modified(modification of behaviour : methods : run time polymorphism --achieved via method overriding)
+
+Constructor invocation in inheritnace hierarchy
+eg : Emp <-----Mgr<----SalesMgr
+Emp : id ,name , basic : Emp (3 args)
+Mgr : performanceBonus : Mgr (id ,name , basic,performanceBonus ) {super(id,nm,basic);this.performanceBonus=performanceBonus ;} ....
+
+SalesMgr : salesTargets 
+SalesMgr (id ,name , basic,performanceBonus, salesTargets)
+{super(id ,name , basic,performanceBonus);
+this.salesTargets=salesTargets;}
+
+In  Tester : 
+SalesMgr sm=new SalesMgr(5 args);//cls : Object, Emp,Mgr,SM , Heap : 1
+CP ---> SalesMgr class , id,name,basic,bonus,salesTargets
+
+super keyword usage
+1. To invoke super class constr (eg : super(....))
+2. To access visible members of the super class (eg : super.toString())
+
+
+Object class Method
+public String toString() : rets : Fully Qualified cls Name@hashCode
+hashCode : internal memory representation 
+If you have not overridden toString in your Emp class , : com.app.org
+Emp e1=new Emp(....);
+sop(e1.toString());//com.app.org.Emp@hashCode
+-------------------------
+Enter Polymorphism
+Person , Student , Faculty
+
+
+
+
+@Override annotation
+ Upcasting
+With simple example : Object , Person , Student
+Objective : Create  Event Organizer application
+Participants : Students n Faculties
+1. Prompt : how many max participants ?  : 100
+Person[] participants=new Person[sc.nextInt()];// 1 : array obj : of refs : Person
+int counter=0;
+Menu
+1. Register Student
+sop("Enter student dtls");
+participants[counter++] =new Student(.......);//up casting 
+break;
+2. Register Faculty :
+sop("Enter faculty dtls");
+participants[counter++] =new Faculty(.......);//up casting 
+break;
+3. Display all participant details : for-each
+for(Person p : participants)//p=participants[0],p=participants[1]....{f2,s1,s2,f1,.....}
+  sop(p);//p.toString : JVM : Run time polymorphism
+break;
+
+10. Exit
+NOTE : Boundary checking n null checking
+
+
+ Need of downcasting 

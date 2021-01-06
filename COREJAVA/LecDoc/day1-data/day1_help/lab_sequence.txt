@@ -1,0 +1,49 @@
+What are pre-requisites to writing java program ?
+
+1.  JDK 1.8(Java SE 8)  must be installed using java installer.
+
+1. Open cmd prompt & check java version.
+java -version
+
+Should show you java version 1.8 (any update version after 200 will do!)
+
+
+2. 1st entry of path must be  (windows instructions)
+<C:\Program Files\Java\jdk1.8.0_221>\bin
+How to check ?
+type path on cmd prompt.
+
+3. How to set path ?
+My Computer --- R Click -- Properties --- Advanced --- Environment variables --- System Variables --- Edit Path --- Add 1st entry as <C:\Program Files\Java\jdk1.8.0_221>\bin
+DO NOT delete existing path.
+
+4. Confirm it.
+
+Open cmd prompt
+Type set path
+It should show you --path information --- where 1st entry is <Java_Home>\bin .
+
+5. Type from cmd prompt
+java -version
+
+
+6. Create empty workspace. Create folders day wise. Create <src> & <bin> to store java sources(.java)  & .class files separately.
+
+7. Edit First.java in <src>
+
+8. cd <src>
+compiler usage 
+javac -d ..\bin First.java
+It places the .class files to bin folder
+
+7. How to launch JVM for execution ?
+cd ..\bin
+java First
+Syntax : java FullyQualifiedClassName ---containing main(...) method
+
+
+
+
+
+
+

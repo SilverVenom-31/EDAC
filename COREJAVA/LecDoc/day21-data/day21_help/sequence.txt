@@ -1,0 +1,134 @@
+Fail fast Iterators
+Revision
+Java 8 lambda expression n streams
+Why lambda expression ?
+Reducing boilerplate code n adding conciseness to the code.
+It's shift from imperative (traditional : loop , iterations...) to functional prog.
+FP : You should be able to pass functionality (behaviour) as the method arg
+Ret it from  method.
+Assign func to a variable. : function literal
+eg : Create range of ints : 10 -60 , filter odd elems ---sort it desc manner
+String s="dgadf";
+int data=100;
+Function literal
+ Comparator<Integer> comp =(i1,i2) -> i2.compareTo(i1);//fun i/f ref can be directly assigned to a Consumer<Integer> action   =i->sop(i);
+lambda expression
+
+IntStream.rangeClosed(10,60).//stream of ints
+filter(i -> i % 2 != 0).//stream of odd ints
+boxed().//stream of Integer refs : odd
+sorted(comp).
+forEach(action);
+
+
+Method reference : 
+IntStream.rangeClosed(10,60).forEach(i->System.out.println(i));//lambda expression
+OR
+IntStream.rangeClosed(10,60).forEach(System.out::println);//method ref
+
+
+IntStream.rangeClosed(10,60).forEach(i->System.out.print(i+" , "));//lambda expression
+
+Objective : Display name of the emp from a specific dept , earning max salary
+Department dept=Department.valueOf(sc.next());
+
+Optional<Emp> optionalEmp=empMap.values().stream().//stream of emps : Stream<Emp> : all
+filter(e -> e.getDept()==dept).//Stream<Emp> : from a specific dept
+max((e1,e2)->((Double) e1.getSal()).compareTo(e2.getSal());
+if(optionalEmp.isPresent())
+  sop("Max sal earner "+optioanlEmp.get().getName());
+else throw new EmpNotFoundException(.....);
+
+OR 
+Emp e=empMap.values().stream().//stream of emps : Stream<Emp> : all
+filter(e -> e.getDept()==dept).//Stream<Emp> : from a specific dept
+max((e1,e2)->((Double) e1.getSal()).compareTo(e2.getSal()).orElseThrow(()->new EmpNotFoundException(.....));
+
+Lab work : test it in a student scenario
+
+
+Java 8 Streams 
+: sequence of operations to be performed on elements
+Contents 
+source(array,collection(list/set/map) -----multiple intermediate ops(filter,map,sort...) chaining ---1 terminal op(forEach,max ,min ,count,sum...)
+
+
+IMPORTANT points 
+1. Java 8 streams are not re usable (i.e once they have been operated using a terminal op , can't be reused after that. otherwise  IllegalStateException : strm is already closed)
+2. Streams supprt lazy evaluation order(no intermediate op will be excuted until operated with terminal operation)
+3. Streams follow vertical order of exec.
+ref : TestExecOrder.java
+-----------------------------------
+Enter I/O : java.io
+
+1. Reading data from a text file in a buffered manner : till End of File
+
+OPtions for NOde stream : FIS , FOS ,FR ,FW
+Correct : FileReader
+I/O 
+1. Reading data from a text file in a buffered manner : till EOF
+2. Buffered text file copy .
+I/P : src file name n dest file name
+
+--------------------
+
+Exam objective 
+API of InputStream : Binary i/p stream (abstract)
+1. int data=System.in.read();
+NO data : BLOCK 
+10 bytes : 1 byte will be read off from the stdin ---int --reted to the caller.
+9 bytes will be kept peding in the stream
+(read operation in single byte)
+
+
+2. byte[] bytes=new byte[100];
+int num=System.in.read(bytes);
+No Data :BLOCK
+10 bytes available : Un blocks : num=10; data : bytes[0]....bytes[9]
+120 bytes available : Un blocks : No exc , num=100 ;bytes[0]---bytes[99]
+num=System.in.read(bytes);//num =20 ; bytes[0]---bytes[19]
+
+
+Objective : How to read data from a bin file till EOF ? 
+Use 2nd read method
+Create byte[] sufficiently large to hold file's available data
+n read in single operation
+
+3.  byte[] bytes=new byte[100];
+int num=System.in.read(bytes,15,20);//15 : offset in the array , 20 : max no bytes to be read.
+No Data :BLOCK
+10 bytes available : Un blocks , num=10        data =bytes[15] ...data[24]
+120 bytes available : Un blocks , num=20            data[15] ....data[34]
+num= System.in.read(bytes,15,20);//20 bytes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

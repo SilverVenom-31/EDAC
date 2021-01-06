@@ -1,0 +1,51 @@
+
+Day 23
+1. Confirm concurrent execution of multi threaded application , using first extends scenario & then implements .
+
+2. Ensure no orphan threads condition
+
+3. Create multi threaded java application --- having 3 threads
+main , even , odd.
+
+Create EvenPrinterTask  & OddPrinterTask
+Accept from user (in main thread)-- start & end values.
+Pass these values from main to child threads
+Even no printer thread  should print even nos within range, with small delay (sleep)
+Odd no printer thread should print odd nos within range , with small delay (sleep)
+Ensure no orphans.									
+
+Solve above using  implements Runnable scenario.				//check
+	
+4.  Extra optional  assignment(application of threads with collection n I/O)
+
+Copy core classes --Student , Subject n Address.
+Copy or create StudentCollctionUtils i/f  
+2.1 Refer to  method in 
+public static Map<String,Student> populateMap(List<Student> students)
+{
+  //already exists!
+}
+2.2 Create a multi threaded application for saving student details in 2 text files(taken from the Map) : (in student_gpa.txt : sorted by gpa & in student_dob.txt : sorted by dob) using 2 different threads , concurrently!			//check
+
+5. OPTIONAL
+
+
+Create new project 
+5.1 Copy from <ready code> utils package : JointAccount class
+
+5.2. Create a package runnable_tasks to create 2 runnable tasks (implements scenario)
+UpdaterTask 
+In it's run() : invoke BankAccount's update balance method : continuously (while loop with some sleep)
+
+
+5.3 CheckerTask
+In it's run() : invoke SAME BankAccount's check balance : continuously (while loop with some sleep)
+In ideal condition balance must be same as original balance . So if it's not , then terminate application
+(System.exit(1))
+
+5.4  Create a Tester 
+main : create joint acct instance with opening balance of 5000.
+Pass it to 2 threads .
+Ensure no orphans. 
+Observe n conclude.				//check
+

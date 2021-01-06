@@ -1,0 +1,94 @@
+Revise
+
+Why Java 
+Write Once Run anywhere : any Platform(combination of OS n hardware)
+Test.java(class A , B , C) --- javac Test.java ---platform independent binary (byte code) : intemediate
+ byte code 
+A.class , B.class , C.class
+Even if none of the classes : have main(...) --no javac error
+java A : run time error : main method does not exist
+
+How many public classes a src file can have ? 1
+Any rules regrading name of the default class n file name ? NO
+Any rules regrading name of the public class n file name ? YES (name of class n file must be SAME)
+
+
+
+JDK Vs JRE Vs JVM
+Java Data Types
+
+eg : Emp e=new Emp(.....);
+//e++;//javac error
+e : class type of reference
+
+Packages
+Class & Objects (Encapsulation)
+Arrays
+Arrays of primitive Types
+int[] data;//data : array type of ref.
+data=new int[10];//
+for(int i=0;i<data.length;i++)
+ sop(data[i]);//0
+//for -each
+for(int i : data) // i=data[0],i=data[1]....i=data[data.length-1]
+ sop(i);
+
+Ans this
+class Test {
+psvm(...)
+{
+   int data=100;
+   sop(data);//no error 100
+   if(data)
+    sop("Yesss");
+   else
+    sop("No");
+
+}
+}
+byte range : 8  bits
+MSB sign bit
+-2**7 --- 2**7-1
+-128 ---127
+
+IDE :
+javac -d ..\bin com\app\cdac\Box.java
+
+
+ & Arrays of references
+Objective : Create java application for the following
+1. Create a class to represent 3 D Box , add it under : com.app.cdac
+package com.app.cdac;
+1.1 state : insatnce vars : width,height,depth 
+Encapsulation : hide data members (private) => tight encapsulation
+daya type : double
+1.2 To  create Box class instance : 
+If u don't add any constr : javac by default provides a constr : arg-less constr
+inits all state(instance vars) : default values : 0.0
+Add a parameterized constructor.
+3 args
+
+1.3 Business logic
+Add a method to return box details in a string form
+String getBoxDetails()
+{
+ return width....;
+}
+
+1.4 Add a method to return computed volume of a box
+double computeVolume()
+{
+  return width*depth*height;
+}
+
+
+
+
+
+
+
+
+
+
+In the lab : JDK 1.8 
+Eclipse IDE : STS 3.9.13

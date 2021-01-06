@@ -1,0 +1,86 @@
+import React, {Component} from 'react';
+import './App.css';
+import NewsHeader from "./News/NewsHeader";
+import Newscontent from "./News/Newscontent";
+import statefulcomponenet from "./StateFulComponent/statefulcomp";
+
+
+class App extends Component {
+  render() {
+  return (
+  <div className="App">
+ 
+  <h1>News International</h1>
+<NewsHeader />
+<Newscontent Title="Florida Man Arrested for Requesting Mail-In Ballot for Dead Wife" content="link1"/>
+<Newscontent Title="Florida Man Arrested for Requesting Mail-In Ballot for Dead Wife" content="link2"/>
+ <StatefulComponenet />
+  </div>
+  );
+  }
+  }
+
+export default App;
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+props allows me to pass data from parent to child sate is used to change the state 
+
+Handling Events
+
+on clicking button nothing happens so we need to see event handling
+<button onClick={}>Switch Button</button>
+
+
+App.js-
+
+................................................
+
+state= {
+    persons:[
+      {name:"Shri",age:30},
+      {name:"Soha",age:20},
+      {name:"Arnav",age:40},
+   ]
+  }
+
+//btnHandler = function(){}
+btnHandler = () =>{
+ //alert("Button Clicked")
+ //lets change the state now-
+ this.state.person[0].name="SriLata"//dont do this ,never manupulate state directly
+//intead do this
+this.setState({
+ persons:[
+      {name:"Alpha",age:3},
+      {name:"BEta",age:2},
+      {name:"GaMA",age:4},
+         ]
+})
+//what is meaning of setstate , special method given by componenet to mutate the state (interview que)
+//setstate will say change the old state and give the new state as soon as state changes the cpmponenet is rerendered
+}
+
+
+    render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button onClick={this.btnHandler}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>Hobbies : Coding </Person>
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+    ); 
+  }
+
+https://reactjs.org/docs/events.html#focus-events
+
+
+
+
+
+
+
+
+

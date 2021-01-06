@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>This is Question 7</title>
+</head>
+
+<!-- Changes: 1.input type changed to text 2.button tag 3.declaration of x and y is inside the function -->
+
+
+<body>
+    Base : <input type="text" name="num1" id="num1"><br>
+    <br> Power : <input type="text" name="num2" id="num2">
+    <input type="submit" name="b1" id="b1" value="submit" onclick="power()">
+
+    <script>
+        function power(x, y) {
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+
+            var res = 1;
+            for (i = 1; i <= y; i++) {
+                res = res * x;
+
+            }
+
+            document.write("Result is : " + res);
+        }
+    </script>
+</body>
+
+</html>

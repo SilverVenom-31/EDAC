@@ -1,0 +1,220 @@
+Assignment status 
+Which is Java version ?
+java -version : 1.8 Java SE 8
+Which eclipse version ? : STS 3.9.112 /13.
+
+
+Today's topics
+Revision
+Overview of Java Memory areas.(Overview of JVM Architecture)
+Enter OOPs  -- encapsulation , data hiding
+(class programming)
+Understand java object creation along with memory pictures
+Garbage collection overview
+Packages n access specifiers
+Arrays 
+
+Revision
+
+
+Can u write a java class w/o main & compile it ? YES
+Can u write a java class w/o main & run it ? NO
+What are legal access specifiers for members(data members & methods)? -- private,no modifier(default=package private),protected,public
+Which are applicable to classes ? --- default or public
+Can a java src file contain multiple default classes ? : YES
+Can a java src file contain multiple public  classes ? NO
+Any rules regarding default class name & src file name ? : NO (Norm : match single default class name with src file name)
+Any rules regarding public class name & src file name ? :  public class must be stored in the same src file name
+eg : public class TestMe{....}
+Must be save in TestMe.java
+
+Naming Conventions 
+class name : 1st letter uppercase n then camel casing
+method names / vars : 1st letter lowercase n then camel casing
+constant : all uppercase
+
+Which are Java Data Types 
+1. primitive types : value holding types
+2. reference types : holds the adr of object , created dynamically ,obj stored in java heap.
+
+
+1. primitive data types 
+boolean,char,byte,short,int,long,float,double
+byte,short,int,long,float,double : signed data type , sign bit MSB (=0=> +ve no , 1 => -ve no)
+2's complement format (1's complement +1)
+
+Automatic conversion(widening) : performed by javac 
+eg : 
+long---> float
+int --> double
+float --->double
+byte --->short
+eg : byte b1=10;
+byte b2=12;
+byte b3=b1+b2;//javac autmatically promotes any arithmetic operation on bytes to int
+sop(b3);
+
+javac autmatically promotes any arithmetic operation on short to int
+Ans this 
+1. byte & byte  => int
+2. byte & short => int
+3. short & short => int
+4. int & long => long
+5. long & float => float
+6. float & double => double
+7. byte or short ....& double => double
+
+
+Narrowing conversion  : can javac perform it automatically ? NO
+ Must apply : (type casting)
+eg :
+double ---> float
+float --> long
+long --> int
+eg : double d1=12.3456f;//no err since float---> double : widening conversion : auto done by javac
+float f=(float) d1;//no javac err
+
+
+2. reference types : internal representation of address
+class type , array type , interface type
+eg : Scanner sc=new Scanner(System.in);
+sc : ref type : class type
+int[] arr=new int[5];//RHS : array object : of primtive types
+arr : ref type : array type
+Box[] boxes=new Box[10];//RHS : array object : of ref types
+boxes : ref type : array type
+
+Pointers vs java references
+ Pointer arithmatic is not allowed in java.
+reference --- holds internal representation of address (equivalent to object pointer in c++)
+eg : Scanner sc=new Scanner(System.in);
+sc++;//javac err
+sc +=10;//javac error
+
+eg : Emp e=new Emp(123,"abc",10000);
+e=new  Emp(1234,"abc1",20000);//no javac error
+
+-------------------------------------------------
+Overview of Java Memory areas.(Overview of JVM Architecture)
+
+Refer : regarding class n object
+
+Regarding Packages
+refer to its readme.
+
+Objective 1.  Create Java application for the following
+1.1 Create a class to represent 3D Box.Provide tight encapsulation (package : com.app.cdac)
+Data members(instance variables=state) -width,height,depth : double --- private
+
+1.2 Add a constructor-  to init state of a Box
+
+1.3 
+Add business logic in instance Methods
+1. To return Box details in string form (dims of Box)
+method declaration --- access specifier , ret type , name , args
+method definition --body
+eg : String getBoxDetails()
+{
+   return "Box Dims "+this.width+" "+height+" "+depth;
+}
+2. To return computed volume of the box.
+eg : double computeVolume()
+{return width*depth*height;}
+
+1.4 Create a TestBox class , which allows user to supply 3 dimensions  as user i/ps via scanner. Create Box object & display its dimensions & display volume.
+Add it in the package : com.app.tester
+
+Draw n understand memeory pics.
+----------------------------------
+
+1. Garbage collection
+
+2. More B.L (business logic) : Box class
+
+1. Create Cubes (constr chaining)
+eg : User orders a cube
+sop("Enter side of the cube");//10
+//How will you create a cube?
+
+2. Add a instance method to Box class to test equality of 2 boxes : based upon box dims.
+eg Usage
+b1=new Box(10,20,30);
+b2=new Box(10,20,31);
+How will you check equality ?
+eg : boolean isEqual(Box anotherBox) //primitive n ref types of vars are passed by value(copy)
+{
+   return this.width == anotherBox.width && .....;
+}
+
+3. Add a method to Box class to return a new Box with modified offset dims & test it with the tester.
+
+eg : 1st Box dims 10,20,30
+Suppose User enters offsets as 3,-4,5
+2nd box should have dims 13,16,35
+
+Box createNewBox(double offW,.....)
+{
+  Box newBox=new Box(width+oofW,.....);
+  return newBox;
+}
+-------------
+Regarding Arrays
+refer -- Java Tut slides No  29
+In Java, arrays are full-fledged objects. Like objects, arrays are dynamically created & stored on the heap. 
+
+Arrays (like any other object) are  associated with the class. All arrays of the same dimension and type have the same class. The length of an array does not play any role in establishing the array's class. For example, an array of three ints has the same class as an array of three hundred ints.([I) The length of an array is considered part of its instance data.
+
+eg : The class name for single dimension array of ints is "[I". The class name for a three-dimensional array of bytes is "[[[B". The class name for single dimension array of booleans is "[Z"
+
+Array size(length) is fixed.Implicit super class of array is java.lang.Object.
+
+
+2.1 Create Array of primitive types
+
+Objective -- Accept no of data samples(of type double) from User(using scanner)
+Create suitable array & display it using for-loop , to confirm default values.
+
+Accept data from User(scanner) & store it in the array.
+Display array data using  for loop.
+
+Display array data using for-each loop
+
+for-each loop(enhanced for loop)
+syntax
+eg : Display array data using for-each loop
+for(double d : data) //d=data[0],d=data[1]......d=data[data.length-1]
+ sop(d);
+
+Works on a copy of array element.
+
+for-each limitations
+1. Can only iterate from 1st elem to last elem , with step size +1
+2. Works on a copy of array elems
+(can't be used for modifying array elems).
+
+
+API --java.util.Arrays : helper class for array handling
+Method 
+public static String toString(double[] a)
+Returns a string representation of the contents of the specified array.
+-----------------
+2.2 Array of references
+
+Add Box class into "com.app.core"
+Create a tester class  : TestBoxArray : "com.tester"
+
+Objective : Ask user(client) , how many boxes to make ?
+Prompt for Box dims , for individual box.
+Store these details suitably.
+1. Display using single for-each loop, box dims n volume
+
+2. Double box width for all boxes having volume > 100.(USE for-each & solve this)
+
+-----------------------
+3. Inheritance 
+refer to "readme inheritance.txt" from today's help.
+Person-Student-Faculty scenarion (constr invocation in inheritance hierarchy)
+refer to assgn1 pic.(Fruits / taste scenario)
+
+
+

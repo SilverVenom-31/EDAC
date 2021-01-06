@@ -1,0 +1,36 @@
+Generics Question
+
+ 1. Given  
+public class Fruit{}
+public class Melon extends Fruit{}
+public class WaterMelon extends Melon{}
+
+Which of the following, will be legal ?
+
+1.List<? extends Fruit> fruits=new ArrayList<Fruit>(); //no error
+2.List<? extends Fruit> fruits=new ArrayList<Melon>(); //no error
+3.List<? extends Fruit> fruits=new LinkedList<WaterMelon>(); //no error
+4.List<? extends Fruit> fruits=new Vector<Object>();   //error
+5.List<? super Melon> melons=new ArrayList<Fruit>();   //no error
+6.List<? super Melon> melons=new LinkedList<>();  	// no error
+7.List<? super Melon> melons=new LinkedList<WaterMelon>(); //error
+
+
+2. 
+Given  
+public class Fruit{}
+public class Melon extends Fruit{}
+public class WaterMelon extends Melon{}
+
+Fruit->Melon->WaterMelon
+Which of the following, will be legal ?
+
+1. List<Melon> melons=new ArrayList<>(); //no error
+2. HashSet<Fruit> fruits=new HashSet<>(); //no error
+3. LinkedList<WaterMelon> wMelons=new LinkedList<>();  //no error
+4. melons.addAll(fruits); 
+5. melons.addAll(wMelons);
+6. fruits.addAll(melons);
+7. fruits.addAll(wMelons);
+8. wMelons.addAll(fruits);
+9. wMelons.addAll(melons);

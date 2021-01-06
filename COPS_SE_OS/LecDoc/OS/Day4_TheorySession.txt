@@ -1,0 +1,408 @@
+List of currently running process on the terminal/shell
+
+[root@centos7 ~]# ps
+   PID TTY          TIME CMD
+  3111 pts/1    00:00:00 bash
+  4776 pts/1    00:00:00 ps
+------------------------------------------------------------------------------------
+Full listing of running process on the terminal/shell
+[root@centos7 ~]# ps -lf
+F S UID         PID   PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root       3111   3023  0  80   0 - 29225 do_wai 08:40 pts/1    00:00:00 -bash
+0 R root       4779   3111  0  80   0 - 38868 -      09:02 pts/1    00:00:00 ps -lf
+------------------------------------------------------------------------------------
+List of every running process
+
+[root@centos7 ~]# ps -elf
+F S UID         PID   PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root          1      0  0  80   0 - 48488 ep_pol 08:36 ?        00:00:02 /usr/lib/systemd/syste
+1 S root          2      0  0  80   0 -     0 kthrea 08:36 ?        00:00:00 [kthreadd]
+1 S root          4      2  0  60 -20 -     0 worker 08:36 ?        00:00:00 [kworker/0:0H]
+1 S root          6      2  0  80   0 -     0 smpboo 08:36 ?        00:00:00 [ksoftirqd/0]
+1 S root          7      2  0 -40   - -     0 smpboo 08:36 ?        00:00:00 [migration/0]
+1 S root          8      2  0  80   0 -     0 rcu_gp 08:36 ?        00:00:00 [rcu_bh]
+1 R root          9      2  0  80   0 -     0 -      08:36 ?        00:00:01 [rcu_sched]
+.
+.
+.
+.
+and so on
+------------------------------------------------------------------------------------
+How to find my process
+
+Run [root@centos7 ~]# sleep 100s -- in one shell and find details of it in the other shell
+
+[root@centos7 ~]# ps -elf | grep "sleep"
+0 S root       4857   3111  0  80   0 - 27013 hrtime 09:04 pts/1    00:00:00 sleep 100s
+-------------------------------------------------------------------------------------
+Signalling a process  [Process management]
+
+[root@centos7 ~]# kill -l
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX
+
+Initiated the process "sleep 90s"
+and then tried to find the pid of it
+[root@centos7 ~]# ps -elf | grep sleep
+0 S root       5086   3267  0  80   0 - 27013 hrtime 09:12 pts/2    00:00:00 sleep 90s
+0 S root       5094    796  0  80   0 - 27013 hrtime 09:12 ?        00:00:00 sleep 60
+0 S root       5096   3111  0  80   0 - 28202 pipe_w 09:12 pts/1    00:00:00 grep --color=auto sleep
+
+Once pid was found - we gave a signal to it - here signal was to kill i.e 9
+
+[root@centos7 ~]# kill -9 5086
+[root@centos7 ~]# ps -elf | grep sleep
+0 S root       5094    796  0  80   0 - 27013 hrtime 09:12 ?        00:00:00 sleep 60
+0 R root       5098   3111  0  80   0 - 28202 -      09:12 pts/1    00:00:00 grep --color=auto sleep
+
+[root@centos7 ~]# sleep 90s
+Killed
+-------------------------------------------------------------------------------------
+Hierarchical structure of the processes can be seen by 'pstree'
+
+[root@centos7 ~]# pstree
+systemd─┬─ModemManager───2*[{ModemManager}]
+        ├─NetworkManager───2*[{NetworkManager}]
+        ├─VGAuthService
+        ├─2*[abrt-watch-log]
+        ├─abrtd
+        ├─accounts-daemon───2*[{accounts-daemon}]
+        ├─alsactl
+        ├─anacron
+        ├─at-spi-bus-laun─┬─dbus-daemon───{dbus-daemon}
+        │                 └─3*[{at-spi-bus-laun}]
+        ├─at-spi2-registr───2*[{at-spi2-registr}]
+        ├─atd
+        ├─auditd─┬─audispd─┬─sedispatch
+        │        │         └─{audispd}
+        │        └─{auditd}
+        ├─avahi-daemon───avahi-daemon
+        ├─bluetoothd
+        ├─boltd───2*[{boltd}]
+        ├─chronyd
+        ├─colord───2*[{colord}]
+        ├─crond
+        ├─cupsd
+        ├─2*[dbus-daemon───{dbus-daemon}]
+        ├─dbus-launch
+        ├─dconf-service───2*[{dconf-service}]
+        ├─dhclient
+        ├─dnsmasq───dnsmasq
+        ├─evolution-addre─┬─evolution-addre───5*[{evolution-addre}]
+        │                 └─4*[{evolution-addre}]
+        ├─evolution-calen─┬─evolution-calen───8*[{evolution-calen}]
+        │                 └─4*[{evolution-calen}]
+        ├─evolution-sourc───3*[{evolution-sourc}]
+        ├─firewalld───{firewalld}
+        ├─fwupd───4*[{fwupd}]
+        ├─gdm─┬─X───{X}
+        │     ├─gdm-session-wor─┬─gnome-session-b─┬─abrt-applet───2*[{abrt-applet}]
+        │     │                 │                 ├─gnome-shell─┬─ibus-daemon─┬─ibus-dconf───3*[{i+
+        │     │                 │                 │             │             ├─ibus-engine-sim───+
+        │     │                 │                 │             │             └─2*[{ibus-daemon}]
+        │     │                 │                 │             └─9*[{gnome-shell}]
+        │     │                 │                 ├─gnome-software───3*[{gnome-software}]
+        │     │                 │                 ├─gsd-a11y-settin───3*[{gsd-a11y-settin}]
+        │     │                 │                 ├─gsd-account───3*[{gsd-account}]
+        │     │                 │                 ├─gsd-clipboard───2*[{gsd-clipboard}]
+        │     │                 │                 ├─gsd-color───3*[{gsd-color}]
+        │     │                 │                 ├─gsd-datetime───3*[{gsd-datetime}]
+        │     │                 │                 ├─gsd-disk-utilit───2*[{gsd-disk-utilit}]
+        │     │                 │                 ├─gsd-housekeepin───3*[{gsd-housekeepin}]
+        │     │                 │                 ├─gsd-keyboard───3*[{gsd-keyboard}]
+        │     │                 │                 ├─gsd-media-keys───3*[{gsd-media-keys}]
+        │     │                 │                 ├─gsd-mouse───3*[{gsd-mouse}]
+        │     │                 │                 ├─gsd-power───3*[{gsd-power}]
+        │     │                 │                 ├─gsd-print-notif───2*[{gsd-print-notif}]
+        │     │                 │                 ├─gsd-rfkill───2*[{gsd-rfkill}]
+        │     │                 │                 ├─gsd-screensaver───2*[{gsd-screensaver}]
+        │     │                 │                 ├─gsd-sharing───3*[{gsd-sharing}]
+        │     │                 │                 ├─gsd-smartcard───4*[{gsd-smartcard}]
+        │     │                 │                 ├─gsd-sound───3*[{gsd-sound}]
+        │     │                 │                 ├─gsd-wacom───2*[{gsd-wacom}]
+        │     │                 │                 ├─gsd-xsettings───3*[{gsd-xsettings}]
+        │     │                 │                 ├─nautilus-deskto───3*[{nautilus-deskto}]
+        │     │                 │                 ├─seapplet
+        │     │                 │                 ├─ssh-agent
+        │     │                 │                 ├─tracker-extract───13*[{tracker-extract}]
+        │     │                 │                 ├─tracker-miner-a───3*[{tracker-miner-a}]
+        │     │                 │                 ├─tracker-miner-f───3*[{tracker-miner-f}]
+        │     │                 │                 ├─tracker-miner-u───3*[{tracker-miner-u}]
+        │     │                 │                 └─3*[{gnome-session-b}]
+        │     │                 └─2*[{gdm-session-wor}]
+        │     └─3*[{gdm}]
+        ├─gnome-keyring-d───3*[{gnome-keyring-d}]
+        ├─gnome-shell-cal───5*[{gnome-shell-cal}]
+        ├─gnome-terminal-─┬─bash───su───bash
+        │                 ├─gnome-pty-helpe
+        │                 └─3*[{gnome-terminal-}]
+        ├─goa-daemon───3*[{goa-daemon}]
+        ├─goa-identity-se───3*[{goa-identity-se}]
+        ├─gsd-printer───2*[{gsd-printer}]
+        ├─gssproxy───5*[{gssproxy}]
+        ├─gvfs-afc-volume───3*[{gvfs-afc-volume}]
+        ├─gvfs-goa-volume───2*[{gvfs-goa-volume}]
+        ├─gvfs-gphoto2-vo───2*[{gvfs-gphoto2-vo}]
+        ├─gvfs-mtp-volume───2*[{gvfs-mtp-volume}]
+        ├─gvfs-udisks2-vo───2*[{gvfs-udisks2-vo}]
+        ├─gvfsd─┬─gvfsd-burn───2*[{gvfsd-burn}]
+        │       ├─gvfsd-trash───2*[{gvfsd-trash}]
+        │       └─2*[{gvfsd}]
+        ├─gvfsd-fuse───5*[{gvfsd-fuse}]
+        ├─ibus-portal───2*[{ibus-portal}]
+        ├─ibus-x11───2*[{ibus-x11}]
+        ├─imsettings-daem───3*[{imsettings-daem}]
+        ├─ksmtuned───sleep
+        ├─libvirtd───16*[{libvirtd}]
+        ├─lsmd
+        ├─lvmetad
+        ├─master─┬─pickup
+        │        └─qmgr
+        ├─mission-control───3*[{mission-control}]
+        ├─packagekitd───2*[{packagekitd}]
+        ├─polkitd───6*[{polkitd}]
+        ├─pulseaudio───2*[{pulseaudio}]
+        ├─rngd
+        ├─rpcbind
+        ├─rsyslogd───2*[{rsyslogd}]
+        ├─rtkit-daemon───2*[{rtkit-daemon}]
+        ├─smartd
+        ├─sshd─┬─sshd───bash───pstree
+        │      └─sshd───bash
+        ├─systemd-journal
+        ├─systemd-logind
+        ├─systemd-udevd
+        ├─tracker-store───7*[{tracker-store}]
+        ├─tuned───4*[{tuned}]
+        ├─udisksd───4*[{udisksd}]
+        ├─upowerd───2*[{upowerd}]
+        ├─vmtoolsd───{vmtoolsd}
+        ├─vmtoolsd───3*[{vmtoolsd}]
+        ├─wpa_supplicant
+        └─xdg-permission-───2*[{xdg-permission-}]
+
+-------------------------------------------------------------------------------------
+killing the process
+
+[root@centos7 ~]# pgrep chronyd
+763
+[root@centos7 ~]# pidof chronyd
+763
+[root@centos7 ~]# kill -9 763
+[root@centos7 ~]#
+-------------------------------------------------------------------------------------
+
+Foreground and Background processes
+
+[root@centos7 edac]# touch file1; mkdir dir1 --> we ran two commands in sequence and they got executed successfully as the other command didnt have to wait long for the first command's execution
+[root@centos7 edac]# ls
+dir1  file1
+[root@centos7 edac]# sleep 1000s&  touch file2 --> Now we know that second command will have to wauit for 1000s - so in order to avoid that we sent first command to background using '&'
+[1] 5688
+[root@centos7 edac]# ls
+dir1  file1  file2
+[root@centos7 edac]# jobs      -->>> is to check the jobs
+[1]+  Running                 sleep 1000s &  ->> job id can be seen in []
+[root@centos7 edac]# fg %1 ------->> syntax to bring the process in fg
+sleep 1000s
+-------------------------------------------------------------------------------------
+#!/bin/bash -->> defining the interpreter
+
+##script to control process execution
+mkdir /root/test
+touch /root/test/file1
+touch /root/test/file2
+watch 'ls -l /root/test'
+touch /root/test/file3
+touch /root/test/file4
+sleep 10000s 
+touch /root/test/file5
+touch /root/test/file6
+
+Task --> Run this script without issues/wait
+-------------------------------------------------------------------------------------
+Arushi is a Linux administrator working in IBM
+
+You have been assigned a task to add 50 new employees in org
+While you were adding these users, let's say you have added 10 users by now - you were assigned another task(high priority) to check if the 10000 files get created inside the /root/ibm directory. Now you start this task of monitoring this folder for creation of 10000 files. Once this is done , you can resume the task of adding the users again.
+
+#!/bin/bash 
+
+useradd john
+useradd tom
+useradd alice
+...
+...
+##manager came and gave new task of monitoring 
+
+#watch 'ls -l /root/edac/dir1 | wc -l'  --> this will break the script
+watch 'ls -l /root/edac/dir1 | wc -l' & --> this will send the watch to background and allow arushi to add new users
+
+useradd johny
+useradd tomy
+useradd alicy
+..
+..
+-------------------------------------------------------------------------------------
+Practice with grep
+
+[root@centos7 dir1]# cat testfile | grep "tom"
+tom
+tomy
+[root@centos7 dir1]# cat testfile | grep "tom*"
+tom
+tomy
+[root@centos7 dir1]#
+[root@centos7 dir1]# cat testfile | grep "tom*"
+tom
+tomy
+[root@centos7 dir1]# cat testfile | grep "apple"
+apple
+[root@centos7 dir1]# cat testfile | grep "orange"
+orange
+[root@centos7 dir1]# cat testfile | grep -i "apple"
+apple
+Apple
+APPLE
+[root@centos7 dir1]# cat testfile | grep -i "orange"
+orange
+OrangE
+[root@centos7 dir1]# cat testfile | grep  "^[A]pple"
+Apple
+[root@centos7 dir1]# cat testfile | grep  "^[A]pp"
+Apple
+[root@centos7 dir1]# cat testfile | grep  "^[A][pP][pP][lL][eE]"
+Apple
+APPLE
+[root@centos7 dir1]# cat testfile | grep  "[A][pP][pP][lL][eE]"
+Apple
+APPLE
+[root@centos7 dir1]# cat testfile | grep "^1"
+1
+111
+101
+10101
+192.168.21.5
+127.0.01
+[root@centos7 dir1]# cat testfile | grep "1$"
+1
+111
+101
+10101
+127.0.01
+[root@centos7 dir1]# cat testfile | grep "101"
+101
+10101
+[root@centos7 dir1]# cat testfile | grep "^OE$"
+[root@centos7 dir1]# cat testfile | grep "^O*E$"
+[root@centos7 dir1]# cat testfile | grep "^O.*E$"
+OrangE
+[root@centos7 dir1]# cat testfile | grep "^O.*E$"
+OrangE
+[root@centos7 dir1]#
+[root@centos7 dir1]# cat testfile | grep "\d{10}"
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}"
+9818616198
+98186161679
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}$"
+9818616198
+98186161679
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}"
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}"
+9818616198
+98186161679
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}\b"
+9818616198
+98186161679
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P -o "\d{10}"
+9818616198
+9818616167
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}"
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}"
+9818616198
+98186161679
+9818616100
+[root@centos7 dir1]# cat testfile | grep -o  -P "\d{10}"
+9818616198
+9818616167
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}" | grep -P "\d{11}"
+98186161679
+[root@centos7 dir1]# cat testfile | grep -P "\d{10}" | grep -v -P "\d{11}"
+9818616198
+9818616100
+[root@centos7 dir1]# cat testfile | grep -P "\d+\.\d+\.\d+\.\d+"
+192.168.21.5
+[root@centos7 dir1]# cat testfile | grep -E "(com$|org$|in$)"
+gmail.com
+cdac.in
+[root@centos7 dir1]#
+
+File
+----
+[root@centos7 dir1]# cat testfile
+tom
+tomy
+apple
+Apple
+APPLE
+1
+111
+101
+10101
+orange
+OrangE
+9818616198
+98186161679
+9818616100
+192.168.21.5
+127.0.01
+gmail.com
+cdac.in
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

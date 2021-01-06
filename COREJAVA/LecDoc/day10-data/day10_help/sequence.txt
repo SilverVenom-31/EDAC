@@ -1,0 +1,103 @@
+Today's Topics
+
+equals
+custom exc
+strings handling
+date time handling
+
+
+Revision 
+Checked vs Un-checked exceptions
+throw vs throws
+keywords in java : in exc handling
+throw Throwable instance; : java statement => raise an exception
+Built in excs : detected by JVM : raise an exception
+Validation failures / B.L errs : detected by prog : raise a custom exception
+eg : throw new ArithmeticException("Divide by 0");
+OR
+throw new UserInputValidationException("Invalid Email Format");
+
+throws : keyword : appears in method declaration, meant for javac , used for delegating the exc handling to the caller.
+eg : public void validateEmail(String email) throws UserInputValidationException
+{
+ if(invalid email)
+  throw new UserInputValidationException("Invalid Email Format");
+   
+}
+
+finally keyword : block : always invoked by the JVM (except System.exit)
+try-catch-finally
+try-finally
+
+try-with-resources : java.lang.AutoCloseable : i/f
+1. public void close() throws Exception
+
+try(Scanner sc=new Scanner(...);
+   Socket s1=new Socket(remIp,remPort);)
+{
+ ......
+}
+no javac error
+
+When it's mandatory to use "throws" keyword
+1. unchecked n un handled exc
+2. checked n un handled exc  : correct
+3. unchecked n handled exc
+4. checked n  handled exc
+
+2. Custom exception(user defined excs / application exc) --need n steps
+
+Why ? 
+To catch n recover from validation errors n B.L failures : which are not detected by JVM
+
+steps 
+1. Create custom exception class : by extending from Throwable / Error / Exception / RuntimeException...
+eg : public class MyException extends Exception {
+  public MyException (String mesg)
+  {
+     super(mesg);
+  }
+}
+
+2. In B.L / validation rules 
+If there are any failures : 
+if(some error)
+ throw new MyException("actual error mesg");
+........
+
+3. JVM check : MATCHING catch  or catch-all
+
+
+syntax : 
+ throw Throwable instance;
+
+Objective :
+Validate speed of a vehicle on a highway
+min speed = 40, max speed=80
+Alert user via custom exception , in case speed is out of range.
+
+1. Create custom exception class(SpeedOutOfRangeException) --in the package "custom_excs"
+
+2. Create static method , in the ValidationUtils class (in pkg utils) checkSpeed method --
+which should throw the custom exc if speed is out of range.
+Otherwise --display mesg --"Speed within range"
+Don't apply method level level handling
+
+3. Create TestSpeed in the package "exc" , with main method
+3.1 Using scanner(try-with-resources) , accept speed of the vehicle.
+3.2 Invoke "checkSpeed(int speed) --from within try --catch-all block in main
+Centralized exc handling
+
+---------------------
+
+1. Regarding equals
+
+
+String Handling
+1. Immutability of strings
+2. == vs equals
+3. literal strings vs non literal
+4. API
+
+
+

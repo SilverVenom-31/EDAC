@@ -1,0 +1,79 @@
+How will you read char data from a text file in a buffered manner ?
+Chain of Strms : Java App    <------BR(Reader,size)   <--------- FR(fileName)<-----Text File
+BR br=new BR(new FileReader(sc.nextLine()));
+//BR : readLine : String : @ EOS : null
+String s=null;
+while((s=br.readLine()) != null)
+ sop(s);
+
+OR
+ br.lines()//src
+.forEach(System.out::println);
+
+How to upload text data from clnt to server ?
+Clnt side java app ----->  PW ---> Socket o/p strm (SOS) : Socket.getOutputStream() .........                                                                 
+ Server side java app
+
+Triggers : for sending data from PW ---> Next node 
+1. buf full
+2. public void flush() throws IOExc
+3. public void close() throws IOExc 
++
+4. flush auto upon new line
+
+How to write  data to the text file in buffered manner ?
+JA --->PW ---->FW --->text file
+eg : Map of products --sort the product details as per date --save the details in text file in a buffered manner.
+eg : PW pw=new PW(new FW(.....));
+map.values().stream().//Stream<Product>
+.sorted((p1,p2)->p1.getDate().comapareTo(p2.getDate()).//sorted procudt strm
+forEach(p->pw.println(p));
+
+OR
+map.values().stream().//Stream<Product>
+.sorted(Comparator.comparing(Product::getDate)).//sorted procudt strm
+forEach(pw::println);
+--------------------------
+Objective : 
+Store single product information in binary file : persistence
+eg : Product p=new Product(.....);
+Chain of I/O streams
+Java App ---> BOS ---> FOS ---> Bin file
+try(BOS out=new BOS(new FOS(sc.nextLine()))
+{
+  //BOS/FOS : methods : write(int), write(byte[]), write(byte[] , offset,len)
+  // who will have to convert product details (id,name......) --> bin ? : PROGRAMMER
+  
+}
+---------------
+Filtering or conversion streams (java.io)
+1. DataOutputStream : class =>bin o/p stream (write : bin)
+=> Mixed data stream
+Store single product information in binary file 
+2. DataInputStream
+
+Re store product info from the bin file
+Enter serialization n de serialization
+refer : serialization_in_detail.txt
+
+
+Objective : Association : HAS-A
+Forms : Aggregation n Composition
+
+(Aggregation : weaker form of association) 
+eg : Product HAS-A ShipmentDetails (one-to-one asso)
+
+ShipmentDetails : city,zipCode,phoneNo, shipmentDate 
+
+
+
+
+
+
+
+
+
+
+
+
+

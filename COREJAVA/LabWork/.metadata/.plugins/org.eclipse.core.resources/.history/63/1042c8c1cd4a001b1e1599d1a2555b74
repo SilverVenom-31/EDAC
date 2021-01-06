@@ -1,0 +1,18 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.tester;
+
+import java.util.List;
+import static com.app.utils.CollectionUtils.populateList;
+import com.app.core.Student;
+
+public class StudentTester {
+
+	public static void main(String[] args) {
+		
+		List<Student> list = populateList();
+		
+		list.stream().filter(i-> i.getSubject()=="JAVA").mapToDouble(i->i.getGpa())
+
+	}
+
+}

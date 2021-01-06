@@ -1,0 +1,66 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Menu.java
+
+package com.app.foods;
+
+
+public final class Menu extends Enum
+{
+
+    private Menu(String s, int i, int price)
+    {
+        super(s, i);
+        this.price = price;
+    }
+
+    public int getPrice()
+    {
+        return price;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+
+    public String toString()
+    {
+        return (new StringBuilder(String.valueOf(name()))).append("@").append(price).toString();
+    }
+
+    public static Menu[] values()
+    {
+        Menu amenu[];
+        int i;
+        Menu amenu1[];
+        System.arraycopy(amenu = ENUM$VALUES, 0, amenu1 = new Menu[i = amenu.length], 0, i);
+        return amenu1;
+    }
+
+    public static Menu valueOf(String s)
+    {
+        return (Menu)Enum.valueOf(com/app/foods/Menu, s);
+    }
+
+    public static final Menu IDLI;
+    public static final Menu DOSA;
+    public static final Menu SANDWICH;
+    public static final Menu SOUP;
+    public static final Menu RICE;
+    private int price;
+    private static final Menu ENUM$VALUES[];
+
+    static 
+    {
+        IDLI = new Menu("IDLI", 0, 50);
+        DOSA = new Menu("DOSA", 1, 70);
+        SANDWICH = new Menu("SANDWICH", 2, 100);
+        SOUP = new Menu("SOUP", 3, 120);
+        RICE = new Menu("RICE", 4, 100);
+        ENUM$VALUES = (new Menu[] {
+            IDLI, DOSA, SANDWICH, SOUP, RICE
+        });
+    }
+}

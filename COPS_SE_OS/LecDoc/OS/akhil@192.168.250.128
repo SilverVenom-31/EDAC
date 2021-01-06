@@ -1,0 +1,30 @@
+SHELL SCRIPT - Real-Life examples
+---------------------------------
+Create a script to fetch the list of all the users whose UID is greater than 500
+
+Creates a script that creates a user named john with password - Password@123
+
+Create a script to fetch the list of all the users  whose UID is less than 500. Output should have following format
+username ---->>>> shell
+
+Create a script that asks for a process name from the user and displays its UID
+
+Create a script that asks for a process name from the user and displays its PPID
+
+Create a script that asks for a file name and displays its permissions
+
+Create a script that asks for a directory name and displays its size in MB
+
+Create a script that asks for a absolute path and tells you if that path is of a file or a directory. Output should be as follows:
+Path ---> File or Directory (Any One)
+
+Create a script to fetch the list of all the users whose SHELL is locked
+
+Create a script that takes the list of users from /etc/passwd file and tells if the user has a password set or not using passwd -S command
+For example: Here user5 has password but user6 does not
+[root@centos7 dir1]# passwd -S user5
+user5 PS 2020-10-15 0 99999 7 -1 (Password set, SHA512 crypt.)
+
+[root@centos7 dir1]# passwd -S user6
+user6 LK 2020-10-15 0 99999 7 -1 (Password locked.)
+

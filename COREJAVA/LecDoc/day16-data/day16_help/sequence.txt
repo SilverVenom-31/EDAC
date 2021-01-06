@@ -1,0 +1,47 @@
+Today's topics 
+Sorting in Java 
+Sets
+
+Revise via mem diagram
+Objective : remove all emp's info earning sal > 50K
+for(int i=0;i<l1.size();i++)
+ if(l1.get(i).getSalary() > 50000))
+   l1.remove(i);
+
+OR
+Iterator<Emp> itr=l1.iterator();
+while(itr.hasNext())
+ if(itr.next().getSalary() > 50000))
+  itr.remove(); 
+-----------------------------
+Objective  : Sort emps as per emp id & name (PK) : Natural ordering
+Lab assgnment : Sort customers as per DoB & email
+Objective : Sort emps as per join date (C.O) : custom ordering : separate class
+Objective : Sort emps as per join date n salary(C.O) : custom ordering : ano inner  class
+eg : Collections.sort(emps, new Comparator<Emp> ()
+{
+   @Override
+   public int compare(Emp e1,Emp e2)
+   {....}
+});
+
+Outer$1
+Outer$2
+.....
+new Comparator<Emp> () => creates instance of the ano inner class , that has imple. Comparator<Emp> i/f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

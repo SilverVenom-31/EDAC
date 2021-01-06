@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ORDER DETAILS</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+    <script src="order.js"></script>
+</head>
+
+<body>
+    ORDER ID:
+    <input type="text" name="t1" id="t1" required>
+    <br>
+    <br> Customer Name:
+    <input type="text" name="t2" id="t2" required> <span id="s1"></span>
+    <br>
+    <br> Enter Billing Date:
+    <input type="date" name="d1" id="d1" required> <span id="s2"></span>
+    <br>
+    <br> Enter Shipping Date:
+    <input type="date" name="d2" id="d2" required>
+    <br>
+    <br> Order Total:
+    <input type="text" name="t3" id="t3" required> <br> <br>
+    <input type="button" name="b1" id="b1" value="Display" onclick="disp()">
+
+    <span id="s3"></span>
+
+</body>
+
+</html>

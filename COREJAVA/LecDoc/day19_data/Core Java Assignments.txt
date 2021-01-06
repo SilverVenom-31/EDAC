@@ -1,0 +1,62 @@
+
+Day 19
+1. Revise Map functionality (using day19.1 project)
+2. Open CollectionUtils i/f
+add a method to ret a populated growable hashmap from sample data in a list.		//check
+3. Check last transaction date of the account
+In case of no tx done in past 6 months, disable active status of the account. 
+Updation of  tx date will only be done from deposit & withdraw methods.
+Whenever any customer tries to access any dormant a/c raise the alert , using exception   //check
+
+4. Confirm fail-fast ness of Iterators / ListIterators
+How ?
+Convert HashMap into LinkedList & test it.
+(MUST)
+Try this.
+Add it as a next option in BankAccountCRUDMap or your own tester.
+Iterator<BankAccount> itr=hm.values().iterator();
+//remove bank account , using Map API : remove
+//iterate over the collection using SAME , earlier created iterator.
+What will happen ?
+
+OR try a simpler set up	
+Create a simple LinkedList of integers. Populate it with 5 ints.
+ListIterator<Integer> litr=list.listIterator();
+list.add(1234);
+while(litr.hasNext())
+ sop(litr.next());
+What will happen ?
+	
+5. Complete pending student assignement			//check
+
+6. Sort student details as per the course & marks obtained.		//check
+
+7. Try it Tomorrow!
+Write a static method in Utils class to perform ANY operation(add/subtract/multiply/divide)   on 2 double arguments & return result.
+Test it for addition of 2 numbers , subtraction , multiplication & division of 2 double operands.
+Add a Tester
+Invoke testCalculate method , to add 2 nums n display result
+Invoke testCalculate method , to multiply 2 nums n display result.
+How will you do it ?
+
+8. OPTIONAL 
+Composite PK 
+Hint : New business scenario.
+A Car dealer wants to keep track of all the cars in his showroom.
+Car has : regNo(int) , chasis no (string) , manufactureDate , price , modelName, company
+Unique ID for a Car  : regNo & a chasis no
+How will you store these car details in a map ?			//check
+
+
+9.Sorted a/cs as per desc acct nos
+
+eg : HM : {k1=v1,k2=v2,k3=v3,k4=v4,k5=v5}
+Sek<K> keys=hm.keySet();
+sop(keys);
+hm.put(k6,v6);
+sop(keys);
+hm.remove(k1);
+sop(keys);
+
+
+

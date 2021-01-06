@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First HTML!</title>
+	<script>
+		function f1()
+		{
+			//document.getElementById("h1").innerHTML = "New H1 Header!!";
+			//document.getElementById("p3").innerHTML = "New para contents";
+			var plist = document.getElementsByTagName("p");
+			for (i = 0; i < plist.length; i++)
+			{
+				plist[i].innerHTML = "new content";
+				plist[i].style.color="red";
+				plist[i].style.backgroundColor="gold";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1 id = "h1">Welcome to HTML!</h1>
+	<p>Para-1</p>
+	<p>Para-2</p>
+	<p id= "p3">Para-3</p>
+	<p>Para-4</p>
+
+	<input type="button" value = "change" onclick="f1()">
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Appointment</title>
+</head>
+
+<body>
+    <h1>Appointment Scheduler</h1>
+    <br>
+    <form method="post">
+        <fieldset style="width: 50%;">
+            <legend>Personal information</legend>
+            Name*
+            <br>
+            <input type="text" autofocus required>
+            <br> Telephone number
+            <br>
+            <input type="tel">
+            <br> E-mail address*
+            <br>
+            <input type="email" required>
+            <br> Date of birth
+            <br>
+            <input type="date">
+        </fieldset>
+        <fieldset style="width: 50%;">
+            <legend>Appointment Request</legend>
+            What is the reason for your visit?
+            <br>
+            <input type="text" placeholder="Select or type your reason" size="18">
+            <br>
+            <br> Current pain level
+            <br> 1
+            <input type="range" min="1" max="10"> 10
+            <br>
+            <br> Preferred date
+            <br>
+            <input type="date">
+            <br>
+            <br> Preferred time
+            <br>
+            <input type="time">
+            <br>
+            <br>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

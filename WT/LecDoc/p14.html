@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getNumber(){
+            
+        var num1 = 0;
+        num1 = parseInt(document.getElementById("text1").value);
+        var num2 = 0;
+        num2 = parseInt(document.getElementById("text2").value);
+        var result=num1+num2;
+        document.getElementById("result").innerHTML=result;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="text1" onchange="getNumber()" value="0">
+    <input type="text" id="text2" onchange="getNumber()" value="0">
+    <!-- <button onclick="getNumber()">sum</button> -->
+    <br>
+    <h1><span id="result"></span></h1>
+    <!-- <h2 id="pdata"></h2> -->
+    <script>
+        // getDataFromPrompt();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+CREATE TABLE with NULL CONSTRAINT			 				check		
+CREATE TABLE to check values with CHECK CONSTRAINT					check		
+CREATE TABLE with CHECK CONSTRAINT using IN operator					check
+CREATE TABLE with CHECK CONSTRAINT and LIKE operator					check
+CREATE TABLE with AND and OR operator and CHECK CONSTRAINT
+UNIQUE CONSTRAINT									check
+UNIQUE CONSTRAINT check unique value									
+CREATE TABLE with DEFAULT CONSTRAINT							check
+CREATE TABLE with AUTO INCREMENT							check
+PRIMARY KEY CONSTRAINT									check
+CREATE TABLE PRIMARY KEY CONSTRAINT on single column					check
+CREATE TABLE PRIMARY KEY UNIQUE CONSTRAINT						check
+CREATE TABLE PRIMARY KEY on multiple columns						check
+creating table with FOREIGN KEY CONSTRAINT						check	
+CREATE TABLE with FOREIGN KEY CONSTRAINT on multiple columns				check			
+CREATE TABLE with FOREIGN KEY CONSTRAINT on multiple tables				check
+CREATE TABLE with CASCADE								check
+CREATE TABLE with SET NULL								check
+CREATE TABLE with NO ACTION								

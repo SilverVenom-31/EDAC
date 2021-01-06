@@ -1,0 +1,138 @@
+Assignment status ???
+
+Today's Topics
+Enter IDE
+Link : https://github.com/spring-projects/toolsuite-distribution/wiki/Spring-Tool-Suite-3
+(STS 3.9.13)
+Garbage Collection
+Constructor Chaining
+Arrays
+Access Specifiers
+Inheritance
+
+Revise 
+1. Answer this using memory pic
+What will happen ?
+package tester;
+class TestBox {
+psvmain(...) {
+Box b1;//ref type of a var , class type ref, method loc var : stack : main thrd  (stack frm : main method)
+//sop(b1);//method loc vars : by def un inited : javac err
+b1=new Box(1,2,3);//Box class info : method area (metaspace : single copy : shared across multiple thrds of the same JVM). object : heap (CP , width=1.0,depth=2.0,height=3.0)
+//b1 ---->1st  BOx class instance  (CP) ---> Box class info 
+Box b2=new Box(3,4,5);//b2 --->2nd Box class instance  (CP) --->same  Box class info 
+sop(b1.getDetails());//1.0 2.0 3.0
+sop(b2.getDetails());//3.0,4.0,5.0
+b2=b1;//2nd box is no longer accessible
+sop(b1.getDetails());//1.0 2.0 3.0
+sop(b2.getDetails());//1.0 2.0 3.0
+b1=null;//b1 delinked from 1st obj
+//sop(b1.getDetails());//run time error : exception : in absence of exc handler : JVM supplies a def exc handler ---aborts the code : print error details : java.lang.NullPointerException
+b2=null;//1st box is no longer accessible
+//sop(b2.getDetails());//NPE
+//code continues....
+}
+}
+java tester.TestBox
+
+
+1. Garbage Collection
+
+2. Solve : ready code on parameter passing
+
+3. More B.L (business logic) : Box class
+
+1. Create Cubes (constr chaining)
+eg : User orders a cube
+sop("Enter side of the cube");//10
+//How will you create a cube?
+Box cube=new Box(sc.nextDouble());//javac error
+
+How to solve the error?
+Add overloaded constructor (i.e add another constr with single arg)
+public Box(double side)
+{
+// width=depth=height=side;
+  this(side,side,side);
+}
+
+public Box(double w,double d ,double h)
+{
+ width=w
+ depth=d
+  height=h;
+}
+
+
+
+2. Add a instance method to Box class to test equality of 2 boxes : based upon box dims.
+
+
+
+
+3. Add a method to Box class to return a new Box with modified offset dims & test it with the tester.
+eg : b1 --1st Box : 10 20 30
+b2 --2nd box : 2 , -4 -10 : offsets
+b2 : 2nd new box : 12 16 20
+
+-------------
+Regarding Arrays
+refer -- Java Tut slides No  29
+In Java, arrays are full-fledged objects. Like objects, arrays are dynamically created & stored on the heap. 
+
+Arrays (like any other object) are  associated with the class. All arrays of the same dimension and type have the same class. The length of an array does not play any role in establishing the array's class. For example, an array of three ints has the same class as an array of three hundred ints.([I) The length of an array is considered part of its instance data.
+
+eg : The class name for single dimension array of ints is "[I". The class name for a three-dimensional array of bytes is "[[[B". The class name for single dimension array of booleans is "[Z"
+
+Array size(length) is fixed.Implicit super class of array is java.lang.Object.
+
+
+2.1 Create Array of primitive types
+
+Objective -- Accept no of data samples(of type double) from User(using scanner)
+Create suitable array & display it using for-loop , to confirm default values.
+
+Accept data from User(scanner) & store it in the array.
+Display array data using for-each loop
+
+for-each loop(enhanced for loop)
+syntax
+eg : Display array data using for-each loop
+
+Important statement
+Works on a copy of array element.
+
+for-each limitations
+1. Can only iterate from 1st elem to last elem , with step size +1
+2. Works on a copy of array elems
+(can't be used for modifying array elems).
+
+
+API --java.util.Arrays : helper class for array handling
+Method 
+public static String toString(double[] a)
+Returns a string representation of the contents of the specified array.
+-----------------
+2.2 Array of references
+
+Add Box class into "com.app.core"
+Create a tester class  : TestBoxArray : "com.tester"
+
+Objective : Ask user(client) , how many boxes to make ?
+Prompt for Box dims , for individual box.
+Store these details suitably.
+1. Display using single for-each loop, box dims n volume
+
+2. Double box width for all boxes having volume > 100.(USE for-each & solve this)
+
+
+3 Multi dimensional arrays
+
+-----------------------
+3. Inheritance 
+refer to "readme inheritance.txt" from today's help.
+Person-Student-Faculty scenarion (constr invocation in inheritance hierarchy)
+refer to assgn1 pic.(Fruits / taste scenario)
+
+
+

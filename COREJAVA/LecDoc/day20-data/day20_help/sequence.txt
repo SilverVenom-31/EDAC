@@ -1,0 +1,56 @@
+Java 8 New features
+1. default methods : concrete method implementation
+javac : public
+Why ? 
+1. To maintain backward comp.
+2. To avoid imple of addtional methods
+eg : java.lang.Iterable<T>
+forEach : for internal iteration 
+default imple of the method
+
+2. static methods in i/f : concrete imple.
+javac : public
+
+3. Functional i/fs : exist even before Java 8
+@FunctionalInterface : Java 8
+SAM : single abstract method
+eg : Comaprable , Comparator, Runnable....
+java.util.function : Func i/f : Consumer, Predicate...
+Func i/f : specific single behaviour => as the target to lambda expression.
+
+
+
+
+3. Lambda expression Practice
+Create a Product class -- id(int),name, category(enum) , price,manufactureDate(LocalDate)
+
+Create CollectionUtils --add a static method to return AL of products(min 5)
+
+3.1 Write a Tester , using lambda expression , to display available product names.
+
+3.2 Create another Tester : 
+To remove products created after a spcific date (taken from user) , display the list.
+Initially do it in imperative style & later replace it by declarative style(lambda expression). Instead of jumping in lambda directly, can add a step of ano inner class.
+
+Hint : removeIf method of Collection i/f
+
+3.3  Sort the products as per their price & display them
+
+3.4  Create a Tester to iterate over the map
+
+Can u directly iterate over the map ?
+Not till Java 7
+Hint : Look for forEach method in Map i/f & try it!
+
+3.5 Lab work
+ Apply discount to older products & then display product details
+I/P discount amount & date
+
+Enter Java 8 streams
+refer to streams sequence
+
+
+Enter Java 8 streams
+refer to Collections vs Streams
+refer to "regarding java 8 streams"
+refer to "streams sequence"

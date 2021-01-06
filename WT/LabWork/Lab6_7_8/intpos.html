@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>POSITIVE INTEGER</title>
+    <script>
+        function sum() {
+
+            var t = document.getElementById("t1").value;
+            var sum = 0;
+
+            if (parseInt(document.getElementById("t1").value) > 0 && parseInt(document.getElementById("t1").value) < 1000) {
+
+                for (var i = 0; i < t.length; i++) {
+                    sum = +t.charAt(i) + +sum;
+                }
+                document.getElementById("s1").innerHTML = ("<br>Sum of the digits of " + t + " is " + sum);
+
+            } else {
+                document.getElementById("s1").innerHTML = "<br>Enter number is out of range."
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Enter a +ve no less than 1000:
+        <input type="text" name="t1" id="t1">
+        <br>
+        <br>
+        <input type="button" name="b1" id="b1" value="Sum" onclick="sum()">
+        <span id="s1"></span>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+Enter streams....
+
+1. How to create stream of ints from array?
+java.util.Arrays class method
+public static IntStream stream(int[] array)
+Returns a sequential IntStream with the specified array as its source.
+
+2. How to create stream(sequential) from Collection ?
+Collection i/f method
+public Stream<E> stream()
+
+3.How to create stream(parallel) from Collection ?
+Collection i/f method
+public Stream<E> parallelStream()
+
+
+IntStream Methods
+
+1. public void forEach(IntConsumer action)
+Performs an action for each element of this stream.
+
+Solve : 
+1.Create int[] ---> IntStream & display its contents.
+2. Create AL<Integer> , populate it.
+Convert it to seq stream & display elems
+Convert it to parallel stream & display elems
+3. Create stream of ints between 1-100 & display all even elements.
+(Hint : IntStream methods --range,filter,forEach)
+
+4. Display all product names of a particular category , exceeding specific price.
+I/P category name & price.
+(stream,filter,forEach)
+eg : productList : List<Product>
+
+
+5. Display sum of all even nos between 1-100 .
+
+6. Display sum of product prices of a specific category.
+I/P category name
+o/p sum.
+
+--------------------
+
+4.Create IntStream having ints in the range of 10...50
+& Print its sum.(specialized reduction operation)
+Hint( rangeClosed , sum)
+
+5.Print avg of 10-50 numbers(if strm is empty print -100 or else print avg)
+(rangeClosed,average & optional)
+
+6.Print avg of odd numbers between 10 & 50
+(filter,average,optional)
+
+7.Print avg of square of odd nums between 10 & 50 
+(filter,map,reduce)
+
+8. Use var-args based method "of" to generate IntStream.
+Find min & max values.
+Print sorted (asc) ints.
+
+8.5 Accept 10 numbers from user & add them to IntStream
+Print if all the numbers are > 20.
+
+
+8.6 Create Student class -- rollNo(string),name,dob(LocalDate),subject(enum),gpa(double)	//check
+Create Subject enum --JAVA,CLOUD,ML,R,DBT						//check
+Add constr & to string & getters.							//check
+8.2 Create CollectionUtils ---to ret populated FIXED size list of students (4 records)	//check
+8.3 Write a tester to print avg gpa of students opted for subject JAVA			//check				
+(Hint : filter,map,reduce)
+8.4 Print name of java topper								//check
+(filter reduce -- max )
+8.5 Check if there are any failures for the specified subject from user.    	//check
+(gpa < 5 : failed case)
+(filter,anyMatch)
+
+8.6 Display Names of failures in Java					//check
+filter,findAny
+
+8.7 How many distinctions for a specific subject			//check
+(gpa > 7.5 : distinction)
+filter,count
+
+
+8.8 Create a separate class Address(not a nested class)		
+--city,state,phoneNo							
+Add a method in Student class to assign student's address.		
+Modify CollectionUtils , to assign address to all the students.	
+
+8.9 Display distinct city names of student address.			
+Later part , collect them in a Set.					
+(map,distinct,collect)								//check
+
+
+
+Important Facts :
+1. Streams are implicitely closed , after terminal operation (i.e they can't be re used after terminal operation) 
+Otherwise throws --IllegalStateException (reason :stream has already been operated upon or closed)
+Where as , collections are re-usable.
+
+2. Streams follow , vertical execution order.
+
+3. Streams support lazy evaluation (meaning none of the intermediate operations are performed , until its closed by terminal operation)
+
+
+

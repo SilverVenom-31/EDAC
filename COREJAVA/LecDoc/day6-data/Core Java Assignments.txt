@@ -1,0 +1,28 @@
+
+Day 6
+1. Complete pending assignment from Day 5.
+2. Solve this.
+
+2.1 Create inheritance hierarchy for fruits
+Fruit,Apple,Orange,Cherry
+Add private data member "name" , in Fruit class , to accept a name of the fruit.
+(eg : "Kashmiri Apple" or "Nagpur Orange" ...)
+Add taste() method to display its taste.
+
+2.2 Create FruitUtils class. 
+Add a static method , "addFruit" to add any fruit to the Fruit Basket.
+
+2.3. Write a Tester to create basket of fruits.
+Prompt for size of a fruit basket n create suitable data structure.
+(populate basket based upon user's choice)
+Menu 
+1. Add Apple
+2. Add Orange
+3. Add Cherry
+NOTE : 
+Accept name of the fruit form user.
+In above  options : you should call addFruit method of FruitUtils class & then chosen fruit should get added in the basket.
+4. Display taste of all fruits in the basket.
+10. Exit :  terminate the application.
+
+Weekend assignment will be uploaded later.

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>INIT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#select").on("click", function() {
+                var key = $("#t1").val();
+                $("li").each(function(index, item) {
+                    if (key == $(this).text()) {
+                        $(this).css("background-color", "yellow");
+                    }
+                })
+            })
+            $("#add").on("click", function() {
+                var key = $("#t1").val();
+                $("#list").append("<li>" + key + "</li>");
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>Departments :</h3>
+        <ul id="list">
+            <li>Sales</li>
+            <li>Human Resource</li>
+            <li>Marketing</li>
+            <li>Customer Support</li>
+        </ul><br>
+    </div>
+    <div>
+        Search :<input type="text" id="t1"><br><br><br>
+    </div>
+    <div>
+        <button id="add">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="select">Select</button>
+    </div>
+</body>
+
+</html>

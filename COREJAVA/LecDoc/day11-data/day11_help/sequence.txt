@@ -1,0 +1,99 @@
+Today's topics
+
+String API 
+StringBuilder API
+Date Time Handling
+Enumerations
+HAS-A relationship
+Var-args
+
+Revise 
+Regarding assignment : dup customers (email)
+1. Customer : 
+1.1 Override equals method : replacing ref equality by content equality(unique id : email)
+@Override
+public boolean equals(Object o)
+{
+  sop("in cust equals");
+  if(o instanceof Customer)
+   return this.email.equals(((Customer) o).email);
+  return false;
+}
+1.2 Add overloaded constr 
+Customer(String email)
+{
+ this.email=email;
+}
+
+In Tester
+Object c1=new Customer("abc@gmail.com",....);//up casting
+Object c2=new Customer("abc1@gmail.com",....);
+sop(c1.equals(c2));//no err , JVM : equals : Customer 
+String s1="hello";
+sop(c1.equals(s1));//no javac err, no run  time err, false
+Customer c3=null;
+sop(c1.equals(c3));//false
+
+How to chk for dups?
+public static String checkForDups(Customer[] custs,String email) throws CustomerHandlingExc
+{
+//convert email ---> Customer (email)
+   Customer newCust=new Cusotmer(email);
+   for(Customer c : custs)
+    if(c != null)
+     if(c.equals(newCust))//dup is detected
+      throw new CustomerHandlingExc("Dup email id!!!!!!!!!!!");
+   return email;
+}
+dup customer
+Lab assgn : composite PK (email n dob) 
+
+(via popular questions)
+
+String s1="12345";//literal
+String s2=s1.concat("678");//non literal new string obj is created (s2 ---> dyn created new string obj)
+sop(s1);//12345
+sop(s2);//12345678
+String s3="12345";//no new string obj : literal
+sop(s1==s3);//true
+sop(s1.equals(s3));//true
+String s4=new String(s1);//non literal (new)
+sop(s1==s4);//false
+sop(s1.equals(s4));//true
+String s5=s4.intern();//s5 ---->alrdy create literal string (s1)
+sop(s1==s5);//true
+s1=s2=s3=s4=s5=null;
+//How many objects will be marked for GC ? : s2 , s4 : 2
+
+Refer to String API
+charAt,contains,substring,indexOf,lastIndexOf,compareTo,matches
+
+
+StringBuilder API
+constructors 
+Methods : append , insert ,delete , capacity , trimToSize 
+Solve this (Trick question)
+StringBuilder sb1=new StringBuilder("hello");
+StringBuilder sb2=new StringBuilder("hello");
+sop(sb1==sb2);
+sop(sb1.equals(sb2));
+
+Date related classses 
+java.util.Date,GregorianCalendar,Calendar
+For Parsing & formatting dates : DateFormat & it's concrete sub class : SimpleDateFormat
+Objective : Add join date in emp class . Add parsing logic.
+
+Enumeration in Java
+refer to readme
+
+Associations in Java
+refer to readme
+Objective : Emp HAS-A Adhar Card 
+
+var-args
+refer to readme
+
+
+
+
+

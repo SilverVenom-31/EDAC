@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        CARDDETAILS
+    </title>
+    <link rel="stylesheet" href="card.css">
+</head>
+
+<body>
+    <section>
+        <fieldset>
+            <legend>Your Details</legend>
+            <p>
+                1. Name:
+                <input type="text" placeholder="First and Last name">
+                <br> 2. Email:
+                <input type="text" placeholder="example@domain.com">
+                <br> 3. Phone:
+                <input type="tel" placeholder="Eg.+91928452460">
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Delivery address</legend>
+            <p>
+                1.Address:
+                <textarea cols="30" rows="7"></textarea>
+                <br> 2.Post Code:
+                <input type="text">
+                <br> 3.Country:
+                <input type="text">
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Card Details</legend>
+            <br>
+            <br>
+            <table style="padding-left: 30px;">
+                <tr>
+                    <td style="text-align: right;" valign="top">
+                        1.
+                    </td>
+                    <td style="text-align: left;">
+                        <fieldset style="width: 200px;">
+                            <legend>Card type</legend>
+                            <p id="nestP">
+                                1.
+                                <input type="radio" name="r1"> VISA
+                                <br> 2.
+                                <input type="radio" name="r1"> AmEx
+                                <br> 3.
+                                <input type="radio" name="r1"> Mastercsard
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                2. Card Number:
+                <input type="text" list="cardnum">
+                <datalist id="cardnum">
+                            <option value="032"></option>
+                            <option value="033"></option>
+                            <option value="034"></option>
+                        </datalist>
+                <br> 3.Security Code:
+                <input type="text" list="code">
+                <datalist id="code">
+                            <option value="123"></option>
+                            <option value="456"></option>
+                            <option value="789"></option>
+                        </datalist>
+                <br> 4. Name on Card
+                <input type="text" placeholder="Extract name as on card">
+            </p>
+        </fieldset>
+        <span style="padding-left: 20px;">
+                    <input type="submit" value="Buy it!">
+                </section>
+            </body>
+        </html>

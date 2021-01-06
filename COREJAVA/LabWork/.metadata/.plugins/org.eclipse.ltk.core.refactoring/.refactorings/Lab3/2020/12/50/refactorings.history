@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;com.app.core.Customer.creditLimit&apos; in &apos;com.app.core.Customer&apos;&#x0A;- Original project: &apos;Lab3&apos;&#x0A;- Original element: &apos;com.app.core.Customer.creditLimit&apos;&#x0A;- Getter method name: &apos;getCreditLimit&apos;&#x0A;- Setter method name: &apos;setCreditLimit&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;creditLimit&apos;" flags="589830" getter="getCreditLimit" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;com.app.core{Customer.java[Customer^creditLimit" insertion="-1" setter="setCreditLimit" stamp="1607504566173" version="1.0" visibility="1"/>
+</session>

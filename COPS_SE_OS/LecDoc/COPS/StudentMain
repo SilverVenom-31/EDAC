@@ -1,0 +1,31 @@
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student s1 = new Student();
+		//s1.roll = 101000;
+		//s1.name = "Prasad";
+		
+		// calling instance method to set instance variables
+		int r = 101;
+		
+		s1.setDetails(r, "Prasad");
+		int s1Marks[] = {77,99,88};
+		s1.setMarks(s1Marks);
+		
+		s1.displayDetails();
+		
+		Student s2 = new Student(102,"Akshay");
+		int s2Marks[] = {71,99,82};
+		s2.setMarks(s2Marks);
+		
+		s2.displayDetails();
+		
+		s1.setName("Prasad Modified");
+		
+		System.out.println(s1.getName());
+		
+		
+	}
+
+}

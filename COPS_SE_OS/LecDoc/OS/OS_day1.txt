@@ -1,0 +1,222 @@
+Pre requisites
+--------------
+1. No dual boots (If you have Dula boot systems - Format it to have windows as base)
+2. No WSLs (windows subsystems of Linux)
+3. If your base OS is Linux - then also you should not be working on that
+
+Reason-> The only reason that we will not work on these systems and intead we will create a whole virtual env is "Isolation of Application"
+
+
+Base OS (Windows) --> Hypervisor(VMware env or anyother virtual env) --> Virtual machines(can be Linux, windows and so on..)
+=========================================================================
+Hypervisor
+----------
+When the hypervisor is on top of your base OS - it is called Type 2 hypervisor --> VMware workstation
+When the hypervisor is on the baremetal - it is called Type 1 hypervisor -> ESXi server (product by VMWare)
+
+Resources required 
+------------------
+For a linux machine - it will work fine with 2GB is enough and harddisk - 20 gb
+=========================================================================
+
+How to create VMs?
+------------------
+Step 1 - Have Vritual env - VMware-workstation-full-15.5.5
+Step 2 - Download the ISO (image of OS)
+Step 3 - You can create the OS based on that image (ISO)
+
+=========================================================================
+Linux OS
+In Linux user interacts with Shell. Shell interacts with Kernel.
+
+[tom@localhost Desktop]$ 
+means
+[username@machinename <current dir>]$
+
+Now intead of this $ --> you might also see # sometimes
+$ --> regular user
+# --> superuser(root)
+[root@localhost ~]# 
+
+-------------------------------------------------------------------------
+Command to switch from normal user 'tom' to 'root' user 
+[tom@localhost Desktop]$ su - root
+Password: 
+[root@localhost ~]# pwd
+/root
+-------------------------------------------------------------------------
+Switching from root to normal user won't require passwords whereas viceversa is NOT true
+
+[root@localhost folder1]# su - tom
+[tom@localhost ~]$ su - root
+Password: 
+[root@localhost ~]# 
+-------------------------------------------------------------------------
+[root@localhost ~]# pwd	-->> to see the current working dir
+/root
+[root@localhost ~]# mkdir folder1   -->> used to create a new folder in current dir
+[root@localhost ~]# ls  -->> list the files/folders in a dir
+anaconda-ks.cfg  folder1  install.log  install.log.syslog
+[root@localhost ~]# ls -l  -->> listing with the files 
+total 68
+-rw-------. 1 root root  3358 Oct 13 01:44 anaconda-ks.cfg
+drwxr-xr-x. 2 root root  4096 Oct 13 02:32 folder1
+-rw-r--r--. 1 root root 41995 Oct 13 01:44 install.log
+-rw-r--r--. 1 root root 10627 Oct 13 01:42 install.log.syslog
+[root@localhost ~]# 
+/root
+[root@localhost ~]# cd /root/folder1  --> cd = chnage dir -->> going/enter in to a particular location
+[root@localhost folder1]# pwd
+/root/folder1
+-------------------------------------------------------------------------
+Useradd command (centos)
+Note: In ubuntu system use - 'adduser' command
+
+[root@localhost ~]# useradd alice
+[root@localhost ~]# passwd alice
+Changing password for user alice.
+New password: 
+BAD PASSWORD: it is based on a dictionary word
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+
+[root@localhost ~]# cat /etc/passwd  --> cat is used to see the contents of a file
+root:x:0:0:root:/root:/bin/bash
+tom:x:500:500:tom:/home/tom:/bin/bash
+alice:x:501:501::/home/alice:/bin/bash
+
+Understanding /etc/passwd
+
+/etc/passwd --> is a file which contains user information
+
+User info is divided in to 7 fields each separated by ':'
+1. Username
+2. x   --> this 'x' is the link to the encrypted password in shadow file -> if "!!" then there is no password set. 
+3. User ID
+4. group ID
+5. Comment added during adding of the user on host - this is mostly blank
+6. Home directory of that user
+7. Shell that user will use
+
+
+-------------------------------------------------------------------------
+To see which shell user is using
+
+[root@localhost ~]# echo $SHELL
+/bin/bash
+[root@localhost ~]# su - tom
+[tom@localhost ~]$ echo $SHELL
+/bin/bash
+-------------------------------------------------------------------------
+Types of shells
+1. bash 	 [mostly used in production]
+2. sh        [mostly used in production]
+3. tsh
+4. csh
+5. ksh
+6. zsh
+-------------------------------------------------------------------------
+Usage of grep and sed
+
+[root@localhost ~]# vi file_tj
+[root@localhost ~]# cat file_tj 
+
+
+
+
+
+apple is fruit
+appl is a phone
+prince has 16 gb ram
+prine uses mac
+need to use paid software
+we as commoners have 8gb ram
+poor ppl have 4gb
+
+
+
+
+[root@localhost ~]# cat file_tj | grep "gb"
+prince has 16 gb ram
+we as commoners have 8gb ram
+poor ppl have 4gb
+
+
+
+[root@localhost ~]# cat file_tj | grep -o "gb"
+gb
+gb
+gb
+
+
+
+[root@localhost ~]# cat file_tj | sed 's|gb|bg|g'
+apple is fruit
+appl is a phone
+prince has 16 bg ram
+prine uses mac
+need to use paid software
+we as commoners have 8bg ram
+poor ppl have 4bg
+
+sed command will not directly impact the og file
+
+
+[root@localhost ~]# cat file_tj 
+apple is fruit
+appl is a phone
+prince has 16 gb ram
+prine uses mac
+need to use paid software
+we as commoners have 8gb ram
+poor ppl have 4gb-
+
+-------------------------------------------------------------------------
+Imporatnce of link 'x' in /etc/passwd to /etc/shoadow
+
+root@localhost ~]# cat /etc/passwd | grep tom
+tom:x:500:500:tom:/home/tom:/bin/bash
+[root@localhost ~]# cat /etc/shadow | grep tom
+tom:$1$vLFVoIsQ$ZBX66sl3w7lana4UEdibg1:18548:0:99999:7:::
+[root@localhost ~]# su - alice
+[alice@localhost ~]$ su - tom
+Password: 
+[tom@localhost ~]$ su - root
+Password: 
+[root@localhost ~]# vi /etc/passwd
+[root@localhost ~]# cat /etc/passwd | grep tom
+tom::500:500:tom:/home/tom:/bin/bash
+[root@localhost ~]# su - alice
+[alice@localhost ~]$ su - tom
+[tom@localhost ~]$ pwd
+/home/tom
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+THIRD PARTY MODULES
+------------------------------------------------------
+so popular the node, many developers have uploaded codes 
+thrd party modules using NPM
+on top of node js we will istall expressjs and swiftly create web applications 
+expressjs is third party module 
+ex create brilliant app export expressjs 
+ex expressjs working with cookies , want to able to handle cookies 
+expressjs dont k now  so we need to install third party module 
+as cookieparser on top of expressjs which will handle cookie 
+node application need to sttopre data in mongo data bas e 
+i need to install mongoDBmodule databse as third party module 
+--------------------------------------
+any packages can be uploaded on nodejs.org
+execute node js
+NPM - node package manager 
+preinstalled with nodejs
+npm does every thing for me like installing expressjs
+- npm install Express
+alternative 
+npm/yarn
+350000 packages 
+to verify npm installation npm -v
+install packages ------------------
+globally - only when ti install development tool or cli packages otherwise 
+most of thre installation should be done locally
+global for angular cli
+>npm install @AngularCLI -g Typescript --for development tools 
+>npm install -g Typescript
+
+express should be installed kloacally as we are not using it for 20-30% 
+local 
+> npm install --save cookie-parser 
+>npm install bootstrap@4.1.1
+
+when intalled these packages it ll get stored in node_module
+user> shrilata> appdata> roaming
+
+to remove 
+>nmp uninstall <name>
+> npm update <name>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+MynodeApp
+create folder(empty) open with cd 
+>npm init -- creates a very special file known as package.json
+empty folder has file called pakage as jason file 
+{
+name....
+.
+scripts : {
+}
+}
+i am iside mynodeapp 
+
+npm install express 
+creates nodemodule folder -- it will contain all dependencies 
+
+> cookie-parser@4.3
+now the jason pacvkage has exytra dependencies as expressjsand cookie parser
+ if we want to lock this there is a lock file 
+ package.jason will contain all stuff like dependencies and all
+ 
+ 
+
+  

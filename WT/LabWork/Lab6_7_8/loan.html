@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LOAN</title>
+    <script>
+        function compute() {
+
+            var p = parseInt(document.getElementById("t1").value);
+            var r = parseInt(document.getElementById("t2").value);
+            var t = parseInt(document.getElementById("t3").value);
+
+            if (p < 1500000 && t >= 7 && t <= 15) {
+
+
+                var si = (p * r * t) / 100;
+                var amt = p + si;
+                var monthly = amt / (12 * t);
+                document.getElementById("t4").value = monthly;
+                document.getElementById("t5").value = amt;
+                document.getElementById("t6").value = si;
+            } else {
+                alert("Please enter loan about below 15lakhs and period between 7years to 15years");
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Enter Loan Information</h2>
+    <table>
+        <tr>
+            <td>1) Amount of loan (any currency)</td>
+            <td>
+                <input type="text" name="t1" id="t1">
+            </td>
+        </tr>
+        <tr>
+            <td>2) Annual percentage rate of interest</td>
+            <td>
+                <input type="text" name="t2" id="t2">
+            </td>
+        </tr>
+        <tr>
+            <td>3) Repayment period in years</td>
+            <td>
+                <input type="text" name="t3" id="t3">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <input type="button" name="b1" id="b1" value="COMPUTE" onclick="compute()">
+    <br>
+    <h2>Payment Information</h2>
+    <table>
+        <tr>
+            <td> 4) Your monthly payment will be</td>
+            <td>
+                <input type="text" name="t4" id="t4">
+            </td>
+        </tr>
+        <tr>
+            <td> 5) Your total payment will be</td>
+            <td>
+                <input type="text" name="t5" id="t5">
+            </td>
+        </tr>
+        <tr>
+            <td> 6) Your total interests payment will be</td>
+            <td>
+                <input type="text" name="t6" id="t6">
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+functional componenets dont have logic inside them 
+tasteful/class componeneets have logic
+functional componenet receives functionality from parents
+
+passing method reference from componenets
+
+Person.js-
+
+import React from 'react';
+const person = (props) => {
+return(
+    <div>
+ <p onClick={props.click}>
+ Hi i am {props.name} and {props.age}
+ years old lucky number is {Math.floor(Math.random() * 20)
+ }</p>
+ <p>{props.children}</p>
+  
+    </div>
+);
+}
+export default person;
+
+..................................................................
+
+App.js-
+
+ render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button onClick={this.btnHandler}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         
+		 <Person 
+		 name={this.state.persons[1].name} 
+		 age={this.state.persons[1].age} 
+		 click={this.btnHandler} >
+		 
+		 Hobbies : Coding 
+		 </Person>
+		
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      
+</div>
+    ); 
+  }
+
+...................................................................
+
+
+App.js-
+
+
+state= {
+    persons:[
+      {name:"Shri",age:30},
+      {name:"Soha",age:20},
+      {name:"Arnav",age:40},
+   ]
+  }
+
+//btnHandler = function(){}
+btnHandler = (newname) =>{
+ //alert("Button Clicked")
+ //lets change the state now-
+ this.state.person[0].name="SriLata"//dont do this ,never manupulate state directly
+//intead do this
+this.setState({
+ persons:[
+      {name:newname,age:3},
+      {name:"BEta",age:2},
+      {name:"GaMA",age:4},
+         ]
+})
+
+}
+
+
+    render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button onClick={this.btnHandler.bind(this,"KAvita")}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>Hobbies : Coding </Person>
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+    ); 
+  }
+
+.....................
+alteranative
+LAMBDA
+
+App.js-
+
+
+state= {
+    persons:[
+      {name:"Shri",age:30},
+      {name:"Soha",age:20},
+      {name:"Arnav",age:40},
+   ]
+  }
+
+//btnHandler = function(){}
+btnHandler = (newname) =>{
+ //alert("Button Clicked")
+ //lets change the state now-
+ this.state.person[0].name="SriLata"//dont do this ,never manupulate state directly
+//intead do this
+this.setState({
+ persons:[
+      {name:newname,age:3},
+      {name:"BEta",age:2},
+      {name:"GaMA",age:4},
+         ]
+})
+
+}
+
+
+    render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button onClick={ () => this.btnHandler("Savita")}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>Hobbies : Coding </Person>
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+    ); 
+  }
+
+........................................................
+
+
+Data Binding with User input
+
+App.js-
+
+
+
+state= {
+    uname :'',
+
+    persons:[
+      {name:"Shri",age:30},
+      {name:"Soha",age:20},
+      {name:"Arnav",age:40},
+   ]
+  }
+
+btnHandler = (newname) =>{
+
+this.setState({
+ persons:[
+      {name:newname,age:3},
+      {name:"BEta",age:2},
+      {name:"GaMA",age:4},
+         ]
+})
+
+}
+
+// event is the event object , javascript object 
+
+inputHandler =(event) => {
+this.setState({uname:event.target.value}
+);
+ 
+}
+
+    render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+
+          Name : <input
+		  value={this.state.uname} 
+		  onChange={this.inputHandler}>
+		  </input>
+		  Hellow -{this.state.uname}
+<br><br>
+           <button onClick={ () => this.btnHandler("Savita")}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>Hobbies : Coding </Person>
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+    ); 
+  }
+
+
+this thing we did is "Two Way Binding"
+
+---------------------------------------------------------------
+
+
+
+App.js-
+
+
+state= {
+    persons:[
+      {name:"Shri",age:30},
+      {name:"Soha",age:20},
+      {name:"Arnav",age:40},
+   ]
+  }
+
+btnHandler = (newname) =>{
+ 
+this.setState({
+ persons:[
+      {name:newname,age:3},
+      {name:"BEta",age:2},
+      {name:"GaMA",age:4},
+         ]
+})
+
+}
+
+inputHandler =(event) => {
+thgis.setState({
+ persons:[
+      {name:newname,age:3},
+      {name:event.target,age:2},
+      {name:"GaMA",age:4},
+         ]
+})}
+    render() {
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button onClick={ () => this.btnHandler("Savita")}>Switch Button</button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         <Person name={event.target.value}  age={this.state.persons[1].age}>Hobbies : Coding </Person>
+         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+    ); 
+  }
+
+
+....................................
+Person.js-
+<input onChange={props.change} value={props.name} />
+
+
+.......................................................
+
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Addding Style
+
+src>Person>Person.css
+
+//this will give card like visuals
+Person.css-
+
+.Person{
+    width:60%;
+    margin:16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16 px;
+    text-align: center;
+}
+
+
+Person.js-
+
+import React from 'react';
+import './Person.css'
+const person = (props) => {
+return(
+    <div className='Person'>
+ <p>Hi i am {props.name} and {props.age} years old lucky number is {Math.floor(Math.random() * 20)}</p>
+ <p>{props.children}</p>
+
+<input onChange={props.change} value={props.name} />
+    </div>
+);
+}
+export default person;
+
+
+
+.............................................
+
+App.js-
+
+ render() {
+const mystyle ={
+backgroundColor:'blue';
+color:'white';
+}
+     return (
+      <div className="App">
+         <h1> Hi, Welcome to React</h1>
+           <button mystyle={}
+		   onClick={ () => this.btnHandler("Savita")}>
+		   Switch Button
+		   </button>
+         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+         
+
+BRinging Bootstrap
+
+npm install --save react-bootstrap bootstrap@3
+
+
+index.js-
+import 'bootstrap/dist/css/bootstrap';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+//first two lines in index.js never jo down/between
+
+................................................
+
+
+
+

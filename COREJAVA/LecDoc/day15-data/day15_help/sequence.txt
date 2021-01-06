@@ -1,0 +1,86 @@
+Revise
+Generics
+Why generics?
+To inform the compiler about actual data type(RTTI : run time type info)
+1. No need of explicit downcasting
+2. NO ClassCastException
+If there are any type mismatch errs : caught by javac
+To add type safe info @ compile
+
+Generics is needed for  : only for javac
+
+Type erasure : generic info will not be present in compiled classes , since it was only meant for javac
+eg : ArrayList<Student> , ArrayList<String> , ArrayList<Integer>
+Which all classes will be loaded in Method area ? : Object, ArrayList
+
+What is generics : parameterized types 
+Where it's applicable : class, i/f , methods , constrs
+
+eg : 
+Generic method : Arrays.toList
+java.util.Arrays class
+public static <T> List<T> asList(T... a)
+: generic method from a non generic class(Arrays)
+i/p : T... a : This method can accept : no args or T[] or T t1,T t2....
+o/p : FIXED size list
+How will you use it for getting a fixed size Animal list ?
+eg : List<Animal> animals=Arrays.asList();
+List<Animal> animals=Arrays.asList(new Animal[]{new Cat(),new Horse(),new Dog()});
+animals.add(new Dog());//run time error
+
+Collection Framework Overview
+
+Java 8 Date/Time related APIs
+Java 8 New Features 
+java.time : new package is introduced
+LocalDate : Date (immutable)(yr-mon-day)  : inherently thrd safe.
+API 
+1. public static LocalDate now()
+Obtains the current date from the system clock in the default time-zone.
+eg : 
+LocalTime : Time (immutable)(hr-min-sec)  : inherently thrd safe.
+LocalDateTime : Date n Time :  inherently thrd safe.
+eg : sop("curnt date "+now());
+2. public static LocalDate of(int year,int month,int dayOfMonth)
+Obtains an instance of LocalDate from a year, month and day.
+eg : ?????
+3. public static LocalDate parse(CharSequence text)
+Obtains an instance of LocalDate from a text string such as 2007-12-03.
+eg : LocalDate dt=parse(sc.next());//0 based dates
+4. Methods :
+isBefore,isAfter,isEqual
+5. Can you change default DateTime format ? : YES
+6. How to compute User's age in years  ?
+: use java.time.Period : between
+-----------------------------------------------
+Replace Date by LocalDate
+
+Emp CRUD operations : ArrayList
+Searching by PK n non PK 
+Sorting
+
+Objective 
+1. Create empty AL to store emp info.
+2. Hire emp (with validation rules)
+i/p : emp details (w/o address)
+3. Fetch Emp details Summary 
+i/p : id & name
+o/p :emp details or exc 
+4. Assign adhar card details to emp
+i/p : id ,  name n adhar card details
+o/p : success mesg  or exc 
+
+5. Change Adhar Card no
+i/p id ,  name n new Adhar Card no
+
+6. Display name of  all emps adhar card is  created in specific month n year 
+eg : search ciriteria : date
+for -each : loop (LocalDate : API --getMonthValue() ,getYear())
+pending : to do :in labs
+
+Pending
+7. Sort emps as per PK
+8. Sort emps as per join date
+-----------------------
+Enter Sets
+

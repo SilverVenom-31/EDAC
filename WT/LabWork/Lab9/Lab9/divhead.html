@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DIVHEAD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("document").ready(function() {
+
+            $("body").css("background-color", "lightblue");
+            $("div h1").css("background-color", "gold");
+
+            $("div").css("background-color", "green");
+            $("div h1:first-child").text("Hello Friend");
+            $(" div:nth-child(3)").css("background-color", "lightpink");
+
+            var inp = $("#s1 option[value='o2']");
+            // alert($(inp[0]).text());
+            $("body").append("<div><h2>Jquery test</h2></div>");
+
+
+            $("div span").text("Hello testing friend").css("color", "red");
+
+            //var li = $("ul li:nth-child(2)").text();
+            /* 
+                        $("li").each(function() {
+                            alert($(this).text());
+                        }) */
+
+
+            // alert("1:" + $("ul li:nth-child(1)").text() + "\n2:" + $("ul li:nth-child(2)").text() + "\n3:" + $("ul li:nth-child(3)").text());
+
+            $("#s1").change(function() {
+                var opt = $(this).children("option:selected").text();
+                alert(opt);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>abc</h1>
+    <div>
+        <h1>div-1</h1>
+        <h1>div-2</h1>
+    </div>
+    <div>
+        <span>Hello Test</span>
+        <select id="s1">
+
+            <option value="o1">Option 1</option>
+            <option value="o2">Option 2</option>
+            <option value="o3">Option 3</option>
+
+        </select>
+    </div>
+
+
+    <ul>
+        <li>Apple</li>
+        <li>Kiwi</li>
+        <li>Strawberry</li>
+
+    </ul>
+    <h1>xyz</h1>
+</body>
+
+</html>

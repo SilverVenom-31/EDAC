@@ -1,0 +1,108 @@
+Today's topics 
+Downcasting 
+Abstraction : Partial
+Complete abstraction : Interfaces.
+
+Revise
+Reading H.W question : why does sop(ref) invokes : sop(ref.toString())?
+Ans : java.io.PrintStream : public void println(Object ref)
+Internally calls : String.valueOf(Object ref) : null=> rets null
+not null => ref.toString()
+
+What is polymorphism ? : Multiple changing forms (methods : behaviour)
+Different types of polymorphism : 
+1. compile time(static / early binding) : resolved by javac : achieved via method overloading
+2. run time (dynamic / late binding) : resolved by run time : JVM : dyn method dispatch -achieved via method overriding
+
+Rules of method overloading
+1. Can be in the same class or also in the inh hierarchy
+2. Same method name, method args must be different(no/type/both), ret type ignored by javac
+3. no rules on access specifiers, static method can be overloaded, no rules regarding exc handling.
+
+Rules of method overriding
+1. Can't be in the same class, MUST be in the inh hierarchy
+2. super cls : overridden method , sub class : overriding form
+3. Same method name, method args SAME,ret type : SAME or sub type of the super cls version ret type(co variant)
+eg : class A
+{
+   Fruit getFruit()
+ {
+ return new Fruit(...);
+ }
+}
+Which are the legal ret type of the overrding form of the method ?
+Fruit or any of it's sub type  (Apple, Banana,Mango.....)
+4. sub class version : can't restrict access specifier(i.e it must same or wider)
+5. Specific rules in exc handling.
+
+Which java methods can't be overridden? : private , static , final
+Important statement regarding javac n JVM
+Javac : resolves the method binding by : type of ref.
+JVM : resolves the method binding by : type of object
+
+eg : 
+
+Refer to assignment
+Consider Fruit, Apple,Orange,Mango classes
+Can u you organize it in the hierarchy?
+Fruit : super class
+Apple,Orange,Mango : sub classes
+If you want to create a Fruit Basket , which will be the data structure?
+Fruit[]
+
+Suppose you have added a common taste method in all classes
+Fruit : "No specific Taste"
+Apple : Sween n sour
+Orange : sour 
+Mango  : Sweet
+In Mango class : suppose you have added a new functionality
+public void pulp() {...}
+Q : 
+What will happen ? 
+Fruit f=new Apple(...);//no javac error :up casting  : since Apple extends Fruit
+f.taste();//javac :   ref (Fruit)           JVM : @ run time : taste method on Apple's instance : dyn method dispatch= run time poly.
+f=new Orange(...);
+f.taste();//javac :   ref (Fruit)    JVM : @ run time : taste method on Orange's instance :
+f=new Mango();
+f.taste();//javac :   ref (Fruit)           JVM : @ run time : taste method on Mango's instance :
+
+Fruit[] basket={new Apple(..),new Mango(..),new Mango(...),new Orange(...)};
+How to display taste of all fruits in the basket?
+for(Fruit f : basket)//f=basket[0],1.....3
+ f.taste();
+
+f=new Mango();//up casting
+f.pulp();//javac err : since no pulp() found in Fruit class
+((Mango) f).pulp(); //no javac err , no run time err : JVM : invokes : pulp() on Mango's instance
+
+f=new Orange(..);//no error
+((Mango) f).pulp();//run time error : java.lang.ClassCastException : Orange can't be cast into Mango
+----------------------------Revision over
+
+When will you need to apply downcasting?
+Iff super cls ref  ------> sub class object & trying to invoke some sub class specific func .
+
+Before down casting : always perform "instanceof" checking.
+
+Enter abstraction
+eg : Shapes scenario
+Solve this
+
+1. BoundedShape -- x,y 
+Method --public double area() : 0
+public String toString() : x, y 
+
+2. Circle -- x,y,radius
+Method --public double area()
+public String toString() : x, y , radius
+
+3. Rectangle -- x,y,w,h
+Method --public double area()
+public String toString() : x, y , w h
+
+4. Tester : Create suitable array to store different shapes. Dynamic init of array.
+
+Apply abstraction
+
+Enter interfaces.
+

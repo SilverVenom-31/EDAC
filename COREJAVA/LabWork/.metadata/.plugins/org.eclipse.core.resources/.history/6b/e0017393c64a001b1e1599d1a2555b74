@@ -1,0 +1,21 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.utils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.app.core.Student;
+
+public class CollectionUtils {
+
+	public static List<Student> populateList(){
+		
+		ArrayList<Student> list = new ArrayList<>();
+		
+		
+		
+		
+		return list;
+	}
+	
+}

@@ -1,0 +1,9 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.core;
+
+
+public class Student {
+//rollNo(string),name,dob(LocalDate),subject(enum),gpa(double) 	
+	private String rollNo;
+	
+}

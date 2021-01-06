@@ -1,0 +1,15 @@
+//Created by @AkhilD on 31/12/2021.
+package char_io;
+
+import java.util.Scanner;
+
+public class BufferCopy {
+
+	
+	public static void main(String[] args) {
+		
+		try(Scanner sc = new Scanner(System.in))
+
+	}
+
+}

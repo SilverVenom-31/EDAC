@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		//function constructor
+		function Book(id,bname,author,price){
+			this.id = id;
+			this.bname = bname;
+			this.author = author;
+			this.price = price;
+			this.display= function(){
+				document.write("id : "+this.id +"<br>");
+			document.write("book name : "+this.bname +"<br>");
+			document.write("author : "+this.author +"<br>");
+			document.write("price : "+this.price +"<br>");
+			};
+			this.increment = function(per){
+				this.price = this.price + this.price*(per/100);
+			}
+		}
+
+		var b1 = new Book(101,"core java","srk",50);
+		b1.display();
+		b1.increment(5);
+		b1.display();
+		
+
+		
+		//document.write("price:"+b1.price+"<br>");  //read as well as write
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

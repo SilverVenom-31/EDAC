@@ -1,0 +1,71 @@
+Today's Topics
+Interfaces
+Exception Handling
+
+Revise 
+BankAccount[] accts=new BankAccount[100];//array obj to hold : references of the BankAcct type
+counter : total no of accts
+case 4 : i/p : acct no amt
+int index=sc.nextInt()-1;//assuming idGen=1
+double amount=sc.nextDouble();
+if(index >= 0 && acctNo < counter)
+{
+ BankAccount a =accts[index];
+ a.withdraw(amount);
+}
+break;
+
+case 6 : 
+i/p : acct no 
+ index=sc.nextInt()-1;//idGen=1
+
+if(index >= 0 && acctNo < counter)
+{
+ BankAccount a =accts[index];
+ sop(a);
+}
+break;
+
+case 7 : //apply interest : savings
+int periodInYrs=sc.nextInt();
+for(BankAccount a : accts)
+ if(a instanceof SavingAccount)
+  a.applyInterest(periodInYrs);
+break;
+
+case 8 : 
+for(BankAccount a : accts)
+ if(a != null)
+    sop(a.getAcctNo()+" Tax "+a.computeTax())
+break;
+case 9 :
+index=sc.nextInt()-1;
+if(index >= 0 && acctNo < counter)
+{
+   a=accts[index];
+   if(a instanceof LoanAccount)
+    sop(a.getLoanDetails());
+   else : invalid type 
+}
+else : invalid a/c no.
+break;
+-----------------------------------------
+Enter Interfaces
+Refer to a readme "About Interface"
+Go through abstract class vs interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+
+
+Day 21
+1. Revise class work
+(Java 8 streams feature : lazy evaluation , exec order , non re usability of streams)
+
+2. Solve
+2.1 Create stream of ints having data : 10,23,45,-78,112,11,45,56,89,30
+(IntStream API : of)
+Sort it in descending order & display it.
+
+2.2 Use CollectionUtils method to get map of products (Can add more data for testing if you want!)
+Display name of the product , from a specific category , having least price.
+If there are no products , in specified category , throw : ProductNotFound : custom exception
+Accept category from user.
+
+3. Integration of Collection & I/O
+Use collection utils to obtain a populated map of products.
+Store the product details in a text file , in a buffered manner , sorted as per manufacture date & price.
+

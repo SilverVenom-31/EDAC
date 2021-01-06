@@ -1,0 +1,196 @@
+Taking input as username and displaying info of that username
+
+[root@centos7 ~]# cat userinfo.sh 
+#!/bin/bash
+
+#This script fetches the user information for existing users
+
+read -p "Enter username: " usr
+
+info=$(cat /etc/passwd | grep "$usr")
+echo "The information about $usr is as follows:"
+
+echo "$info"
+-------------------------------------------------------------------------------
+Critical information
+
+user3:x:1004:1004::/home/user3:/bin/bash
+
+Field separator here is -->>> :
+
+Utilities that can be used to fetch the data are as follows:
+cut
+awk
+
+cut
+---
+syntax --> cut -d'<separator>' -f<field name>
+
+awk
+---
+syntax --> awk -F'<separator>' '{print $<fieldname>}'
+-------------------------------------------------------------------------------
+Using same above script we want the 'username' and it's 'shell' in the info variable
+
+#!/bin/bash
+
+#This script fetches the user information for existing users
+
+read -p "Enter username: " usr
+
+info=$(cat /etc/passwd | grep "$usr" | cut -d':' -f1,7)
+echo "The information about $usr is as follows:"
+
+echo "$info"
+-------------------------------------------------------------------------------
+Fetch all the users on the linux box who do NOT have passwords
+
+To do this we should know all the users that we created - why? because this is how we differentiate from service users.
+
+[root@centos7 ~]# cat /etc/passwd | grep bash
+root:x:0:0:root:/root:/bin/bash
+alice:x:1001:1001::/home/alice:/bin/bash
+user1:x:1002:1002::/home/user1:/bin/bash
+user2:x:1003:1003::/home/user2:/bin/bash
+user3:x:1004:1004::/home/user3:/bin/bash
+user4:x:1005:1005::/home/user4:/bin/bash
+user5:x:1006:1006::/home/user5:/bin/bash
+user6:x:1007:1007::/home/user6:/bin/bash
+user7:x:1008:1008::/home/user7:/bin/bash
+
+But here root also shows up. We did not craete root. So lets' remove root from this output
+
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep -v "root"
+alice:x:1001:1001::/home/alice:/bin/bash
+user1:x:1002:1002::/home/user1:/bin/bash
+user2:x:1003:1003::/home/user2:/bin/bash
+user3:x:1004:1004::/home/user3:/bin/bash
+user4:x:1005:1005::/home/user4:/bin/bash
+user5:x:1006:1006::/home/user5:/bin/bash
+user6:x:1007:1007::/home/user6:/bin/bash
+user7:x:1008:1008::/home/user7:/bin/bash
+
+So now, we bring only the usernames and take out rest of the info from output
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep -v "root" | cut -d':' -f1
+alice
+user1
+user2
+user3
+user4
+user5
+user6
+user7
+
+Put all this info in a file and we will use this file later in the script
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep -v "root" | cut -d':' -f1 > userfile
+[root@centos7 ~]# cat userfile 
+alice
+user1
+user2
+user3
+user4
+user5
+user6
+user7
+
+*************************
+Now, actual task - Script
+*************************
+
+#!/bin/bash
+
+cat /etc/passwd | grep bash | grep -v "root" | cut -d':' -f1 > userfile
+
+##This script displays users 'that we craeted' who do not have password
+
+while read line
+do
+cat /etc/shadow | grep "$line" | grep "\!\!"
+done < userfile
+
+******Output******
+
+[root@centos7 ~]# vi passwordlessusers.sh
+[root@centos7 ~]# chmod 755 passwordlessusers.sh 
+[root@centos7 ~]# ./passwordlessusers.sh 
+user5:!!:18550:0:99999:7:::
+user6:!!:18550:0:99999:7:::
+user7:!!:18550:0:99999:7:::
+-------------------------------------------------------------------------------
+Nilesh_124 - raised this query
+
+What if user has anyother shell than 'bash' - it wont get displayed 
+
+##########cat /etc/passwd | grep bash | grep -v "root" | cut -d':' -f1 > userfile
+
+cat /etc/passwd | grep -E "(bash|sh|ksh|tcsh|zsh)" | grep -v "root" | cut -d':' -f1 > userfile
+-------------------------------------------------------------------------------
+Usage of grep
+
+*** Fetch all the users which are using bash shell
+
+root:x:0:0:root:/root:/bin/bash
+alice:x:1001:1001::/home/alice:/bin/bash
+user1:x:1002:1002::/home/user1:/bin/bash
+user2:x:1003:1003::/home/user2:/bin/bash
+user3:x:1004:1004::/home/user3:/bin/bash
+user4:x:1005:1005::/home/user4:/bin/bash
+user5:x:1006:1006::/home/user5:/bin/bash
+user6:x:1007:1007::/home/user6:/bin/bash
+user7:x:1008:1008::/home/user7:/bin/bash
+
+*** Searching for specific user - inthis case 'user5'
+
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep "user5"
+user5:x:1006:1006::/home/user5:/bin/bash
+
+*** Searching for more than one user - in this case 'user4 and user 5'
+>> extended grep -->> syntax -->> grep -E "(itema|itemb|itemc)"
+
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep -E "(user5|user4)"
+user4:x:1005:1005::/home/user4:/bin/bash
+user5:x:1006:1006::/home/user5:/bin/bash
+
+*** Searching for all expect for specific patterns using '-v'
+
+[root@centos7 ~]# cat /etc/passwd | grep bash | grep -v -E "(user5|user4)"
+root:x:0:0:root:/root:/bin/bash
+alice:x:1001:1001::/home/alice:/bin/bash
+user1:x:1002:1002::/home/user1:/bin/bash
+user2:x:1003:1003::/home/user2:/bin/bash
+user3:x:1004:1004::/home/user3:/bin/bash
+user6:x:1007:1007::/home/user6:/bin/bash
+user7:x:1008:1008::/home/user7:/bin/bash
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

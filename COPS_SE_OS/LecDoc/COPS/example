@@ -1,0 +1,46 @@
+package com.lab;
+
+import java.util.Scanner;
+
+public class Example {
+
+	public static void main(String[] args){
+		Scanner scanner =  new Scanner(System.in);
+		System.out.println("Enter the options");
+		System.out.println("1 : calculate celsius");
+		System.out.println("2 : Calculate the fehranite");
+		int number = scanner.nextInt();
+		System.out.println(" You have chosen option "+ number);
+		System.out.println(" Enter the value you want to convert");
+		double input = scanner.nextDouble();
+		System.out.println("Calculating..please wait");
+		Example ex = new Example();
+		ex.handleConversion(number, input);
+		
+		scanner.close();
+	}
+	
+	public  double handleConversion(int option, double input){
+		double result= 0.0;
+		if(option == 1){
+			System.out.println("calculate celcius");
+			calculateCelcius(input);
+		} else if(option == 2){
+			System.out.println("calculate feranite");
+			calculateFeranite(input);
+		} else {
+			System.out.println("Invalid option");
+			System.exit(0);
+		}
+		return result;
+	}
+
+	private  void calculateFeranite(double input) {
+		System.out.println(34.0 + "f");
+	}
+
+	private  void calculateCelcius(double input) {
+		System.out.println(93 + "c");
+		
+	}
+}

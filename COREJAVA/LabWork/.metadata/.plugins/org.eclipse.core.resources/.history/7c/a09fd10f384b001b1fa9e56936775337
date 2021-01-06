@@ -1,0 +1,15 @@
+//Created by @AkhilD on 31/12/2021.
+package strms;
+
+import static utils.CollectionUtils.populateData;
+
+import java.util.List;
+
+import com.app.core.Product;
+public class Tester {
+
+	public static void main(String[] args) {
+		List<Product> populData = populateData();	
+	}
+
+}

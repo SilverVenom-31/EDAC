@@ -1,0 +1,13 @@
+fieldset {
+    border: 1px solid lightgrey;
+    padding-right: 60px;
+}
+
+p {
+    padding: 30px;
+}
+
+section {
+    width: 30%;
+    border: 4px solid skyblue;
+}

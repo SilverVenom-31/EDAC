@@ -1,0 +1,53 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.utils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static java.time.LocalDate.parse;
+
+import java.io.PrintWriter;
+import java.time.LocalDate;
+
+import com.app.core.StudAddress;
+import com.app.core.Student;
+import com.app.core.Subject;
+
+public interface CollectionUtils {
+
+	public static List<Student> populateList() {
+
+		List<Student> list = Arrays.asList(new Student("100", "Alpha", parse("2020-03-21"), Subject.CLOUD, 6.75),
+				new Student("103", "Bravo", parse("2020-02-24"), Subject.DBT, 9.7),
+				new Student("102", "Charlie", parse("2020-01-22"), Subject.JAVA, 4.8),
+				new Student("101", "Tango", parse("2020-05-25"), Subject.JAVA, 7.75));
+		List<StudAddress> addr = Arrays.asList(new StudAddress("Mumbai", "Maharashtra", "9284425490"),
+
+				new StudAddress("Pune", "Maharashtra", "9284425491"),
+				new StudAddress("Pune", "Maharashtra", "9284425491"),
+				new StudAddress("Nashik", "Maharashtra", "9284425493")
+
+		);
+
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).linkAddress(addr.get(i));
+		}
+
+		return list;
+	}
+
+	public static Map<String, Student> populateMap(List<Student> list) {
+
+		HashMap<String, Student> map = new HashMap<>();
+
+		list.stream().forEach(p -> map.put(p.getRollNo(), p));
+
+		return map;
+
+	}
+
+}

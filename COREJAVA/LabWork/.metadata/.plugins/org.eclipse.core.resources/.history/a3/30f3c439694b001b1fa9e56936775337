@@ -1,0 +1,17 @@
+//Created by @AkhilD on 31/12/2021.
+package char_io;
+
+import static utils.CollectionUtils.*;
+
+import java.util.Map;
+
+import com.app.core.Product;
+public class CollectionFile {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, Product> aMap = populateMap(populateData());
+
+	}
+
+}

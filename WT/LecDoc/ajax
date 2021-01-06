@@ -1,0 +1,145 @@
+parts on webpage server will updsate some part of web page not
+whole page term partial screen update part of webpage are computed and 
+updated 
+ajax is asynchronous and above thing
+first time full web page is sent 
+one part busy rest is kept on static for user 
+ajax will be used on some part of application 
+ex. user sighn up form 
+-provide username on tabbing out that input form will send u 
+alert that this username is already taken for ex ajax does this (partial screenupdate)
+ photo uploaded on webpage partial part update on whole web page 
+ google suggest an examplke of ajax 
+ gmail uses ajax,maps use ajax 
+ go myntra.com ->choose  indianware -> list of cloths-> filter
+ udating on basis of filtercan we say that ajax is dependent on time variable where 
+  computing is done on regards with previous entry
+  so rather than doing inserting ajax does update anchoring on request
+  
+  AJAX 
+  natural user interation 
+  ajax is technology which gives output as display before computing 
+  the actual output to keep user interacted ? right
+  laxmi shop , interation , bring clothes. servent go retreave cloths , continous conversation 
+  is happening
+  servent is ajax 
+  
+  name of ajax obj xmlhttprequest "xhr" this is javascript objso it ll expose properties and methods
+  methods
+  -open()
+  -send()
+  
+  properties
+  -onreadychange
+  -state 
+  -readystate
+  -responseText
+  -responseXML
+  
+  XMH methods___>>>
+  open takes 2/3 argument 
+  fist argument as http methods (get/post/put/delete/trace) as a request 
+  to back end
+  -----------------
+  So Ajax is part of front end but converses with back end correct?
+----kshitij-----------
+hmm correct kshitij-----------
+----------------------
+
+from browser request for get  
+fetch me contents after going to my.php
+make connection with my.php
+i ll get the data back from server
+
+<script>
+//mozill,safari
+var xhr= new XMLHTTPRequest();// how to get xhr obj from browse
+
+xhr.open("GET","http://someserver.com/myapp/my.php?t1=aaa&t2=bbb"); ---establish connection
+//actual request
+xmh.send(null);--- to send request actually
+
+xhr.open("POST","http://someserver.com/myapp/my.php?t1=aaa&t2=bbb"); ---establish connection
+//actual request
+xhr.setRequestHeader("content-type",app....)
+xmh.send(body);
+
+
+xhr.onreadystatechange = functrion (){
+if(xhr.readystate==4)//they have var like 1,2,3,4 depending on state
+if(xhr.readystate==200)-- sucess
+then  to capture response
+xhr.responsexml holding response for u keep me in ur var
+var xmlres=xhr.responsexml;
+if server give response and u want to take it 
+in json format and it keep it in ur var
+var obj = JSON.parse(xhr.responseText); //parse
+console.lg(obj.username);
+
+
+}; //callback function
+
+ 
+</script>
+function gets callled automatically 
+callback function are function which are called 
+ after completion of task
+ 
+result of response from server ->
+
+  HML
+  JSON
+  plain text
+  
+  ajax will work connection with diff technology 
+  ideally calling it AJAJ
+  
+  open - establishes a connection from js code to code on server side
+  intent to mkake req to my.php running on some server
+  xhtr.open(http-method,url)
+  
+  milk boiling no need to stand asiusde it 
+  we ll wait for signal like smell or something
+  this task is done asynchronous 
+  the signal is callback (on ready state change)
+  
+  mam what is frequency of updation of readystate current status of req 
+  on time scale in sec/msec
+  every http response have 3 parts
+  
+  
+  -status
+  -response header
+  -response body
+  
+  |  |  --response--     |  | 
+  |  |                   |  | 
+  |  |                   |  | 
+  
+  responsexml is in form of xml response
+  
+  bringing together 
+  functiong getdate()
+  {
+  
+  xhttp=new XMLHttpRequest();
+  
+  if(xttp)
+  xhr.open("GET","http://someserver.com/myapp/my.php?t1=aaa&t2=bbb"); ---establish connection
+  //actual request
+  xmh.send(null);
+  
+  xhttp.onreadychange=function(){
+  if(xhr.readystate==4&& xhr.status==200){
+  document.getElementByid("ibresult").innerHTML=xhr.responseTExt;
+  }
+  }
+  
+  1]xhr.onreadystatechange=function(){}
+ 2]xhr.readystate = x(0 to 4)
+ 3]xhr.status = 1xx/2xx/3xx/4xx/5xx
+ 4]xhr.responseText ---responseXML property is a read-only value 
+ which returns a Document containing the HTML or XML retrieved by 
+ the request, or null if the request was unsuccessful, has not yet 
+ been sent, or if the retrieved data can't be correctly parsed as
+ XML or HTML.

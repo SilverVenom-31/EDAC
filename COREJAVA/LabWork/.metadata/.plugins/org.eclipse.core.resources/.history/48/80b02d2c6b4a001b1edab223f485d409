@@ -1,0 +1,15 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.tester;
+
+import java.util.Map;
+
+public class Tester {
+
+	public static void main(String[] args) {
+
+Map<Integer, Product> map		
+		
+
+	}
+
+}

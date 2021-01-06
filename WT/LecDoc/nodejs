@@ -1,0 +1,146 @@
+Node
+paradime will be changed what we have studied everything yet
+
+what is node -
+
+where has ur javascript run 
+ browser makes req to server (doing web based application)
+ in server we have html page the page is interpred by interpretor
+ javascript or jquery code inside htmlwhen the html send back response 
+ browser interpreter 
+ on browser side we have javascript engine whenever there is 
+ javascript coide coime to me 
+ javascript is mainly for clind side manupulation ,eventy handling, client side validation , diom 
+ manipulation 
+ scripting langyuage runs onluy in host encvirrinmwent , encvirrinmwent provided by bbrowser
+  
+  whart if i told u javascript code that could execute at server soiode 
+  
+  
+  node js is platform 
+  os>install node >
+  
+  node is running on top of underlying os it is a javatype paltform node by itself will not do anything by himself
+  javascript can be run on server side 
+  creatinmg an ordinary js file 
+  os>node(powerful javascript engine v8 roll roys of digital world)>js
+  every browser runs a javascript engine 
+  chrome v8
+  mozzila spider monkey
+  micro soift edge chakra 
+  sadfari nitro
+  javascript code and store it in .js file 
+  now we need to execute tghis stabnd alone ,it has to run  on host env
+  node is nothing but javascript runtimre platform 
+  
+  in java 
+  os>jvm>.java> compile and execute <runs on jvm> similarly in js and node
+  
+  node is like jvm 
+  node allows to execute .js code
+  angular and react are to similar client side frameworks and angular written in type scriptingconverted into javascript
+  angular is framework used for creating front end application 
+  and node is a platform for running .js code  it is at backend
+  
+  
+  Understanding Node
+  Basics of Node
+  node running top of my os
+  node js can execute any .js code /javascriptcode
+  using node liubrary we can create ordinary js file 
+  and setup a complete web server
+
+Webservers TOmcat,Weblogic,iis(dotnet)....
+
+setting up server  
+-download the server-install the server
+nodejs runtim,e gives class 
+setting webserver at node side 
+bring in few htm,l pages in webserver 
+so server between nodejs and .js 
+
+
+web server running on nodejs
+
+
+so lets here is TOmcat an ordinary web server 
+
+choose your book > submit> data on serverside
+>server side code > broser says this category and all filkter that i want
+> server side code hit database fetch data massage the data put in html format ams then send data back to browser
+server side cpode executing if php then apache inside script php , dotnet
+
+on ur poath to become ful stack developer not only workiung on only front or end whole front and end tech 
+all kind of tech 
+asp.net vb.net  ..........
+so much technologies for being a full stack dewveloper 
+if i use node on mmy webserver has no. of htnl pages the broewesr makes req 
+hit server from browserr and some serverside code must execute server side code is written in javascriptthis can use nosql databses
+mongo and all,
+process req hit databses retrieve data send info back as pure html respose 
+learn javascript once and use it on server as wella s client sid edgelear
+learn javascript for various applications
+expressjs runs top of nodejs 
+expressjs amkes easy to craete web based application
+node alone does not make much sense 
+Mean Stack 
+-mongo-express-angular-nodejs
+
+JAVASCRIPT IS VIMP
+
+ordinary webserver as tomcat created spring boot application 
+based on java (chervolate jsp learn) 
+create restful webapplication will expose its functionallity in form of api 
+
+on client i can create angular/react application single page app made of various componants 
+ajax klike some componebts are only affected 
+jasoon data sent in json format at backlednd spring boot
+massage json data to display on ur html page 
+
+at backend well be only creating backend componenets as spring boot and all
+at large organisation they are used a minute part of spring boot 
+
+LETS move on to node
+to handle req made from browser 
+there are threads created naming thread pouyll 
+when a req r1 comes it will go to thread pool it will take a thread and handle these req
+when all thereads are exhausted (idealy never exhaust)
+renewable threads 
+waiting time when all thread  are busy or unavailable may be there which wil;l be irritating 
+lets see how node handles same thing 
+-single thread handles all req
+
+%%%%single threaded modelling in Node 
+
+in traditional programming the i/o is performed in same way  
+
+printf ()
+.
+. 
+function()
+.
+.
+
+synchronous programming -traditonal programming
+
+Quer against database is going on thread sits ideal -blocking
+  
+  Asynchronous processeiing / event driven progtramming
+ 
+traditional
+ result=query(select* from empl );
+  do something with result(result);
+  cant do anything till result is not ready
+  
+  
+  
+  query_finished=function(result){
+  do something with result(result);
+  }
+query("select * from empl;" query finished );
+
+
+
+
+
+  

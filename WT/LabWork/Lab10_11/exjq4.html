@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            var arr = ["John", "Steve", "Ben", "Damon", "Ian"];
+            var str = "";
+            for (var i = 0; i < arr.length; i++) {
+                str = str + arr[i] + ",";
+            }
+
+            $("body").append("<p>" + str.toUpperCase().slice(0, -1) + "<p>");
+        });
+    </script>
+</head>
+
+<body>
+
+    <body>
+        <h3> Members of my Group are</h3>
+        <ol id="list"></ol>
+    </body>
+</body>
+
+</html>

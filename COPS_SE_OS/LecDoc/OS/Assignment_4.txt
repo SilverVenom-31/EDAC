@@ -1,0 +1,18 @@
+Explain the meaning of the following entries in crontab
+
+7 * * * *	<command>
+0 7 * * *   <command>
+0 0 7 * *   <command>
+0 0 0 7 *   <command>
+0 0 * * 7   <command>
+* 2 0 * 4 ./backup.sh
+* 2 0 * * ./backup.sh
+* * * * * ./backup.sh
+30 * * * * ./backup.sh
+0 * * * *./backup.sh
+0 0 * * * ./backup.sh
+0 2 * * * ./backup.sh
+0 0 1 * * ./backup.sh
+0 0 15 * * ./backup.sh
+0 0 0 12 * ./backup.sh
+0 0 * * 6 ./backup.sh

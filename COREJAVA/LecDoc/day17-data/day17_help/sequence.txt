@@ -1,0 +1,130 @@
+Today's topics
+
+Revise
+Sorting in Java
+2 different ways
+Natural ordering : 
+1. Collection Type : imple Comparable<T>
+2. imple public int compareTo(T other)
+3. Collections.sort(List<T> list)
+list : AL/LL/Vector : correct
+HS/LHS/TS
+HM/LHM/TM
+ T : Emp/Customer/BankAccount/Event/String....
+T : Rules : T extends Comparable<? super T> : T must have imple Comaprable of type T or its super type
+
+eg : studentList : LinkedList<Student>
+Collections.sort(studentList);
+sort : invokes : Student's comapreTo
+studentList  : s1 , s2 .....s100
+As per it's sorting algo (Tim's sort : itertive merge sort)
+s1.compareTo(s2) 
+< 0  : no swap
+= 0 : no swap
+> 0 : swap
+
+Limitations : 1 type of sorting criteria n embedded withing UDT
+Norm : equals n compareTo : consistent
+
+Custom ordering :
+Steps 
+1. Create a separate class or ano inner or lambda expression that imple : Comparator<T> 
+T : same or super type of List
+
+2. IMple : 
+public int compare(T o1,T o2)
+< 0  : o1 < o2
+= 0 : o1 = o2
+> 0 : o1 > o2
+comparison based upon sorting criteria
+3.Collections.sort(studentList,new Comparator<Student>()
+{
+  @Override
+   public int compare(Student s1,Stduent s2)
+   {
+     //gpa : double
+     return ((Double)s1.getGPA()).compareTo(s2.getGPA());
+
+   }
+}
+);
+
+eg : LinkedList<Student> l1=new LL<>(); ......
+Iterator<Student> itr=l1.iterator();
+sop(itr.getClass().getName());//LinkedList$Itr
+ 
+
+
+Handling Sets
+More about generic syntax : ? , extends ,super
+Exceptions / problems with Iterator
+
+Set i/f features
+Implementation classes --HashSet , LinkedHashSet  , TreeSet
+Hashing algorithm based upon -- hashCode & equals
+
+Objective : Create Emp : id , name , deptId , salary
+Save emp details in a HashSet
+confirm dups
+
+More about generic syntax : ? , extends ,super
+eg : 
+Inheritance hierarchy : Emp <---Mgr <----HRMgr
+Emp <--- Worker <--- TempWorker
+1. public ArrayList(Collection<? extends E> c)
+E : Emp 
+This constr can create populated AL<Emp> :  from ANY Collection(AL/LL/Vector : YES
+HS/LHS/TS :  YES 
+HM/LHM/TM : NO) with generic type of Emp or its sub type(eg : any worker or any mgr)
+
+
+AL<Emp> : to be populated
+
+Vector<Mgr> : populated
+LinkedLIst<HRMgr> populated
+HS<TempWorker> populated
+
+Generic syntax :
+? : wild card in generic syntax (it can be replaced by ANY type) : un bounded wild card
+extends : Represents upper bound
+super : Represents lower bound
+? extends E : ANY type E or its sub type (E : Emp)
+? super E : E or its super type
+
+What will happen ? (javac error or no error?)
+1. Vector<Mgr> mgrs=new Vector<>();
+mgs.add(m1)....m10
+ArrayList<Emp> emps=new AL<>(mgrs);
+
+2. HashSet<HRMgr> hrMgrs=new HS<>();
+hrMgrs.add(hrm1)....hrm10
+ArrayList<Emp> emps=new AL<>(hrMgrs);
+3.
+ArrayList<Mgr> mgrs=new LL<>();
+mgrs.add(m1).....m10
+LinkedList<HRMgr> hrMgrs=new LinkedList<>(mgrs);
+
+
+
+3.Collections class(Non generic class) :  Method
+eg : super keyword in generics : lower bound
+Method of Collections class
+public static <T> void sort(List<T> list,Comparator<? super T> c)
+generic method : 
+where does type declaration fit ? : It's placed between method modifiers n ret type
+1st arg : List<T> list : You can pass List of ANY type (eg : AL/LL/Vector : YES
+HS/LHS/TS : NO
+HM/LHM/TM : NO) : 
+Ca you pass List of the following types if 
+T --Customer , Student(extends Person) , BankAccount,Flight, Movie,Person , DacStudent (extends Student)
+if above classes have not imple Comparable or Comparator : 
+
+2nd arg : Comparator<? super T> c
+Instance of the class which imple Comparator
+eg : Collections.sort(studentList,comp);//comp : imple Comparator<Student> : 
+ Collections.sort(studentList,comp);//comp : imple Comaprator<Fruit> : 
+Collections.sort(studentList,comp);//comp : imple Comaprator<Person> : 
+Collections.sort(studentList,comp);//comp : imple Comaprator<Object> :  
+Collections.sort(studentList,comp);//comp : imple Comaprator<eDacStudent> : 
+
+

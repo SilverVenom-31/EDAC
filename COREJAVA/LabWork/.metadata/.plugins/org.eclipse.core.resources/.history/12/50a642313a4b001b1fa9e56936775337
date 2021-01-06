@@ -1,0 +1,30 @@
+//Created by @AkhilD on 31/12/2021.
+package strms;
+
+import static utils.CollectionUtils.populateData;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
+import com.app.core.Category;
+import com.app.core.Product;
+public class Tester {
+
+	public static void main(String[] args) {
+		Map<Product> populData = populateData();	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Category: ");
+		Category cat = Category.valueOf(sc.next().toUpperCase());
+		
+		Optional<Product> op =populData.stream().filter(i-> i.getProductCatgeory() == cat).min(Comparator.comparing(Product::getPrice));
+		if(op.isPresent()) {
+			System.out.println(op.get().getName());
+		}else {
+			System.out.println("ProductNotFound");
+		}
+		
+	}
+	//Optional<Product> op =populData.stream().filter(i-> i.getProductCatgeory() == cat).min((i1,i2)->((Double)i1.getPrice()).compareTo(i2.getPrice())); 
+}

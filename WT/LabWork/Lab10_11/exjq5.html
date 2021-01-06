@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ5</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            var arr = [];
+            javaObj = {};
+            $("#b1").click(function() {
+
+                if (Number.isInteger(parseInt($("#t2").val()))) {
+                    var age = $("#t2").val();
+                } else {
+                    alert("Age should be numeric format");
+
+                    $(":text ").val('');
+                    $(":radio").prop("checked", false);
+                    return false;
+                }
+
+                javaObj = {
+                    "name": $("#t1").val(),
+                    "age": age,
+                    "employed": $("input[name='r1']:checked").val()
+
+                };
+
+                arr.push(javaObj);
+                $("input[type='text']").val(' ');
+                $(":radio").prop("checked", false);
+                return true;
+            });
+
+            $("#b2").click(function() {
+
+                for (var i = 0; i < arr.length; i++) {
+
+                    $("fieldset:nth-child(2)").append("<table>  <tr><td>Name:</td><td>" + arr[i].name + "</td></tr>  <tr><td>Age:</td><td>" + arr[i].age + "</td></tr>   <tr><td>Employed:</td><td>" + arr[i].employed + "</td></tr> </table><br>");
+
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        Name*:
+                    </td>
+                    <td>
+                        <input type="text" name="t1" id="t1" autofocus required>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Age*:
+                    </td>
+                    <td>
+                        <input type="text" name="t2" id="t2" autofocus required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employed
+                    </td>
+                    <td>
+                        <input type="radio" name="r1" id="rx1" value="Yes"> Yes
+                        <input type="radio" name="r1" id="rx2" value="No"> No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" name="b1" id="b1" value="Add">
+                    </td>
+                    <td>
+                        <input type="button" name="b2" id="b2" value="Display">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+    <fieldset>
+
+    </fieldset>
+</body>
+
+</html>

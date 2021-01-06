@@ -1,0 +1,170 @@
+A normal will not be able to create/delete new users
+
+[alice@centos7 ~]$ useradd unnati
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+-----------------------------------------------------------
+To delete the user
+
+[root@centos7 ~]userdel -r <username>
+Note: Here r means recursively delete all the files associated with this user.
+-----------------------------------------------------------
+To see the list of all the users on the system
+
+[root@centos7 ~]# cat /etc/passwd | cut -d':' -f1
+-----------------------------------------------------------
+Working with sudoers
+
+[root@centos7 ~]# useradd tj  >> added the user tj
+[root@centos7 ~]# passwd tj >> we should add password for the user tj
+Changing password for user tj.
+New password: 
+BAD PASSWORD: The password fails the dictionary check - it is based on a dictionary word
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@centos7 ~]# cat /etc/passwd | grep "tj"  >> verify if tj is added or not
+tj:x:1003:1003::/home/tj:/bin/bash
+[root@centos7 ~]# su - tj   >> from root we switched to tj(who is still a normal user)
+[tj@centos7 ~]$ useradd shweta >> Here tj wants to add her friend 'shweta' on the linux box
+useradd: Permission denied.   >> but permission denied  why? because tj is just a normal user
+useradd: cannot lock /etc/passwd; try again later.
+[tj@centos7 ~]$ sudo useradd shweta  >> she thought sudo as a prefix will help but it didn't --> why? because tj is not the part pf sudoers file
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for tj: 
+tj is not in the sudoers file.  This incident will be reported. ****************************
+[tj@centos7 ~]$ cat /etc/passwd | grep shweta  >> we checked if shweta was added or not - The answer is No
+[tj@centos7 ~]$ su - root  >> we switch back to root in order to add tj to sudoers file
+Password: 
+Last login: Wed Oct 14 15:01:38 IST 2020 on pts/0
+[root@centos7 ~]# visudo  >> this is the command to add tj to sudoers file
+[root@centos7 ~]# cat /etc/sudoers | grep "tj" >> we verify if tj is added to sudoers file
+tj	ALL=(ALL)       ALL
+[root@centos7 ~]# su - tj
+Last login: Wed Oct 14 15:03:57 IST 2020 on pts/0
+[tj@centos7 ~]$ sudo useradd shweta
+[sudo] password for tj: 
+[tj@centos7 ~]$ cat /etc/passwd | grep shweta  >> here tj successfully adds her friend
+shweta:x:1004:1004::/home/shweta:/bin/bash
+-----------------------------------------------------------
+How to execute a file
+
+[root@centos7 ~]# cat filecreate.sh 
+#!/bin/bash
+
+##This script creates 10 files under a directory named newdir
+
+mkdir newdir
+cd newdir
+touch file{1..10}
+
+
+** Give executable permissions to this file 
+[root@centos7 ~]# chmod 755 filecreate.sh 
+
+** and the run this executable 
+[root@centos7 ~]# ./filecreate.sh 
+-----------------------------------------------------------
+How to remove the files/folder in linux
+
+[root@centos7 ~]# ls
+anaconda-ks.cfg  filecreate.sh  folder_1  initial-setup-ks.cfg  newdir
+You have new mail in /var/spool/mail/root
+[root@centos7 ~]# rm -rf  folder_1/
+[root@centos7 ~]# rm -rf  newdir/
+[root@centos7 ~]# rm -rf  filecreate.sh 
+[root@centos7 ~]# ls
+anaconda-ks.cfg  initial-setup-ks.cfg
+-----------------------------------------------------------
+[root@centos7 edac]# ls -l
+total 0
+
+drwxr-xr-x. 2 root root 6 Oct 14 10:25 dir1
+-rw-r--r--. 1 root root 0 Oct 14 10:25 file1
+-rw-r--r--. 1 root root 0 Oct 14 10:25 file2
+
+
+d -> represents directory/folder
+- -> represents regulare file
+---------
+rwxr-xr-x
+
+r=4
+w=2
+x=1
+
+So permission of dir1 comes out to be 755
+
+---  >> represents the permission of owner of the file (user who creates the file)
+---  >> represents the permission of group of the user who created the file
+---  >> represents the permission of all the other users
+-----------------------------------------------------------------
+To see the permissions in the numeric format
+
+[root@centos7 edac]# ls
+dir1  file1  file2
+[root@centos7 edac]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Oct 14 10:25 dir1
+-rw-r--r--. 1 root root 0 Oct 14 10:25 file1
+-rw-r--r--. 1 root root 0 Oct 14 10:25 file2
+[root@centos7 edac]# stat -c "%a" file1
+644
+[root@centos7 edac]# stat -c "%a" file2
+644
+[root@centos7 edac]# stat -c "%a" dir1
+755
+-----------------------------------------------------------------
+000 permissions - only for shadow file
+
+[root@centos7 ~]# ls -l /etc/shadow
+----------. 1 root root 1757 Oct 14 10:32 /etc/shadow
+[root@centos7 ~]# stat -c "%a" /etc/shadow
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

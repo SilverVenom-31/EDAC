@@ -1,0 +1,12 @@
+//Created by @AkhilD on 31/12/2021.
+package char_io;
+
+
+public class CollectionFile {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

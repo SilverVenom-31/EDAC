@@ -1,0 +1,189 @@
+Notes:
+
+1. hostname command to see the host name
+--------------------------------------------------------
+2. Prompt opens up like -
+username@hostname <pwd>#
+username@hostname <pwd>$
+$ - normal users
+#- root user
+Ex:
+[root@localhost ~]# su - john
+[john@localhost ~]$ 
+--------------------------------------------------------
+3. To see if the VM(linux) is able to talk to internet
+[root@localhost ~]# nslookup google.com
+Server:		192.168.23.2
+Address:	192.168.23.2#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 172.217.167.206
+--------------------------------------------------------
+Command to acquire the IP address from DHCP server 
+
+[root@localhost ~]# dhclient -v
+Internet Systems Consortium DHCP Client 4.1.1-P1
+Copyright 2004-2010 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+
+Listening on LPF/pan0/3a:86:7f:86:2e:bc
+Sending on   LPF/pan0/3a:86:7f:86:2e:bc
+Listening on LPF/eth0/00:0c:29:e6:5e:3b
+Sending on   LPF/eth0/00:0c:29:e6:5e:3b
+Sending on   Socket/fallback
+DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x4841e0a9)
+DHCPOFFER from 192.168.23.254
+DHCPREQUEST on eth0 to 255.255.255.255 port 67 (xid=0x4841e0a9)
+DHCPACK from 192.168.23.254 (xid=0x4841e0a9)
+bound to 192.168.23.129 -- renewal in 688 seconds.
+
+--------------------------------------------------------
+Command in redhat architecture to install packagaes (here http)
+[root@localhost ~]# yum -y install http*
+--------------------------------------------------------
+[root@localhost ~]# yum info git
+Loaded plugins: fastestmirror, refresh-packagekit, security
+Loading mirror speeds from cached hostfile
+ * base: centos.hbcse.tifr.res.in
+ * extras: centos.hbcse.tifr.res.in
+ * updates: centos.hbcse.tifr.res.in
+Available Packages
+Name        : git
+Arch        : x86_64
+Version     : 1.7.1
+Release     : 10.el6_10
+Size        : 4.6 M
+Repo        : updates
+Summary     : Fast Version Control System
+URL         : http://git-scm.com/
+License     : GPLv2
+Description : Git is a fast, scalable, distributed revision control system with an
+            : unusually rich command set that provides both high-level operations
+            : and full access to internals.
+            : 
+            : The git rpm installs the core tools with minimal dependencies.  To
+            : install all git packages, including tools for integrating with other
+            : SCMs, install the git-all meta-package.
+--------------------------------------------------------
+[root@localhost ~]# yum -y install git
+Loaded plugins: fastestmirror, refresh-packagekit, security
+Setting up Install Process
+Loading mirror speeds from cached hostfile
+ * base: centos.hbcse.tifr.res.in
+ * extras: centos.hbcse.tifr.res.in
+ * updates: centos.hbcse.tifr.res.in
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:1.7.1-10.el6_10 will be installed
+--> Processing Dependency: perl-Git = 1.7.1-10.el6_10 for package: git-1.7.1-10.el6_10.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.7.1-10.el6_10.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.7.1-10.el6_10.x86_64
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17015-4.el6 will be installed
+---> Package perl-Git.noarch 0:1.7.1-10.el6_10 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==========================================================================================
+ Package              Arch             Version                    Repository         Size
+==========================================================================================
+Installing:
+ git                  x86_64           1.7.1-10.el6_10            updates           4.6 M
+Installing for dependencies:
+ perl-Error           noarch           1:0.17015-4.el6            base               29 k
+ perl-Git             noarch           1.7.1-10.el6_10            updates            29 k
+
+Transaction Summary
+==========================================================================================
+Install       3 Package(s)
+
+Total download size: 4.7 M
+Installed size: 15 M
+Downloading Packages:
+(1/3): git-1.7.1-10.el6_10.x86_64.rpm                              | 4.6 MB     00:00     
+(2/3): perl-Error-0.17015-4.el6.noarch.rpm                         |  29 kB     00:00     
+(3/3): perl-Git-1.7.1-10.el6_10.noarch.rpm                         |  29 kB     00:00     
+------------------------------------------------------------------------------------------
+Total                                                     3.5 MB/s | 4.7 MB     00:01     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : 1:perl-Error-0.17015-4.el6.noarch                                      1/3 
+  Installing : perl-Git-1.7.1-10.el6_10.noarch                                        2/3 
+  Installing : git-1.7.1-10.el6_10.x86_64                                             3/3 
+  Verifying  : 1:perl-Error-0.17015-4.el6.noarch                                      1/3 
+  Verifying  : perl-Git-1.7.1-10.el6_10.noarch                                        2/3 
+  Verifying  : git-1.7.1-10.el6_10.x86_64                                             3/3 
+
+Installed:
+  git.x86_64 0:1.7.1-10.el6_10                                                            
+
+Dependency Installed:
+  perl-Error.noarch 1:0.17015-4.el6           perl-Git.noarch 0:1.7.1-10.el6_10          
+
+Complete!
+--------------------------------------------------------
+To see if git has been installed successfully
+
+[root@localhost ~]# git help
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help COMMAND' for more information on a specific command.
+--------------------------------------------------------
+Seeing the git version
+
+[root@localhost ~]# git --version
+git version 1.7.1
+
+[root@localhost ~]# git version
+git version 1.7.1
+
+[root@localhost ~]# git -version
+Unknown option: -version
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+[root@localhost ~]# gitver
+-bash: gitver: command not found
+[root@localhost ~]# git -v
+Unknown option: -v
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+		   
+--------------------------------------------------------
+
+
+

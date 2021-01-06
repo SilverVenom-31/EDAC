@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        $(function() {
+
+            $("tr:nth-child(even)").css("background-color", "lightgray");
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a href="#" class="navbar-brand">
+                <h2>Adam's To Do List</h2>
+            </a>
+        </nav>
+        <div class="row">
+            <div class="col-4">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="ta1">Task:</label>
+                        <input type="text" name="t1" id="t1" class="form-control">
+                        <label for="l1">Location:</label>
+                        <input type="text" name="l1" id="l1" class="form-control">
+                        <input type="checkbox" name="c1" id="c1"> Done
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-primary">ADD</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-8">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Description</th>
+                        <th>Done</th>
+                    </tr>
+                    <tr>
+                        <td>Buy Flowers</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Get Shoes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Collect Tickets</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Call Joe</td>
+                        <td>No</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

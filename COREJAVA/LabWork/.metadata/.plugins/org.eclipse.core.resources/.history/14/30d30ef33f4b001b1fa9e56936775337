@@ -1,0 +1,16 @@
+//Created by @AkhilD on 31/12/2021.
+package char_io;
+
+
+public class BufferCopy {
+
+	public BufferCopy() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

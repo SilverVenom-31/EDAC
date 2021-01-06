@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXBOOT2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function() {
+
+            $("#tb2").addClass("table table-secondary").attr("border", "2px");
+
+            $("#tb2 tr:nth-child(2) td").addClass("table-dark");
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <table width="30%" class="table table-hover">
+            <tr>
+                <th colspan="8" style="text-align: center;">Score Table</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+
+
+                    <table id="tb2">
+                        <tr>
+                            <th rowspan="2">PLAYER NAME</th>
+                            <th colspan="4">SCORES</th>
+                        </tr>
+
+                        <tr>
+                            <td><b>Match 1</b></td>
+                            <td><b>Match 2</b></td>
+                            <td><b>Match 3</b></td>
+                            <td><b>Match 4</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Sachin Tendulkar</b></td>
+                            <td>53</td>
+                            <td class="table-warning"><b>77</b></td>
+                            <td class="table-primary"><b>109</b></td>
+                            <td>98</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Saurav Ganguly</b></td>
+                            <td class="table-primary"><b>123 </b></td>
+                            <td>43</td>
+                            <td>76</td>
+                            <td class="table-warning"><b>101</b></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>M.Azharuddin</b></td>
+                            <td class="table-danger"><b>120 </b></td>
+                            <td>65</td>
+                            <td class="table-warning"><b>118</b></td>
+                            <td>12</td>
+                        </tr>
+
+                    </table>
+
+
+                </td>
+
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="7" class="table-warning"><b>Highest Score in respective match</b></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="7" class="table-primary"><b>Highest Score of respective player</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="7" class="table-danger"><b>Highest Score in respective match and of respective player</b></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

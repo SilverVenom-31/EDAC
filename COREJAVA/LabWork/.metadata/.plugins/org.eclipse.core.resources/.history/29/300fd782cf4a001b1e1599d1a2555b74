@@ -1,0 +1,32 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.tester;
+
+import java.util.List;
+import java.util.Scanner;
+
+import static com.app.utils.CollectionUtils.populateList;
+import com.app.core.Student;
+import com.app.core.Subject;
+
+public class StudentTester {
+
+	public static void main(String[] args) {
+		
+		List<Student> list = populateList();
+		
+		double avg =list.stream().filter(i-> i.getSubject()==Subject.JAVA).mapToDouble(i->i.getGpa()).average().orElse(-99);
+
+	System.out.println("Average of JAVA students: "+avg);
+	
+	double max = list.stream().filter(i-> i.getSubject() == Subject.JAVA).mapToDouble(i->i.getGpa()).max().orElse(-99);
+	
+list.stream().filter(i-> i.getGpa()==max).forEach(i-> System.out.println(i.getName()));;
+
+Scanner sc = new Scanner(System.in);
+
+
+list.stream().filter(i-> i.getGpa()<5).forEach(i-> System.out.println(i.getName()));
+
+	}
+
+}

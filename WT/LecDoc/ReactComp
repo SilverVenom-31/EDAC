@@ -1,0 +1,133 @@
+src> create filere > create js file inside it
+
+ 
+import React from 'react'; 
+//function componenet created as person  down 
+const person = () =>{
+
+return <p>Hi Person</p>    //returning jsx 
+} 
+export default person;    //export means person is in person.js 
+                            and i want to use it in App.js 
+
+}
+
+componenet is ready how to bring componenent in App.js
+
+import React, {Componenet} from 'react';
+import './App.css'
+class App extends Componenet{
+render(){
+return(
+<div className="App">
+<h1>hey, welcome</h1>
+<Person />// since its react componenet, it is reussable 
+<Person />
+<Person />
+</div>});
+
+}
+
+React componenet is user defined that is reusable,configurable
+
+functional componenents:
+presentational purpose 
+dumb(dont have much functionality 90% are functional componenent)
+stateless...
+
+
+const person = () =>{
+
+return <p>Hi Person</p>    
+}
+
+this lamda syntax for creating functional componenets 
+
+
+
+class App extends Componenet{
+render(){
+return(
+<div className="App">
+<h1>hey, welcome</h1>
+<Person />// since its react componenet, it is reussable 
+
+</div>});
+
+}
+
+
+this is Class-based componenets , containers 
+
+
+hopw to have dynamic content into jsx 
+
+
+const person = () =>{
+
+return <p>Hi Person Tidaya is {new Date().toString()} </p>    
+}
+
+dynamic content should go inti {}   
+
+const person = () =>{
+
+return <p>Hi Person i am {Math.floor(Math.random)*30} years old  </p>    
+}
+export default person;
+
+My componenet can render data at runtime , the data dynamic one 
+that ois kept inside  {}.
+
+
+import React, {Componenet} from 'react';
+import './App.css'
+class App extends Componenet{
+render(){
+return(
+<div className="App">
+<h1>hey, welcome</h1>
+<Person name="shri" age="30" />
+<Person name="jaha" age="50" />
+<Person name="giri" age="80" />
+</div>});
+
+}
+
+const person = (props) =>{
+
+return <p>Hii am {props.name} ands i am {props.age} </p>  
+
+}
+
+properties set by parent will get receive in child
+with the help of props 
+
+
+how to handle tehe body 
+
+import React, {Componenet} from 'react';
+import './App.css'
+class App extends Componenet{
+render(){
+return(
+<div className="App">
+<h1>hey, welcome</h1>
+<Person name="shri" age="30" />
+<Person name="jaha" age="50" >Hobbies : COding </person </  person>
+<Person name="giri" age="80" />
+
+</div>});
+
+}
+
+
+const person = (props) =>{
+
+return
+<div>
+<p>Hii am {props.name} ands i am {props.age} </p>  
+<p>{props.children}</p>  //body being recovered(retrieved)
+</div>
+
+}

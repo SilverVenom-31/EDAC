@@ -1,0 +1,11 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.core;
+
+import java.time.LocalDate;
+
+public class Student {
+//rollNo(string),name,dob(LocalDate),subject(enum),gpa(double) 	
+	private String rollNo;
+	private String name;
+	private LocalDate dobDate;
+}

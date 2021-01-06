@@ -1,0 +1,14 @@
+A suggestion
+In Customer Validation Rules class
+
+public static Customer validateAllInputs(String email,String password , String name ,double regAmount, String birthDate,String custType)
+{
+ validateEmail(email);
+ Date dob=validateDoB(birthDate);//parse n validate date
+ checkForDup(email,dob);
+ validateAmount(regAmount);
+ CustomerType type=validateType(custType);//parse string--> enum
+//add all other validation rules : if any
+ //=> i/p validations succeeded : create customer instance n ret it to the caller
+ return new Customer(email,password,name,regAmountdob,type);
+}

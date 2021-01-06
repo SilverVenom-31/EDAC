@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MULTITABLE</title>
+    <script>
+        function multi(status) {
+
+            var t1 = parseInt(document.getElementById("t1").value);
+            var t2 = parseInt(document.getElementById("t2").value);
+            var t3 = parseInt(document.getElementById("t3").value);
+
+            for (var i = t1; i <= t2; i++) {
+                document.getElementById("tx1").innerHTML += (i + " times " + t3 + " = " + i * t3 + "\n");
+                if (status == true) {
+                    document.getElementById("tx1").innerHTML = "";
+
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Start Number:
+        <input type="text" name="t1" id="t1" autofocus> End Number:
+        <input type="text" name="t2" id="t2"> Multiply By:
+        <input type="text" name="t3" id="t3">
+        <br>
+        <br>
+        <span style="padding-left: 300px;"></span>
+        <input type="button" name="b1" id="b1" value="Time Table" onclick="multi()">
+        <br>
+        <br>
+        <span style="padding-left: 300px;"></span>
+        <input type="button" name="r1" id="r1" value="reset" onclick="multi(true)">
+        <br>
+        <br>
+        <span style="padding-left: 10px;"></span>
+        <textarea name="tx1" id="tx1" cols="100" rows="10" readonly></textarea>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var dept = $("#t1").val();
+            $("#b1").click(function() {
+                var dept = $("#t1").val();
+
+                $("li").each(function() {
+
+                    if (dept == $(this).text()) {
+                        $(this).css("background-color", "yellow");
+                    }
+                });
+            });
+
+            $("#b2").click(function() {
+                var dept = $("#t1").val();
+                $("#ul1").append("<li>" + dept + "</li>");
+
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    Department: <input type="text" name="t1" id="t1"> <br>
+    <br>
+    <input type="button" name="b1" id="b1" value="Select">
+    <input type="button" name="b2" id="b2" value="Add">
+
+    <h4>Departments:</h4>
+    <ul id="ul1">
+        <li>Marketing</li>
+        <li>Sales</li>
+        <li>Technology</li>
+        <li>Customer Support</li>
+    </ul>
+
+
+</body>
+
+</html>

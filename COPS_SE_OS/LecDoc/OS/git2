@@ -1,0 +1,267 @@
+Prompts
+-------
+
+[username@machinename <pwd>]# this is the prompt for root user
+
+[username@machinename <pwd>]$ this is the prompt for regular user
+
+------------------------------------------------------------
+How to see if I'm able to connect to internet on my Linux box
+
+[root@localhost ~]# nslookup google.com
+Server:		192.168.23.2
+Address:	192.168.23.2#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 216.58.197.46
+------------------------------------------------------------
+To check the IP address
+
+[root@localhost ~]# ifconfig 
+eth0      Link encap:Ethernet  HWaddr 00:0C:29:E6:5E:3B  
+          inet addr:192.168.23.129  Bcast:192.168.23.255  Mask:255.255.255.0
+          inet6 addr: fe80::20c:29ff:fee6:5e3b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:125 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:88 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:10793 (10.5 KiB)  TX bytes:8032 (7.8 KiB)
+------------------------------------------------------------
+To see if yum has the pkg to be installed
+
+[root@localhost ~]# yum info git
+Loaded plugins: fastestmirror, refresh-packagekit, security
+Determining fastest mirrors
+ * base: centos.mirrors.estointernet.in
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+Available Packages
+Name        : git
+Arch        : x86_64
+Version     : 1.7.1
+Release     : 10.el6_10
+Size        : 4.6 M
+Repo        : updates
+Summary     : Fast Version Control System
+URL         : http://git-scm.com/
+License     : GPLv2
+Description : Git is a fast, scalable, distributed revision control system with an
+            : unusually rich command set that provides both high-level operations
+            : and full access to internals.
+            : 
+            : The git rpm installs the core tools with minimal dependencies.  To
+            : install all git packages, including tools for integrating with other
+            : SCMs, install the git-all meta-package.
+------------------------------------------------------------
+To install git
+
+yum -y install git
+------------------------------------------------------------
+To verify the installation
+
+[root@localhost ~]# rpm -qa | grep --color "git"
+fprintd-pam-0.1-22.git04fd09cfa.el6.x86_64
+git-1.7.1-10.el6_10.x86_64
+------------------------------------------------------------
+To check git version
+
+[root@localhost ~]# git --version
+git version 1.7.1
+[root@localhost ~]# git -version
+Unknown option: -version
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+[root@localhost ~]# git --ver
+Unknown option: --ver
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+[root@localhost ~]# git --v
+Unknown option: --v
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+[root@localhost ~]# git -v
+Unknown option: -v
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+[root@localhost ~]# git version
+git version 1.7.1
+------------------------------------------------------------
+For this error
+
+No protocol specified
+
+(gnome-ssh-askpass:19906): Gtk-WARNING **: cannot open display: :0.0
+
+Solution is as follows:
+[root@localhost demo]# unset SSH_ASKPASS
+------------------------------------------------------------
+
+[root@localhost ljrepo]# git config --global user.name "lavish-sudo"
+[root@localhost ljrepo]# git config --global user.email ljhamb91@gmail.com
+
+To list your git config information 
+
+[root@localhost ljrepo]# git config -l
+user.name=lavish-sudo
+user.email=ljhamb91@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+remote.origin.url=https://lavish-sudo@github.com/lavish-sudo/ljrepo.git
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+------------------------------------------------------------
+git add <filename>
+git commit -m "comment from the developer"
+git push
+------------------------------------------------------------
+Modifications in the code by dev
+
+[root@localhost ljrepo]# ls
+filecreate.sh  README.md  usermgmt.sh
+[root@localhost ljrepo]# vi filecreate.sh 
+[root@localhost ljrepo]# git add filecreate.sh
+[root@localhost ljrepo]# git commit -m "file creation script has been modified"
+[main 92000ab] file creation script has been modified
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+[root@localhost ljrepo]# git push
+Password: 
+Counting objects: 5, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 463 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://lavish-sudo@github.com/lavish-sudo/ljrepo.git
+   25a6e5d..92000ab  main -> main
+
+------------------------------------------------------------
+
+To see the branch information
+
+[root@localhost ljrepo]# git branch
+* main
+
+How to create the branch
+
+[root@localhost ljrepo]# git branch testbranch1
+[root@localhost ljrepo]# git branch testbranch2
+[root@localhost ljrepo]# git branch testbranch3
+
+To which branch we are pointing to
+
+[root@localhost ljrepo]# git branch
+* main
+  testbranch1
+  testbranch2
+  testbranch3
+  
+To switch to other branch
+
+[root@localhost ljrepo]# git checkout testbranch2
+Switched to branch 'testbranch2'
+[root@localhost ljrepo]# git branch
+  main
+  testbranch1
+* testbranch2
+  testbranch3
+  
+To create a branch and switch to it simultaneously
+
+[root@localhost ljrepo]# git checkout  -b testbranch4
+Switched to a new branch 'testbranch4'
+
+[root@localhost ljrepo]# git branch
+  main
+  testbranch1
+  testbranch2
+  testbranch3
+* testbranch4
+
+------------------------------------------------------------
+Renaming the branchname
+
+git branch -m current-branch-name new-branch-name
+----------------------------------------------------------------
+Deleting a Branch
+
+[root@RHEL6 gitlab]# git branch -D testbranch4
+Deleted branch testbranch4 (was 80e7571).
+[root@RHEL6 gitlab]# git branch
+  master
+  testbranch1
+  testbranch2
+  testbranch3
+* testbranch5
+----------------------------------------------------------------
+Note: git diff <old commit code> <new commit code>
+----------------------------------------------------------------
+
+git blame
+
+[root@localhost ljrepo]# chmod -R 777 /root/
+[root@localhost ljrepo]# su - tom
+[tom@localhost ~]$ cd /root/demo/ljrepo/
+[tom@localhost ljrepo]$ ls
+filecreate.sh  filedelete.sh  README.md  usermgmt.sh
+[tom@localhost ljrepo]$ vi filecreate.sh 
+[tom@localhost ljrepo]$ vi filecreate.sh 
+[tom@localhost ljrepo]$ exit
+logout
+[root@localhost ljrepo]# su - alice
+[alice@localhost ~]$ cd /root/demo/ljrepo/
+[alice@localhost ljrepo]$ vi filecreate.sh 
+[alice@localhost ljrepo]$ exit
+logout
+[root@localhost ljrepo]# su - john
+[john@localhost ~]$ cd /root/demo/ljrepo/
+[john@localhost ljrepo]$ vi filecreate.sh 
+[john@localhost ljrepo]$ exit
+logout
+[root@localhost ljrepo]# git add filecreate.sh 
+[root@localhost ljrepo]# git commit -m "modified by different users"
+[testbranch4 7ac2982] modified by different users
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+[root@localhost ljrepo]# git push
+Password: 
+Counting objects: 5, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 361 bytes, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://lavish-sudo@github.com/lavish-sudo/ljrepo.git
+   8029646..7ac2982  testbranch4 -> testbranch4
+[root@localhost ljrepo]# git blame filecreate.sh
+25a6e5d2 (root        2020-10-03 12:49:09 -0700 1) #!/bin/bash
+92000ab3 (lavish-sudo 2020-10-03 12:58:41 -0700 2) ##creation of five text files
+25a6e5d2 (root        2020-10-03 12:49:09 -0700 3) 
+92000ab3 (lavish-sudo 2020-10-03 12:58:41 -0700 4) ##deletion of all the files
+4a59fbb1 (lavish-sudo 2020-10-03 13:07:41 -0700 5) rm -rf **************
+7ac29824 (lavish-sudo 2020-10-03 14:16:31 -0700 6) ###modifications by tom
+7ac29824 (lavish-sudo 2020-10-03 14:16:31 -0700 7) ###modifications by alice
+7ac29824 (lavish-sudo 2020-10-03 14:16:31 -0700 8) ###modifications by john
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

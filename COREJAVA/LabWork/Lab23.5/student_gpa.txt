@@ -1,0 +1,28 @@
+
+Student rollNo: 102
+Name: Charlie
+DOB: 2020-01-22
+Subject: JAVA
+Gpa: 4.8
+Address: StudAddress [city=Pune, state=Maharashtra, phoneNo=9284425491]
+
+Student rollNo: 100
+Name: Alpha
+DOB: 2020-03-21
+Subject: CLOUD
+Gpa: 6.75
+Address: StudAddress [city=Mumbai, state=Maharashtra, phoneNo=9284425490]
+
+Student rollNo: 101
+Name: Tango
+DOB: 2020-05-25
+Subject: JAVA
+Gpa: 7.75
+Address: StudAddress [city=Nashik, state=Maharashtra, phoneNo=9284425493]
+
+Student rollNo: 103
+Name: Bravo
+DOB: 2020-02-24
+Subject: DBT
+Gpa: 9.7
+Address: StudAddress [city=Pune, state=Maharashtra, phoneNo=9284425491]

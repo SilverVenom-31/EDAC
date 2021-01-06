@@ -1,0 +1,24 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.utils;
+
+import java.util.ArrayList;
+import java.util.List;
+import static java.time.LocalDate.parse;
+import com.app.core.Student;
+import com.app.core.Subject;
+
+public class CollectionUtils {
+
+	public static List<Student> populateList(){
+		
+		ArrayList<Student> list = new ArrayList<>();
+		
+		list.add(new Student("100", "Alpha",parse("2020-03-21") ,Subject.CLOUD, 6.75));
+		list.add(new Student("103", "Alpha",parse("2020-03-21") ,Subject.CLOUD, 6.75));
+		list.add(new Student("102", "Alpha",parse("2020-03-21") ,Subject.CLOUD, 6.75));
+		list.add(new Student("101", "Alpha",parse("2020-03-21") ,Subject.CLOUD, 6.75));
+		
+		return list;
+	}
+	
+}

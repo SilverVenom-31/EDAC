@@ -1,0 +1,32 @@
+//Created by @AkhilD on 31/12/2021.
+package char_io;
+
+import static utils.CollectionUtils.*;
+
+import java.io.BufferedReader;
+import java.io.FileDescriptor;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.app.core.Product;
+public class CollectionFile {
+
+	public static void main(String[] args) {
+		
+		
+		
+		try(Scanner sc = new Scanner(System.in); PrintWriter pr = new PrintWriter(new FileWriter(sc.nextLine())))){
+		
+		Map<Integer, Product> aMap = populateMap(populateData());
+		
+		
+		aMap.values().stream().
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

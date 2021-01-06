@@ -1,0 +1,14 @@
+//Created by @AkhilD on 30/12/2021.
+package com.app.tester;
+
+import java.util.ArrayList;
+
+public class Tester4 {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer>
+
+	}
+
+}

@@ -1,0 +1,49 @@
+<head>
+<script>
+	function displayData(data){
+		var data = JSON.parse(data);
+		var str ="";
+		var data  = data.filter((e) => e.name == document.getElementById("search").value)
+		console.log(data)
+		data.forEach((e) => { str+="<tr><td>"+e.name+"</td><td>"+e.capital+"</td><tr>" })
+		document.getElementById("status").innerHTML = str
+	}
+
+	function fetchData(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET","https://restcountries.eu/rest/v2/all",true);
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState == 1){
+				console.log("Connecting..........")
+			}
+			/*if(xmlhttp.readyState ==3){
+				document.getElementById("status").innerHTML = '<img src="loading.gif">'
+			}*/
+			if(xmlhttp.readyState == 4 && xmlhttp.status ==200){
+				//document.getElementById("status").innerHTML = '<p>response....</p>'
+				//console.log(xmlhttp.responseText)
+				displayData(xmlhttp.responseText);
+			}
+			if(xmlhttp.readyState == 4 && xmlhttp.status !=200){
+				document.getElementById("status").innerHTML = '<p>Unable to fetch.......</p>'
+			}
+		}
+		xmlhttp.send()
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" id="search" onchange="fetchData()" >
+	<button onclick="fetchData()">Fetch Data</button>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Country Name</td>
+				<td>Capital</td>
+			</tr>
+		</thead>
+		<tbody id="status">
+		</tbody>
+	</table>
+</body>

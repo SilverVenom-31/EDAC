@@ -1,0 +1,23 @@
+#allignRight {
+    text-align: right;
+}
+
+p {
+    padding-left: 180px;
+}
+
+body {
+    background-color: lightblue;
+}
+
+.button {
+    background-color: green;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}

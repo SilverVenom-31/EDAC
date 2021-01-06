@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        function change() {
+            document.getElementById("p1").innerHTML = "Welcome to Hell";
+        }
+
+        function revert() {
+            document.getElementById("p1").innerHTML = "Welcome to Heaven";
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <p id="p1" style="color: red;"> Welcome</p>
+
+    <input type="button" name="b1" id="b1" onclick="change()" value="doSomething">
+    <input type="button" name="b2" id="b2" onclick="revert()" value="revertChanges">
+
+
+
+
+</body>
+
+
+
+
+</html>

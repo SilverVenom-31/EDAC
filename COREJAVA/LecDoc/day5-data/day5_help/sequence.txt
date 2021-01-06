@@ -1,0 +1,51 @@
+Today's Topics
+Access specifiers
+Inheritance 
+Polymorphism
+
+Revise
+static keyword
+Where are static data members memory allocated ? : method area(metaspace)
+When ? : at the class loading time
+How many times ? : once / class loading
+Are they Initialized to default values ? : yes
+Which is the Best place to init them ? : static init block
+Can you access static context (data as well as  methods) from non static cotext direclty (w/o creating instance) ? YES
+Can you access non-static context (data as well as  methods) from static direclty (w/o creating instance) ? : NO
+How many times static init block are invoked n when ? : once @ class loading
+What are the triggers for class loading ?
+1. Before creating instance of the class
+2. Whenever accessing static members(data/method)
+.....
+How many times non-static init block are invoked n when ? : once / instatiation , before constructor invocation
+
+1. Multi dimensional arrays : Array of arrays (array of references)
+What will be the memory diagram for 
+double[][] data=new double[3][4];
+
+2. Solve this
+int[][] data = new int[2][];
+data[0]=new data[3];
+data[1]=new data[4];
+
+How will you init them ? : nested for loop
+How will you display them ? Arrays.deepToString
+
+Dynamic init of arrays 
+int[][] data={{1,2,3},{4,5},{6,7,8,9}};
+Display it : Arrays.deepToString
+
+Lab work : init 2 D array completely from user i/ps
+
+
+3. Access specifiers
+refer to diagrams
+
+4. Inheritance 
+refer to "readme inheritance.txt" from today's help.
+4.1 What is inheritance  n Why 
+4.2 Real life Examples 
+4.3 Types
+4.4 constr invocation in inheritance hierarchy
+super keyword
+4.5 Show details : via toString : method overriding

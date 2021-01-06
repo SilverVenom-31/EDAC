@@ -1,0 +1,26 @@
+eDAC Sept 2020
+COP Official INTERNAL Assignment
+Date of Assignment : 11th October 2020
+Date of Submission : 12th October 2020 - Last by 08:00 PM
+
+
+Q1. Write a java program to find volume and surface area of a sphere using multiple classes?
+Notes :
+     Surface Area of Sphere = 4 * Math.PI * radius* radius
+     Volume of Sphere = 4/3 * Math.PI * radius * radius * radius
+     Use constructor to set radius
+     User Scanner to take user input
+
+Q2. Write a java program to check the equality of two integer arrays.
+Notes :
+     Create two integer array by taking input from user (using Scanner)
+     Check if both array contains same values
+
+Q3. Write a java program to print the following patterns  -
+	1 2 3 4 5 6 7
+	1 2 3 4 5 6 
+	1 2 3 4 5
+	1 2 3 4
+	1 2 3
+	1 2
+	1

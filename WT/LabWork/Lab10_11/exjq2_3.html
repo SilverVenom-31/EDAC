@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ2_3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            var arr = ["John", "Steve", "Ben", "Damon", "Ian"];
+
+            for (var i = 0; i < arr.length; i++) {
+                $("#list").append("<li>" + arr[i] + "</li>");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <body>
+        <h3> Members of my Group are</h3>
+        <ol id="list"></ol>
+    </body>
+</body>
+
+</html>

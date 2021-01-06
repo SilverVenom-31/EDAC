@@ -1,0 +1,120 @@
+Revise 
+
+Exception handling
+String Handling
+
+--------------------
+Answer this
+What is an i/f ? : prototype or logical template for class creation
+Why Interfaces ?
+1. Full abstraction
+2. Alternative to multiple inheritnace
+3. Complete Separation between specifications(WHAT)  n implementation(HOW)
+
+Which keyword to use For IS-A relationship 
+Between super class n sub class : extends
+Between super i/f n sub i/f : extends
+Between i/f n implementation class : implements
+
+Can 1 class implement multiple i/fs? : YES
+Can 1 i/f extend from multiple super i/fs? : YES
+Can 1 class extend from multiple super classes ? NO (avoids amibiguity in multiple imple.)
+Which are the keywords added by javac for i/f data members implicitly ? public static final
+Which are the keywords added by javac for i/f method members implicitly ? public abstract
+Can you assign i/f ref directly(w/o type casting)  to ANY imple class instance ? YES (up casting)
+
+eg : Refer to assignment
+In Tester 
+Stack ref=null;
+
+case 1 : 
+if(ref == null) {
+ref=new FixedStack();
+} else
+ sop("Satck alrdy chosen....");
+break;
+
+case 2:   
+if(ref == null) {
+ref =new GrowableStack();
+}
+else
+ sop("Satck alrdy chosen....");
+
+Mem diag.
+
+
+When will you need downcasting with i/f ref ? : to refer to additional members in the imple. class
+Will you need instanceof checking ever with i/fs? : when u are using i/f ref ---> imple class & trying to refer to additional members in the imple. class : before downcasting : check with instanceof 
+Why : to avoid ClassCastException
+------------------------------
+Exception(run time errors : JVM) handling
+Why
+1. To avoid abnormal termination of the application.
+2. Separation between B.L(try) n error handling logic(catch)
+
+Flow
+Inheritance hierarchy
+checked vs un checked exceptions
+Keywords---try,catch,finally,throw,throws,try-with-resources
+Custom exception(user defined excs / application exc) --need n steps
+
+Why ? 
+To catch n recover from validation errors n B.L failures : which are not detected by JVM
+
+steps 
+1. Create custom exception class : by extending from Throwable / Error / Exception / RuntimeException...
+eg : public class MyException extends Exception {
+  public MyException (String mesg)
+  {
+     super(mesg);
+  }
+}
+
+2. In B.L / validation rules 
+If there are any failures : 
+if(some error)
+ throw new MyException(actual details);
+
+3. JVM check : MATCHING catch  or catch-all
+
+
+syntax : 
+ throw Throwable instance;
+
+
+Objective :
+Validate speed of a vehicle on a highway
+min speed = 40, max speed=80
+Alert user via custom exception , in case speed is out of range.
+
+1. Create custom exception class(SpeedOutOfRangeException) --in the package "custom_excs"
+
+2. Create static method , in the ValidationUtils class (in pkg utils) checkSpeed method --
+which should throw the custom exc if speed is out of range.
+Otherwise --display mesg --"Speed within range"
+Don't apply method level level handling
+
+3. Create TestSpeed in the package "exc" , with main method
+3.1 Using scanner(try-with-resources) , accept speed of the vehicle.
+3.2 Invoke "checkSpeed(int speed) --from within try --catch-all block in main
+Centralized exc handling
+
+---------------------
+String Handling
+1. Immutability of strings
+2. == vs equals
+3. literal strings vs non literal
+
+Regarding equals.
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EXJQ10</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function() {
+
+            $("#b1").click(function() {
+
+                $("tr:nth-child(even)").css("background-color", "lightblue");
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+    <table>
+
+        <tr>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+
+        </tr>
+
+        <tr>
+            <td>Jane Smith</td>
+            <td>Marketing</td>
+            <td>$95000</td>
+        </tr>
+
+
+        <tr>
+            <td>John Smith</td>
+            <td>Technlogy</td>
+            <td>$90000</td>
+        </tr>
+
+
+        <tr>
+            <td>Brian Adam</td>
+            <td>Sales</td>
+            <td>$72000</td>
+        </tr>
+
+        <tr>
+            <td>Mary Jones</td>
+            <td>Support</td>
+            <td>$60000</td>
+        </tr>
+
+
+
+        <tr>
+            <td>Michael Jefferson</td>
+            <td>Technlogy</td>
+            <td>$85000</td>
+        </tr>
+
+
+    </table>
+
+    <br>
+    <input type="button" name="b1" id="b1" value="Test">
+
+</body>
+
+</html>

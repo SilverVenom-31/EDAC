@@ -1,0 +1,27 @@
+Today's topics
+
+var-args
+wrappers
+generics introduction
+Overview of collection framework
+
+Revise 
+By going through example. (day13.4)
+
+Is Java purely object oriented ? NO
+Can Object type of a reference (eg : Object o) DIRECTLY refer to ANY data type(prim as well as ref) in java  ? YES
+
+eg : Object o=new Date();
+o="String!!!!!";
+o=12345;
+o=true;
+
+Solve :
+Write a class which can hold ANY data type .(Object)
+eg : Holder : HAS-A Object type of ref.
+
+
+
+
+
+

@@ -1,0 +1,244 @@
+Method overriding n exception handling
+Overriding form of the method(in sub class) can't add any NEW or BROADER checked excpetions
+Confirm with examples.
+eg :
+1.  package p1;
+class A
+{
+  void show()
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws InterruptedException //javac error : NEW checked exc
+  {
+    sop("2");
+  }
+}
+
+class C extends A
+{
+  @Override
+  void show() throws NullPointerException //no javac error : NEW un checked exc
+  {
+    sop("3");
+  }
+}
+
+In Tester 
+A ref=new B();
+ref.show();
+
+
+2.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() //no javac err
+  {
+    sop("2");
+  }
+}
+
+3.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws FileNotFoundException //no javac err
+  {
+    sop("2");
+  }
+}
+4.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws Exception  //javac err
+  {
+    sop("2");
+  }
+}
+
+---------------------------------
+Revise
+Thread state transitions n API
+1. Doesn't Exist ---->NEW
+extends Thread class
+OR
+implements Runnable i/f
+
+
+2. NEW ---> Ready-To-Run (pool=> sharing of resources & collection of equivalent resources)
+Ready-To-Run => thrds in this state : are not blocked on any condition , simply waiting for CPU time
+Thread class API : start()
+
+3. Ready --> Running
+(execs run())
+
+4. Running ---> Ready 
+triggers : time slice over / pre emption / Thread.yield() : un reliable
+
+Ready + Running => RUNNABLE
+
+5. Running ---> dead
+run() over 
+
+
+Triggers for IllegalThreadStateException : 1. dead ---start()
+2. If the thread is already RUNNABLE --start()
+
+6. Running ---> BLOCKED
+
+6.1 sleep : public static void sleep(long msec) throws IE
+6.2 join
+6.3 blocked on i/p
+eg : sc.nextInt() OR System.in.read()
+
+6. BLOCKED ---> Ready-to-Run(competes with other thrds in ready pool)
+
+
+extends thread 
+Which constructors of Thread class ?
+Thread() : un named thrd (name will not be supplied by prog)
+Thread(String name) :  named thrd (name will  be supplied by prog)
+
+implements Runnable(Func i/f)
+
+Which constructors of Thread class
+Thread(Runnable target)
+ Thread(Runnable target,String name)
+target : instance of the class that imple Runnable
+3 ways :
+1. separate class imple Runnable
+OR
+2 . ano inner class imple Runnable
+OR
+3. lambda expression
+
+
+What is mandatory in either of scenarios (extends or implements) ?
+MUST override run()
+
+What will happen ?
+1. extends Thread n don't override run() : thrd won't be able exec any B.L (blank B.L inherited from Thread class)
+2. implements Runnable  n don't implement run() : javac err
+
+What will happen ?
+Instead of calling start() , run() method is invoked?
+--no concurrency (sequential exec : delegated main thrd)
+
+Refer to : "regarding Thread's start.txt"
+How to ensure no orphan threads ?
+(join)
+
+Lab Objectives 
+1. sleep n interrupt (later use ano inner class to create a thread/later replace it by lambda expression)
+
+2. Consider threads :  t1 & t2 
+t1's run() : t2.join()
+t2's run() : Loop  (indefinitely running) with intermittent sleep
+main waiting for t1 n t2 to finish exec.
+What will happen ? : 
+Fix it!
+
+3. Consider threads :  t1 & t2 
+t1's run() : t2.join()
+t2's run() : Blocked on I/O
+main waiting for t1 n t2 to finish exec.
+What will happen ? : 
+package : thrds3 
+
+
+4. package : thrds4
+solution : interrupt signal
+Fix it!
+
+What will happen ?
+
+Consider 2 threads : t1 & t2
+In t1's run method
+t2.join(5000);//t1 is blocked on join (waiting for t2 to get over)
+1. t2 got over in 1 st sec : 
+
+OR
+
+2. t2 is indefinitely running 
+main sends interrupt to t1 : after 2 secs
+OPtions 1. t1 will continue to the next line
+2. t1 will get InterruptedExc 
+
+3. t2 is indefinitely running  n no interrupt from any thrds
+t1 is blocked max for 5sec ...after that it unblocks
+OPtions 1. t1 will continue to the next line : : correct
+2. t1 will get InterruptedExc 
+
+
+5. Solve practical requirement based on  (Collection + I/O + Threads)
+
+
+Solve : Create a multi threaded application for saving student details in 2 text files(taken from the Map of students ) : (in student_gpa.txt : sorted by gpa & in student_dob.txt : sorted by dob) using 2 different threads , concurrently!
+
+1. CollectionUtils : sorting methods
+2. IOUtils : writeData : text data + buffering
+Chain of I/O streams
+Java app  ------> PW-------->FW ----->Text File(device)
+3. Create child thrds (implements)
+4. main
+----------------------------------
+
+6. 
+1. Consider joint account : BankAccount
+inst var : balance
+1.1 update balance(double amount) //orig 5000
+withdraw amount.... think time(sleep) --- cancel withdraw //500
+what should be the balance after updateBal : 5000
+1.2 check balance
+return curnt balance
+
+2. Runnable Tasks
+UpdaterTask 
+run() : invoke BankAccount's update balance
+jointAccount.updateBalance(...);
+
+CheckerTask
+run() : invoke SAME BankAccount's check balance
+ jointAccount.checkBalance();
+
+3. main : create single joint acct instance n pass it to these tasks : option 1
+
+Problem : ??????????
+Solution : ???????????
+
+4. Solve More examples 
+
+
+
+
