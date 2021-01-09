@@ -90,4 +90,39 @@ public class SinglyLinkedList {
 
 	}
 
+	public void addBefore(int num, int no) {
+		Node n = new Node();
+		n.data = no;
+		Node var = head;
+
+		while (var != null) {
+
+			if (var.data == num) {
+				n.next = var.next;
+				var.next = n;
+				return;
+			}
+
+			var = var.next;
+		}
+
+	}
+	public void addAfter(int num, int no) {
+		Node n = new Node();
+		n.data = no;
+		Node var = head;
+
+		while (var != null) {
+
+			if (var.next.data == num) {
+				n.next = var.next;
+				var.next = n;
+				return;
+			}
+
+			var = var.next;
+		}
+
+	}
+
 }

@@ -19,12 +19,16 @@ public class SinglyTester {
 		System.out.println("Does Exists: " + sl.find(4));
 		System.out.println("Freq: " + sl.countFreq(4));
 		
-		System.out.println("+++++++++++++++++==");
+		System.out.println("+++++++++++++++++1==");
 		
 		sl.addToEnd(6);
 		sl.printList();
-		System.out.println("+++++++++++++++++==");
-		
+		System.out.println("+++++++++++++++++2==");
+		sl.addBefore(5, 7);
+		sl.printList();
+		System.out.println("+++++++++++++++++3==");
+		sl.addAfter(2, 8);
+		sl.printList();
 	}
 
 }
