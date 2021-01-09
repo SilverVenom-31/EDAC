@@ -1,14 +1,13 @@
 //Created by @AkhilD on 08/01/2021.
 package com.app.core;
 
-import javax.swing.LayoutStyle;
-
 public class SinglyLinkedList {
 	Node head;
 	Node last;
 
 	public class Node {
 		int data;
+		boolean flag;
 		Node next;
 	}
 
@@ -22,6 +21,7 @@ public class SinglyLinkedList {
 		n.data = num;
 		n.next = head;
 		head = n;
+
 	}
 
 	public void printList() {
@@ -145,16 +145,47 @@ public class SinglyLinkedList {
 		if (prev == null) {
 			n.next = head;
 			head = n;
+
 			return;
 		}
 
 		if (var == null) {
 			prev.next = n;
+			last = prev;
 			return;
 		}
 		prev.next = n;
 		n.next = var;
 
+	}
+
+	public void reverse() {
+		Node var = head;
+		Node temp = null;
+		Node prev = temp;
+		while (var != null) {
+			temp = var.next;
+			var.next = prev;
+			prev = var;
+			var = temp;
+		}
+		head = prev;
+
+	}
+
+	public boolean isLoop() {
+		Node var = head;
+
+		while (var != null) {
+			var.flag = true;
+			if (var.next.flag) {
+				return true;
+			}
+
+			var = var.next;
+		}
+
+		return false;
 	}
 
 }

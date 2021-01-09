@@ -22,6 +22,10 @@ public class SinglyTester {
 		x.insert(5);
 		x.insert(6);
 		x.printList();
+		
+		System.out.println();
+		x.reverse();
+		x.printList();
 
 	}
 
