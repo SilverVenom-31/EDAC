@@ -1,0 +1,15 @@
+ADS ASSIGNMENT DAY 5
+
+Q5.1 Implement a doubly linked list class, to store integers, with following methods:
+ a) Add a number at the front of list.
+    void addAtFront(int no)					//check
+ b) Add a number at the end of list.
+    void addAtEnd(int no)					//check
+ c) Print all elements stored in the list. (Forward traversal)
+    void printList()						//check
+
+Q5.2 Implement a class for Stack ADT (defined in Q2.1), that implements stack using singly linked list.		//check
+
+Q5.3 Implement a class for Queue ADT (defined in Q2.2), that implements linear queue using singly linked list.	//check
+
+Hint:  To implement an ADT, create a class that "implements" the interface.
