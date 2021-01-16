@@ -1,3 +1,4 @@
+//Created by @AkhilD on 15/01/2021.
 package com.app.core;
 
 public class BinSearTree {
@@ -84,12 +85,13 @@ public class BinSearTree {
 		if (node == null) {
 			return;
 		}
-		System.out.print(node.data + " ");
 		if (node.lChild != null) {
 			inOrder(node.lChild);
-			//if want to display left side then root then right side then call preorder()
-			
+			// if want to display left side then root then right side then call preorder()
+
 		}
+		System.out.print(node.data + " ");
+
 		if (node.rChild != null) {
 			inOrder(node.rChild);
 		}

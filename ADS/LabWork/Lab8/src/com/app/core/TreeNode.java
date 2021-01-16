@@ -69,11 +69,12 @@ public class TreeNode {
 		}
 
 		if (node.lChild != null) {
-			preOrder(node.lChild);
-			System.out.print(node.data + " ");
+			InOrder(node.lChild);
+			
 		}
+		System.out.print(node.data + " ");
 		if (node.rChild != null) {
-			preOrder(node.rChild);
+			InOrder(node.rChild);
 		}
 
 	}
