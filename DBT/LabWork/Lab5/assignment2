@@ -114,6 +114,14 @@ Note: In the below query, employee will always have matching record in dept tabl
 
 56) Display all employee whose location is DALLAS?
 
+
+select * from employees E 
+inner join departments D
+on E.department_id = D.department_id
+inner join locations L
+on D.location_id = L.location_id 
+where L.city = "London";
+
 57) Display ename, job, dname, deptno for each employee by using INLINE view?
 
 58) List ename, job, sal and department of all employees whose salary is not within the salary grade?

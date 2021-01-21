@@ -9,7 +9,7 @@ Supply a toString						//check
 3.2 Create CustomerRegistration class as a Tester
 Create suitable array to store customer details.
 Options
-1. Register new customer
+1. Register new customer	
 Accept all customer details. In case of a duplicate customer email, DO NOT register customer. 
 Give suitable error message. 
 Otherwise store customer details.			//check

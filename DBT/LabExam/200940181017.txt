@@ -1,0 +1,111 @@
+--1. WRITE A QUERY TO FIND THE NAME (FIRST_NAME, LAST_NAME) AND HIRE DATE OF THE EMPLOYEES WHO WAS HIRED AFTER 'ISMAEL'.
+select
+	concat(first_name, ' ', last_name) as "Employee Full Name",
+	hire_date as "Employee Hire Date"
+from
+	employees
+where 
+	hire_date > (
+		select
+			hire_date
+		from
+			employees
+		where
+			first_name = "Ismael"
+	);
+
+--2. WRITE A QUERY TO FIND THE EMPLOYEE ID, JOB TITLE, NUMBER OF DAYS BETWEEN ENDING DATE AND STARTING DATE FOR ALL JOBS IN DEPARTMENT 90 FROM JOB HISTORY.
+select
+	E.employee_id as "Employee ID",
+	J.job_title as "Job Title",
+	datediff(S.end_date, S.start_date) as "Number of Days"
+from
+	employees E
+	inner join job_history S on S.employee_id = E.employee_id
+	inner join jobs J on S.job_id = J.job_id
+where
+	S.department_id = 90;
+
+--3. WRITE A QUERY TO DISPLAY JOB TITLE, EMPLOYEE NAME, AND THE DIFFERENCE BETWEEN SALARY OF THE EMPLOYEE AND MINIMUM SALARY FOR THE JOB.
+select
+	J.job_title as "Job Title",
+	concat(E.first_name, " ", E.last_name) as "Employee Full Name",
+	E.salary - J.min_salary as "Difference between salary"
+from
+	employees E
+	inner join jobs J on E.job_id = J.job_id;
+
+--4. WRITE A QUERY TO DISPLAY DEPARTMENT NAME, NAME (FIRST_NAME, LAST_NAME), HIRE DATE, SALARY OF THE MANAGER FOR ALL MANAGERS WHOSE EXPERIENCE IS MORE THAN 15 YEARS
+select
+	D.department_name as "Department Name",
+	concat(E.first_name, " ", E.last_name) as "Full Name",
+	E.hire_date as "Hire Date",
+	E.salary as "Salary",
+	datediff(now(), E.hire_date) / 365 as "Experience"
+from
+	employees E
+	inner join departments D on D.manager_id = E.employee_id
+where
+	datediff(now(), E.hire_date) / 365 > 15;
+
+--5. WRITE A STORE FUNCTION TO FIND THE TYPE OF CARD TO BE ALLOCATED TO THE EMPLOYEE BASED ON THE SALARY :-
+--• Salary between 1000 - 10000 (Silver Card With 50000 Limit)
+--• Salary between 10000 - 20000 (Gold Card With 150000 Limit)
+--• Salary greater then 20000 (Platinum Card with 300000 Limit) 
+
+
+delimiter // 
+drop function if exists empCard() // 
+create function empCard(x int) returns varchar(50) deterministic begin DECLARE status varchar(50);
+
+ if x >= 1000 and x < 10000 then
+set
+	status = "Silver Card With 50000 Limit";
+
+elseif x >= 10000 and x < 20000 then
+set
+	status = "Gold Card With 150000 Limit";
+
+elseif x >= 20000 then
+set
+	status = "Platinum Card with 300000 Limit";
+
+else
+set
+	status = "try again";
+
+END if;
+
+return status;
+
+end // 
+delimiter ;
+
+--6. WRITE A QUERY TO GET THE YEARS IN WHICH MORE THAN 10 EMPLOYEES JOINED.
+
+select
+	date_format(hire_date, "%Y") as "Years"
+from
+	employees
+group by
+	date_format(hire_date, "%Y")
+having
+	count(employee_id) > 10;
+
+--7. WRITE A QUERY TO DISPLAY THE FIRST WORD FROM THOSE JOB TITLES WHICH CONTAINS MORE THAN ONE WORDS.
+
+SELECT
+	SUBSTR(job_title, 1, INSTR(job_title, ' ') -1) As 'Job Title with more than one Word'
+FROM
+	jobs;
+
+--8. WRITE A QUERY TO DISPLAY THE FIRST EIGHT CHARACTERS OF THE EMPLOYEES' FIRST NAMES AND INDICATES THE AMOUNTS OF THEIR SALARIES WITH '$' SIGN. EACH '$' SIGN SIGNIFIES A THOUSAND DOLLARS. SORT THE DATA IN DESCENDING ORDER OF SALARY. 
+
+
+SELECT
+	left(first_name, 8) as "First name",
+	REPEAT('$', FLOOR(salary / 1000)) 'SALARY($)'
+FROM
+	employees
+ORDER BY
+	salary DESC;
