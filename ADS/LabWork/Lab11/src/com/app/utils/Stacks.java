@@ -1,9 +1,7 @@
 //Created by @AkhilD on 11/01/2021.
-package com.app.core;
+package com.app.utils;
 
-import com.app.utils.Stack;
-
-public class Stacks <Temp> implements Stack<Temp> {
+public class Stacks<Temp> implements Stack<Temp> {
 
 	public class Snode {
 		Temp data;
@@ -49,6 +47,16 @@ public class Stacks <Temp> implements Stack<Temp> {
 			System.out.println(curr.data);
 			curr = curr.next;
 		}
+	}
+
+	@Override
+	public boolean isEmpty() {
+
+		if (head == null) {
+			return true;
+		}
+
+		return false;
 	}
 
 }
