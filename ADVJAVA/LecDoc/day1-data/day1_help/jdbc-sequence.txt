@@ -1,0 +1,10 @@
+Objective : display details from my_emp
+
+
+JAR --- loaded JDBC driver class
+get cn 
+st
+executeQuery => ResultSet
+
+Objective : display all  emp details , from a specific dept & joined after a particular date.
+User i/p : dept n join date
