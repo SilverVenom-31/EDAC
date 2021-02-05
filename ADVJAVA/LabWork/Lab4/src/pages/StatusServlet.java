@@ -36,8 +36,11 @@ public class StatusServlet extends HttpServlet {
 			// getting instance of session
 			HttpSession hs = request.getSession();
 			Voters v = (Voters) hs.getAttribute("voted");
-
-			pw.print("<h5>Hello " + v.getName() + " You have already voted</h5>");
+			if (v != null) {
+				pw.print("<h5>Hello " + v.getName() + " You have already voted</h5>");
+			} else {
+				System.out.println("Voter is null in doGet of status servlet");
+			}
 			pw.print("<h5><a href='login.html'>Log Out</a></h5>");
 			hs.invalidate();
 		} catch (Exception e) {
@@ -59,10 +62,14 @@ public class StatusServlet extends HttpServlet {
 			Voters v = (Voters) hs.getAttribute("voted");
 			String id = request.getParameter("canl");
 			System.out.println("candidate Id: " + id);
-			CandidateDoaImpl canDao = (CandidateDoaImpl) hs.getAttribute("canDao");
-			System.out.println(canDao.incrementVotes(Integer.parseInt(id)));
+			if (v != null) {
+				CandidateDoaImpl canDao = (CandidateDoaImpl) hs.getAttribute("canDao");
+				System.out.println(canDao.incrementVotes(Integer.parseInt(id)));
 
-			pw.print("<h5>Hello " + v.getName() + " You have voted successfully</h5>");
+				pw.print("<h5>Hello " + v.getName() + " You have voted successfully</h5>");
+			} else {
+				System.out.println("voter is null in doPost of status servlet");
+			}
 			pw.print("<h5><a href='login.html'>Log Out</a></h5>");
 			hs.invalidate();
 		} catch (Exception e) {

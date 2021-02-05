@@ -40,12 +40,10 @@ public class VoterDaoImpl implements IVoterDao, AutoCloseable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		
 			System.out.println("Invalid LogIn Credentials");
 			return null;
 		
-
 	}
 
 	@Override
@@ -60,7 +58,6 @@ public class VoterDaoImpl implements IVoterDao, AutoCloseable {
 		} else {
 			return ("status updation failed");
 		}
-
 	}
 
 	@Override
@@ -72,7 +69,6 @@ public class VoterDaoImpl implements IVoterDao, AutoCloseable {
 		if (cn != null) {
 			cn.close();
 		}
-
 	}
 
 }

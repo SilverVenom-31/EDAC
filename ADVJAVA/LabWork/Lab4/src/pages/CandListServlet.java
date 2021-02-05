@@ -41,7 +41,7 @@ public class CandListServlet extends HttpServlet {
 			CandidateDoaImpl canDao = (CandidateDoaImpl) hs.getAttribute("canDoa");
 
 			List<Candidate> canList = canDao.listCandidates();
-
+if(canList!=null) {
 			pw.print("<form action='status' method='post'>");
 			pw.print("<h5>Candidates</h5>");
 
@@ -52,7 +52,9 @@ public class CandListServlet extends HttpServlet {
 
 			pw.print("<input type='submit' value='VOTE'>");
 			pw.print("</form>");
-
+}else {
+	System.out.println("Candidate LIst is null");
+}
 			Voters v = (Voters) hs.getAttribute("voting");
 			VoterDaoImpl vDao = (VoterDaoImpl) hs.getAttribute("vDao");
 			System.out.println(vDao.updateVotingStatus(v.getId()));

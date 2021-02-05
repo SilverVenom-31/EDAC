@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Day3</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+
+	</welcome-file-list>
+
+	<!-- servlet deployment tags -->
+	<servlet>
+		<servlet-name>abc</servlet-name>
+		<servlet-class>pages.AuthenticationServlet</servlet-class>
+		<init-param>
+			<param-name>drvr</param-name>
+			<param-value>com.mysql.cj.jdbc.Driver
+						</param-value>
+
+		</init-param>
+		<init-param>
+			<param-name>url</param-name>
+			<param-value>jdbc:mysql://localhost:3306/acts?useSSL=false&amp;allowPublicKeyRetrieval=true
+						</param-value>
+
+		</init-param>
+		<init-param>
+			<param-name>user</param-name>
+			<param-value>akhil
+						</param-value>
+
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>Akhil123
+						</param-value>
+
+		</init-param>
+
+
+	</servlet>
+
+</web-app>
