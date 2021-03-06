@@ -59,6 +59,7 @@ public class CourseDaoImpl implements ICourseDao {
 
 	@Override
 	public Course fetchCourseDetails(String courseName) {
+		//3. join fetch c.students
 		String jpql = "select c from Course c join fetch c.students where c.title=:name";
 		Session session = getSf().getCurrentSession();
 		Transaction tx = session.beginTransaction();

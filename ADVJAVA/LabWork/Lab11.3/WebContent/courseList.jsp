@@ -14,7 +14,7 @@
 	<form action="studentDetails.jsp" method="post">
 
 		<table>
-			<caption>Available Courses: </caption>
+			<caption><h5>Available Courses: </h5></caption>
 			<c:forEach var="p"
 				items="${sessionScope.course.cDao.fetchAllCourseNames()}">
 

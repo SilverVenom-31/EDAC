@@ -25,9 +25,9 @@ public class RegisterVendor {
 			BankAccounts b1 = new BankAccounts(AccountType.valueOf(sc.next().toUpperCase()), sc.nextDouble());
 		System.out.println(b1);
 			v.addAccount(b1);
-			System.out.println("Enter 2nd Account details: acc type and balance");
-			BankAccounts b2 = new BankAccounts(AccountType.valueOf(sc.next().toUpperCase()), sc.nextDouble());
-			v.addAccount(b2);
+		//	System.out.println("Enter 2nd Account details: acc type and balance");
+		//	BankAccounts b2 = new BankAccounts(AccountType.valueOf(sc.next().toUpperCase()), sc.nextDouble());
+		//	v.addAccount(b2);
 			System.out.println(vDao.registerVendor(v));
 		} catch (Exception e) {
 			e.printStackTrace();
